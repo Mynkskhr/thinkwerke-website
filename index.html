@@ -1,420 +1,689 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Thinkwerke — Security, Cloud & Compliance Engineering</title>
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Thinkwerke helps European organisations turn regulations like ISO 27001, NIS2, CRA and DORA into secure, automated and auditable cloud solutions." />
+  <title>Thinkwerke — Security, Cloud & Compliance Engineering</title>
+  <meta name="description" content="Security & Compliance Engineering for EU-regulated cloud: ISO 27001, NIS2, CRA, DORA, GDPR into secure-by-design AWS architectures and audit-ready evidence." />
+
   <style>
-    :root {
-      --bg: #050816;
-      --bg-alt: #0d1020;
-      --accent: #48b0ff;
-      --text: #f5f5f5;
-      --muted: #9ba4c4;
-      --card: #111426;
-      --border: #22253a;
+    :root{
+      --bg: #0b0f16;
+      --panel: #0f1623;
+      --panel2:#0c1320;
+      --text: #e9eefc;
+      --muted:#a9b5d3;
+      --border: rgba(233,238,252,.12);
+      --shadow: 0 18px 60px rgba(0,0,0,.45);
+      --radius: 16px;
+      --radius2: 22px;
+      --max: 1120px;
+      --focus: 0 0 0 3px rgba(233,238,252,.16);
     }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #101638 0, var(--bg) 55%, #02030a 100%);
-      color: var(--text);
-      line-height: 1.6;
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      color:var(--text);
+      background:
+        radial-gradient(1200px 600px at 20% -10%, rgba(108,142,255,.20), transparent 60%),
+        radial-gradient(900px 520px at 90% 0%, rgba(96,220,255,.14), transparent 60%),
+        radial-gradient(1100px 800px at 70% 120%, rgba(151,108,255,.10), transparent 55%),
+        var(--bg);
+      line-height:1.45;
     }
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    header {
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-      backdrop-filter: blur(16px);
-      background: linear-gradient(to right, rgba(5,8,22,0.9), rgba(13,16,32,0.9));
-      position: sticky;
-      top: 0;
-      z-index: 10;
+
+    a{color:inherit; text-decoration:none}
+    a:focus-visible, button:focus-visible, summary:focus-visible { outline:none; box-shadow: var(--focus); border-radius:12px; }
+    .container{max-width:var(--max); margin:0 auto; padding:0 20px;}
+
+    /* Header / Nav (Elvaco-like: top nav + dropdown panels) */
+    header{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(10px);
+      background: rgba(11,15,22,.55);
+      border-bottom: 1px solid var(--border);
     }
-    .nav {
-      max-width: 1040px;
-      margin: 0 auto;
-      padding: 0.75rem 1rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 0;
+      gap:18px;
     }
-    .logo {
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      font-size: 0.9rem;
-      color: var(--muted);
+    .brand{
+      display:flex; align-items:center; gap:12px; min-width: 180px;
+      font-weight:800; letter-spacing:.4px;
     }
-    .nav-links {
-      display: flex;
-      gap: 1.25rem;
-      font-size: 0.9rem;
+    .logo{
+      width:36px; height:36px; border-radius:12px;
+      background: linear-gradient(135deg, rgba(108,142,255,.95), rgba(96,220,255,.85));
+      box-shadow: 0 10px 30px rgba(0,0,0,.35);
     }
-    .nav-links a {
-      color: var(--muted);
-      font-weight: 500;
-    }
-    .nav-links a:hover { color: var(--accent); }
-    main {
-      max-width: 1040px;
-      margin: 0 auto;
-      padding: 3rem 1rem 4rem;
-    }
-    .hero {
-      display: grid;
-      grid-template-columns: 3fr 2fr;
-      gap: 2rem;
-      align-items: center;
-      padding: 1rem 0 3rem;
-    }
-    @media (max-width: 800px) {
-      .hero { grid-template-columns: 1fr; }
-    }
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      padding: 0.25rem 0.7rem;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.12);
-      background: rgba(5,8,22,0.6);
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--muted);
-      margin-bottom: 0.85rem;
-    }
-    .hero h1 {
-      font-size: clamp(2rem, 3.1vw, 2.7rem);
-      margin-bottom: 0.75rem;
-    }
-    .hero h1 span {
-      color: var(--accent);
-    }
-    .hero-text {
-      color: var(--muted);
-      font-size: 0.98rem;
-      margin-bottom: 1.25rem;
-    }
-    .pill-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-bottom: 1.5rem;
-    }
-    .pill {
-      padding: 0.25rem 0.75rem;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.12);
-      font-size: 0.78rem;
-      color: var(--muted);
-    }
-    .actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-      margin-bottom: 0.5rem;
-    }
-    .btn {
-      padding: 0.6rem 1.1rem;
-      font-size: 0.9rem;
-      border-radius: 999px;
-      border: 1px solid transparent;
-      cursor: pointer;
-      font-weight: 500;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-    }
-    .btn-primary {
-      background: linear-gradient(135deg, #3f83ff, #7c3aed);
-      color: white;
-      border-color: rgba(255,255,255,0.18);
-    }
-    .btn-ghost {
+    .brand small{display:block; font-weight:600; color:var(--muted); letter-spacing:0}
+    nav{display:flex; align-items:center; gap:8px; flex:1; justify-content:center;}
+    .nav-item{position:relative;}
+    .nav-link{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:10px 12px;
+      border-radius:12px;
+      color:var(--text);
+      border:1px solid transparent;
       background: transparent;
-      border-color: rgba(255,255,255,0.18);
-      color: var(--muted);
+      cursor:pointer;
+      font: inherit;
     }
-    .btn:hover { opacity: 0.9; }
-    .note {
-      font-size: 0.8rem;
-      color: var(--muted);
+    .nav-link:hover{background: rgba(233,238,252,.06); border-color: rgba(233,238,252,.10);}
+    .chev{opacity:.75; font-size: 12px; transform: translateY(1px);}
+    .cta{
+      display:flex; align-items:center; gap:10px;
+      min-width: 250px;
+      justify-content:flex-end;
     }
-    .hero-card {
-      background: radial-gradient(circle at top, #252a55 0, #101426 60%, #050816 100%);
-      border-radius: 1.25rem;
-      border: 1px solid rgba(255,255,255,0.12);
-      padding: 1.2rem 1.3rem;
-      box-shadow: 0 18px 45px rgba(0,0,0,0.65);
-      font-size: 0.83rem;
-      color: var(--muted);
+    .btn{
+      border:1px solid rgba(233,238,252,.16);
+      background: rgba(233,238,252,.06);
+      color:var(--text);
+      padding:10px 12px;
+      border-radius:14px;
+      font-weight:700;
+      cursor:pointer;
     }
-    .hero-card h2 {
-      font-size: 0.95rem;
-      margin-bottom: 0.6rem;
-      color: var(--text);
+    .btn:hover{background: rgba(233,238,252,.10);}
+    .btn.primary{
+      border-color: rgba(108,142,255,.55);
+      background: linear-gradient(135deg, rgba(108,142,255,.55), rgba(96,220,255,.28));
     }
-    .hero-card ul {
-      list-style: none;
-      padding-left: 0;
-    }
-    .hero-card li {
-      margin-bottom: 0.4rem;
-    }
-    .hero-card strong { color: #e5e7ff; }
-    section {
-      margin-bottom: 2.75rem;
-    }
-    section h2 {
-      font-size: 1.3rem;
-      margin-bottom: 0.4rem;
-    }
-    section p {
-      color: var(--muted);
-      font-size: 0.95rem;
-      margin-bottom: 0.8rem;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 1rem;
-    }
-    .card {
-      background: var(--card);
-      border-radius: 1rem;
+
+    /* Dropdown panel (mega menu) */
+    .panel{
+      position:absolute;
+      left:50%;
+      transform: translateX(-50%);
+      top: 48px;
+      width: min(860px, calc(100vw - 24px));
+      background: rgba(15,22,35,.92);
       border: 1px solid var(--border);
-      padding: 1rem;
-      font-size: 0.9rem;
-      color: var(--muted);
+      border-radius: var(--radius2);
+      box-shadow: var(--shadow);
+      padding: 18px;
+      display:none;
     }
-    .card h3 {
-      font-size: 1rem;
-      margin-bottom: 0.4rem;
+    .panel.open{display:block;}
+    .panel-grid{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap:16px;
+    }
+    .panel-col{
+      background: rgba(11,15,22,.35);
+      border:1px solid rgba(233,238,252,.10);
+      border-radius: var(--radius);
+      padding: 14px;
+    }
+    .panel h4{margin:0 0 10px; font-size:14px; color: var(--muted); letter-spacing:.3px; text-transform:uppercase;}
+    .menu-list{display:grid; gap:8px;}
+    .menu-item{
+      padding:10px 10px;
+      border-radius: 14px;
+      border:1px solid transparent;
+      background: rgba(233,238,252,.04);
+    }
+    .menu-item:hover{border-color: rgba(233,238,252,.14); background: rgba(233,238,252,.07);}
+    .menu-item b{display:block; font-size:14px;}
+    .menu-item span{display:block; font-size:12.5px; color: var(--muted); margin-top:2px;}
+
+    /* Mobile nav */
+    .hamburger{display:none}
+    @media (max-width: 980px){
+      nav{display:none}
+      .cta{min-width:auto}
+      .hamburger{display:inline-flex}
+    }
+    .mobile-drawer{
+      display:none;
+      border-top:1px solid var(--border);
+      padding: 10px 0 18px;
+    }
+    .mobile-drawer.open{display:block;}
+    .mobile-drawer details{
+      border:1px solid rgba(233,238,252,.12);
+      border-radius: 16px;
+      background: rgba(233,238,252,.04);
+      padding: 10px 12px;
+      margin-top:10px;
+    }
+    .mobile-drawer summary{cursor:pointer; font-weight:800}
+    .mobile-drawer a{
+      display:block; padding:10px 0;
+      color: var(--muted);
+      border-bottom:1px solid rgba(233,238,252,.08);
+    }
+    .mobile-drawer a:last-child{border-bottom:none}
+
+    /* Sections */
+    main{padding: 28px 0 70px;}
+    section{padding: 54px 0;}
+    .hero{
+      padding-top: 36px;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap:18px;
+      align-items:start;
+    }
+    @media (max-width: 980px){
+      .hero-grid{grid-template-columns: 1fr;}
+    }
+    .card{
+      background: rgba(15,22,35,.65);
+      border: 1px solid var(--border);
+      border-radius: var(--radius2);
+      padding: 20px;
+      box-shadow: 0 16px 50px rgba(0,0,0,.25);
+    }
+    h1{
+      margin:0 0 10px;
+      font-size: clamp(30px, 3.2vw, 44px);
+      letter-spacing:-.4px;
+      line-height:1.05;
+    }
+    .lead{color: var(--muted); font-size: 15.5px; margin: 0 0 14px;}
+    .pill-row{display:flex; flex-wrap:wrap; gap:10px; margin-top:14px;}
+    .pill{
+      font-size:12.5px;
       color: var(--text);
-    }
-    .tag-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.35rem;
-      margin-top: 0.35rem;
-      font-size: 0.75rem;
-    }
-    .tag {
-      padding: 0.1rem 0.5rem;
+      background: rgba(233,238,252,.06);
+      border:1px solid rgba(233,238,252,.12);
+      padding: 8px 10px;
       border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.14);
+    }
+    .split{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:14px;
+    }
+    @media (max-width: 800px){ .split{grid-template-columns:1fr;} }
+    .kicker{margin:0 0 10px; color: var(--muted); text-transform:uppercase; letter-spacing:.35px; font-size:13px;}
+    h2{margin: 0 0 10px; font-size: 26px; letter-spacing:-.2px;}
+    h3{margin: 0 0 6px; font-size: 18px;}
+    .muted{color:var(--muted)}
+    .list{margin:10px 0 0; padding-left:18px; color: var(--muted);}
+    .grid3{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:14px;
+    }
+    @media (max-width: 980px){ .grid3{grid-template-columns:1fr;} }
+    .foot{
+      border-top:1px solid var(--border);
+      padding: 22px 0;
       color: var(--muted);
     }
-    footer {
-      border-top: 1px solid rgba(255,255,255,0.06);
-      padding: 1.4rem 1rem 2rem;
-      text-align: center;
-      font-size: 0.8rem;
-      color: var(--muted);
-      margin-top: 1rem;
-    }
+    .foot a{color: var(--text)}
+    .anchor{scroll-margin-top: 92px;}
   </style>
 </head>
+
 <body>
-  <header>
+<header>
+  <div class="container">
     <div class="nav">
-      <div class="logo">THINKWERKE</div>
-      <nav class="nav-links">
-        <a href="#services">Services</a>
-        <a href="#demo">Demo / PoC</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-        <a href="https://docsthinkwerke.readthedocs.io" target="_blank">Docs</a>
+      <a class="brand" href="#home" data-tab="home" aria-label="Thinkwerke home">
+        <span class="logo" aria-hidden="true"></span>
+        <span>
+          THINKWERKE
+          <small>Security • Cloud • Compliance</small>
+        </span>
+      </a>
+
+      <nav aria-label="Primary">
+        <!-- Solutions & Use Cases -->
+        <div class="nav-item" data-menu="solutions">
+          <button class="nav-link" type="button" aria-haspopup="true" aria-expanded="false">
+            Solutions & Use Cases <span class="chev">▾</span>
+          </button>
+          <div class="panel" role="dialog" aria-label="Solutions & Use Cases">
+            <div class="panel-grid">
+              <div class="panel-col">
+                <h4>What Thinkwerke solves</h4>
+                <div class="menu-list">
+                  <a class="menu-item" href="#solutions-compliance" data-tab="solutions-compliance">
+                    <b>Compliance readiness</b>
+                    <span>ISO 27001, NIS2, CRA, DORA, GDPR → executable control mapping & evidence</span>
+                  </a>
+                  <a class="menu-item" href="#solutions-cloud" data-tab="solutions-cloud">
+                    <b>EU sovereign cloud & data resilience</b>
+                    <span>Architecture patterns aligned with sovereignty and residency expectations</span>
+                  </a>
+                  <a class="menu-item" href="#solutions-sslm" data-tab="solutions-sslm">
+                    <b>Secure software lifecycle (SSLM)</b>
+                    <span>SAST/SCA/SBOM/DAST/IaC checks + audit-ready artefacts</span>
+                  </a>
+                </div>
+              </div>
+              <div class="panel-col">
+                <h4>Quick links</h4>
+                <div class="menu-list">
+                  <a class="menu-item" href="#demo" data-tab="demo">
+                    <b>Demo / PoC</b>
+                    <span>See an end-to-end reference workflow</span>
+                  </a>
+                  <a class="menu-item" href="#docs" data-tab="docs">
+                    <b>Documentation & whitepapers</b>
+                    <span>Open technical documentation</span>
+                  </a>
+                  <a class="menu-item" href="#contact" data-tab="contact">
+                    <b>Talk to Thinkwerke</b>
+                    <span>Explore a project, PoC, or advisory engagement</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Services -->
+        <div class="nav-item" data-menu="services">
+          <button class="nav-link" type="button" aria-haspopup="true" aria-expanded="false">
+            Services <span class="chev">▾</span>
+          </button>
+          <div class="panel" role="dialog" aria-label="Services">
+            <div class="panel-grid">
+              <div class="panel-col">
+                <h4>Core services</h4>
+                <div class="menu-list">
+                  <a class="menu-item" href="#services-iso" data-tab="services-iso">
+                    <b>ISO 27001 programme</b>
+                    <span>Gap assessment, SoA, internal audits, evidence workflows, technical control mapping</span>
+                  </a>
+                  <a class="menu-item" href="#services-nis2" data-tab="services-nis2">
+                    <b>NIS2 & CRA readiness</b>
+                    <span>SSLM, vulnerability lifecycle, SBOM & OSS license governance, continuous evidence</span>
+                  </a>
+                  <a class="menu-item" href="#services-soc" data-tab="services-soc">
+                    <b>SOC & SIEM modernisation</b>
+                    <span>Cloud-centric SIEM, MITRE-mapped detections, CSIRT processes, regulator dashboards</span>
+                  </a>
+                </div>
+              </div>
+              <div class="panel-col">
+                <h4>Delivery enablement</h4>
+                <div class="menu-list">
+                  <a class="menu-item" href="#services-cnapp" data-tab="services-cnapp">
+                    <b>CSPM, ASPM & CNAPP</b>
+                    <span>AWS multi-account foundations, posture & cloud-native protection</span>
+                  </a>
+                  <a class="menu-item" href="#services-devsecops" data-tab="services-devsecops">
+                    <b>DevSecOps & CI/CD enablement</b>
+                    <span>Policy-as-code, artifact integrity, attestation, developer-friendly controls</span>
+                  </a>
+                  <a class="menu-item" href="#services-interim" data-tab="services-interim">
+                    <b>Interim architecture & capability uplift</b>
+                    <span>Hands-on leadership + skill uplift + knowledge transfer</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- About -->
+        <a class="nav-link" href="#about" data-tab="about">About</a>
+
+        <!-- Docs -->
+        <a class="nav-link" href="#docs" data-tab="docs">Docs</a>
+
+        <!-- Contact -->
+        <a class="nav-link" href="#contact" data-tab="contact">Contact</a>
       </nav>
+
+      <div class="cta">
+        <button class="btn hamburger" type="button" id="hamburger" aria-label="Open menu">☰</button>
+        <a class="btn" href="#docs" data-tab="docs">View documentation</a>
+        <a class="btn primary" href="#demo" data-tab="demo">Request a demo</a>
+      </div>
     </div>
-  </header>
 
-  <main>
-    <section class="hero">
-      <div>
-        <div class="badge">Security • Cloud • Compliance</div>
-        <h1>Security & Compliance Engineering<br /><span>for EU-Regulated Cloud</span></h1>
-        <p class="hero-text">
-          Thinkwerke helps organisations turn regulations like ISO 27001, NIS2, CRA, DORA and GDPR
-          into secure-by-design AWS architectures, automated pipelines, and continuous evidence for
-          audits, tenders, and customer assessments.
+    <!-- Mobile drawer -->
+    <div class="mobile-drawer" id="mobileDrawer" aria-label="Mobile menu">
+      <details>
+        <summary>Solutions & Use Cases</summary>
+        <a href="#solutions-compliance" data-tab="solutions-compliance">Compliance readiness</a>
+        <a href="#solutions-cloud" data-tab="solutions-cloud">EU sovereign cloud & data resilience</a>
+        <a href="#solutions-sslm" data-tab="solutions-sslm">Secure software lifecycle (SSLM)</a>
+        <a href="#demo" data-tab="demo">Demo / PoC</a>
+      </details>
+      <details>
+        <summary>Services</summary>
+        <a href="#services-iso" data-tab="services-iso">ISO 27001 programme</a>
+        <a href="#services-nis2" data-tab="services-nis2">NIS2 & CRA readiness</a>
+        <a href="#services-soc" data-tab="services-soc">SOC & SIEM modernisation</a>
+        <a href="#services-cnapp" data-tab="services-cnapp">CSPM, ASPM & CNAPP</a>
+        <a href="#services-devsecops" data-tab="services-devsecops">DevSecOps & CI/CD enablement</a>
+        <a href="#services-interim" data-tab="services-interim">Interim architecture & capability uplift</a>
+      </details>
+      <a href="#about" data-tab="about">About</a>
+      <a href="#docs" data-tab="docs">Docs</a>
+      <a href="#contact" data-tab="contact">Contact</a>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+  <!-- HOME / HERO -->
+  <section id="home" class="hero anchor">
+    <div class="hero-grid">
+      <div class="card">
+        <p class="kicker">Security & Compliance Engineering</p>
+        <h1>for EU-Regulated Cloud</h1>
+        <p class="lead">
+          Thinkwerke helps organisations turn regulations like ISO 27001, NIS2, CRA, DORA and GDPR into
+          secure-by-design AWS architectures, automated pipelines, and continuous evidence for audits, tenders,
+          and customer assessments.
         </p>
-        <div class="pill-row">
-          <div class="pill">EU Sovereign Cloud & Data Resilience</div>
-          <div class="pill">Secure Software Lifecycle (SSLM)</div>
-          <div class="pill">NIS2 / CRA / ISO 27001</div>
-          <div class="pill">AWS Security Architecture</div>
-          <div class="pill">DevSecOps & CI/CD</div>
+        <div class="pill-row" aria-label="Key focus areas">
+          <span class="pill">EU Sovereign Cloud & Data Resilience</span>
+          <span class="pill">Secure Software Lifecycle (SSLM)</span>
+          <span class="pill">NIS2 / CRA / ISO 27001</span>
+          <span class="pill">AWS Security Architecture</span>
+          <span class="pill">DevSecOps & CI/CD</span>
         </div>
-        <div class="actions">
-          <a class="btn btn-primary" href="#demo">Request a demo</a>
-          <a class="btn btn-ghost" href="https://docsthinkwerke.readthedocs.io" target="_blank">View open documentation</a>
+        <div class="pill-row" style="margin-top:18px;">
+          <a class="btn primary" href="#demo" data-tab="demo">Request a demo</a>
+          <a class="btn" href="#docs" data-tab="docs">View open documentation</a>
         </div>
-        <p class="note">
-          Designed and delivered by Mayank Sekhar — Information Security & Cloud Architect focused on EU sovereignty and regulated industries.
-        </p>
       </div>
-      <aside class="hero-card">
-        <h2>What we show in the demo</h2>
-        <ul>
-          <li><strong>SSLM pipeline:</strong> SAST, SCA/SBOM, DAST, IaC & container checks.</li>
-          <li><strong>Automated vulnerability handling:</strong> detection → SLA → Jira workflow → evidence.</li>
-          <li><strong>Supply-chain governance:</strong> SBOM and OSS license controls aligned to CRA.</li>
-          <li><strong>AWS security foundation:</strong> CSPM visibility, identity governance, secure CI/CD.</li>
+
+      <div class="card">
+        <p class="kicker">Designed & delivered</p>
+        <h3>Led by Mayank Sekhar</h3>
+        <p class="muted" style="margin-top:8px;">
+          Information Security & Cloud Architect focused on EU sovereignty and regulated industries.
+        </p>
+        <div style="margin-top:14px; padding-top:14px; border-top:1px solid var(--border);">
+          <p class="kicker">What we show in the demo</p>
+          <ul class="list">
+            <li>SSLM pipeline: SAST, SCA/SBOM, DAST, IaC & container checks.</li>
+            <li>Automated vulnerability handling: detection → SLA → Jira workflow → evidence.</li>
+            <li>Supply-chain governance: SBOM and OSS license controls aligned to CRA.</li>
+            <li>AWS security foundation: CSPM visibility, identity governance, secure CI/CD.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOLUTIONS -->
+  <section id="solutions" class="anchor">
+    <p class="kicker">Solutions & Use Cases</p>
+    <h2>From regulation to engineering reality</h2>
+    <div class="grid3" style="margin-top:14px;">
+      <div class="card anchor" id="solutions-compliance">
+        <h3>Compliance readiness</h3>
+        <p class="muted">Translate ISO 27001, NIS2, CRA, DORA and GDPR into practical controls, workflows and evidence.</p>
+        <ul class="list">
+          <li>Control mapping to cloud, identity, logging and CI/CD</li>
+          <li>Evidence workflows built for audits and tenders</li>
+          <li>Clear separation: policy → implementation → proof</li>
         </ul>
-      </aside>
-    </section>
-
-    <section id="services">
-      <h2>Services</h2>
-      <p>
-        Thinkwerke provides architecture, engineering and delivery support for organisations that need to
-        modernise securely under EU regulatory pressure while improving their ability to ship software.
-      </p>
-      <div class="grid">
-        <div class="card">
-          <h3>ISO 27001 Programme</h3>
-          <p>
-            Gap assessment, SoA, internal audits, evidence workflows and technical control mapping
-            to cloud, identity, logging and CI/CD – from readiness to certification.
-          </p>
-          <div class="tag-row">
-            <span class="tag">ISO 27001:2022</span>
-            <span class="tag">ISMS</span>
-            <span class="tag">Audit-ready</span>
-          </div>
-        </div>
-        <div class="card">
-          <h3>NIS2 & CRA Readiness</h3>
-          <p>
-            Secure Software Lifecycle (SSLM), vulnerability lifecycle, SBOM and license governance,
-            and continuous evidence models aligned to NIS2, CRA and SOC 2.
-          </p>
-          <div class="tag-row">
-            <span class="tag">NIS2</span>
-            <span class="tag">CRA</span>
-            <span class="tag">SBOM</span>
-          </div>
-        </div>
-        <div class="card">
-          <h3>SOC & SIEM Modernisation</h3>
-          <p>
-            Cloud-centric SIEM architectures, MITRE-mapped detections, CSIRT processes, and
-            dashboards for regulators, auditors and customers.
-          </p>
-          <div class="tag-row">
-            <span class="tag">SIEM</span>
-            <span class="tag">SOC</span>
-            <span class="tag">Detection Engineering</span>
-          </div>
-        </div>
-        <div class="card">
-          <h3>CSPM, ASPM & CNAPP</h3>
-          <p>
-            AWS multi-account foundations, CSPM-driven posture, application and cloud-native
-            protection aligned with EU data-sovereignty and residency expectations.
-          </p>
-          <div class="tag-row">
-            <span class="tag">CSPM</span>
-            <span class="tag">ASPM</span>
-            <span class="tag">CNAPP</span>
-          </div>
-        </div>
-        <div class="card">
-          <h3>DevSecOps & CI/CD Enablement</h3>
-          <p>
-            Secure pipelines, policy-as-code, artifact integrity, attestation and developer-friendly controls
-            that make compliance part of the delivery workflow.
-          </p>
-          <div class="tag-row">
-            <span class="tag">DevSecOps</span>
-            <span class="tag">CI/CD</span>
-            <span class="tag">SSLM</span>
-          </div>
-        </div>
-        <div class="card">
-          <h3>Interim Architecture & Capability Uplift</h3>
-          <p>
-            Acting as Security & Cloud Architect, DevSecOps lead and delivery partner while we help
-            your teams develop internal skills, processes and ownership.
-          </p>
-          <div class="tag-row">
-            <span class="tag">Interim leadership</span>
-            <span class="tag">Skill uplift</span>
-            <span class="tag">Knowledge transfer</span>
-          </div>
-        </div>
       </div>
-    </section>
+      <div class="card anchor" id="solutions-cloud">
+        <h3>EU sovereign cloud & data resilience</h3>
+        <p class="muted">Architecture patterns aligned with sovereignty, residency expectations and regulated operations.</p>
+        <ul class="list">
+          <li>Multi-account AWS foundations</li>
+          <li>Identity governance and least privilege</li>
+          <li>Logging, monitoring and resilience by design</li>
+        </ul>
+      </div>
+      <div class="card anchor" id="solutions-sslm">
+        <h3>Secure software lifecycle (SSLM)</h3>
+        <p class="muted">Make compliance part of delivery: pipelines that produce audit-ready artefacts continuously.</p>
+        <ul class="list">
+          <li>SAST / DAST / IaC / container checks</li>
+          <li>SBOM + OSS license governance</li>
+          <li>Artifact integrity, attestation, policy-as-code</li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
-    <section id="demo">
-      <h2>Demo / PoC</h2>
-      <p>
-        We have developed a working end-to-end PoC that shows how regulatory expectations from ENISA,
-        ISO 27001, NIS2 and CRA can be turned into concrete AWS-based security architecture and automated
-        workflows.
+  <!-- SERVICES -->
+  <section id="services" class="anchor">
+    <p class="kicker">Services</p>
+    <h2>Architecture, engineering & delivery support</h2>
+
+    <div class="split" style="margin-top:14px;">
+      <div class="card anchor" id="services-iso">
+        <h3>ISO 27001 Programme</h3>
+        <p class="muted">
+          Gap assessment, SoA, internal audits, evidence workflows and technical control mapping — from readiness to certification.
+        </p>
+        <div class="pill-row"><span class="pill">ISO 27001:2022</span><span class="pill">ISMS</span><span class="pill">Audit-ready</span></div>
+      </div>
+
+      <div class="card anchor" id="services-nis2">
+        <h3>NIS2 & CRA Readiness</h3>
+        <p class="muted">
+          SSLM, vulnerability lifecycle, SBOM and OSS license governance, and continuous evidence models aligned to NIS2, CRA and SOC 2.
+        </p>
+        <div class="pill-row"><span class="pill">NIS2</span><span class="pill">CRA</span><span class="pill">SBOM</span></div>
+      </div>
+
+      <div class="card anchor" id="services-soc">
+        <h3>SOC & SIEM Modernisation</h3>
+        <p class="muted">
+          Cloud-centric SIEM architectures, MITRE-mapped detections, CSIRT processes, and dashboards for regulators, auditors and customers.
+        </p>
+        <div class="pill-row"><span class="pill">SIEM</span><span class="pill">SOC</span><span class="pill">Detection engineering</span></div>
+      </div>
+
+      <div class="card anchor" id="services-cnapp">
+        <h3>CSPM, ASPM & CNAPP</h3>
+        <p class="muted">
+          AWS multi-account foundations, CSPM-driven posture, and cloud-native protection aligned with EU data-sovereignty expectations.
+        </p>
+        <div class="pill-row"><span class="pill">CSPM</span><span class="pill">ASPM</span><span class="pill">CNAPP</span></div>
+      </div>
+
+      <div class="card anchor" id="services-devsecops">
+        <h3>DevSecOps & CI/CD Enablement</h3>
+        <p class="muted">
+          Secure pipelines, policy-as-code, artifact integrity, attestation and developer-friendly controls that keep delivery fast.
+        </p>
+        <div class="pill-row"><span class="pill">DevSecOps</span><span class="pill">CI/CD</span><span class="pill">SSLM</span></div>
+      </div>
+
+      <div class="card anchor" id="services-interim">
+        <h3>Interim Architecture & Capability Uplift</h3>
+        <p class="muted">
+          Acting as Security & Cloud Architect / DevSecOps lead while enabling your teams with skills, process and ownership.
+        </p>
+        <div class="pill-row"><span class="pill">Interim leadership</span><span class="pill">Skill uplift</span><span class="pill">Knowledge transfer</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEMO -->
+  <section id="demo" class="anchor">
+    <div class="card">
+      <p class="kicker">Demo / PoC</p>
+      <h2>End-to-end reference workflow</h2>
+      <p class="muted">
+        A working PoC showing how expectations from ENISA-style thinking, ISO 27001, NIS2 and CRA can be turned into
+        concrete AWS-based security architecture and automated workflows — producing exportable, audit-ready artefacts.
       </p>
-      <p>
-        The demo covers SSLM, vulnerability management, SBOM and OSS license governance, CSPM-driven
-        cloud visibility and secure CI/CD – all producing exportable, audit-ready artefacts.
+      <p class="muted">
+        Covers SSLM, vulnerability management, SBOM & OSS license governance, CSPM-driven cloud visibility and secure CI/CD.
       </p>
-      <p>
-        To request a walkthrough, reach out via email or LinkedIn with a short note on your use-case
+      <div class="pill-row" style="margin-top:14px;">
+        <a class="btn primary" href="#contact" data-tab="contact">Request a walkthrough</a>
+        <a class="btn" href="#services" data-tab="services">Explore services</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="anchor">
+    <div class="split">
+      <div class="card">
+        <p class="kicker">About Thinkwerke</p>
+        <h2>European-centric security & cloud engineering</h2>
+        <p class="muted">
+          Thinkwerke is led by Mayank Sekhar, an Information Security & Cloud Security Architect with 12+ years of experience at
+          organisations such as IBM, Oracle and OpenText, plus consulting work with Red Hat, Microsoft and AWS partners.
+        </p>
+        <p class="muted">
+          Focus: sovereign cloud, data-sovereignty, GAIA-X and Data Space concepts, ISO 27001 ISMS governance, NIS2/CRA/DORA alignment,
+          and practical DevSecOps that teams can adopt without slowing delivery.
+        </p>
+      </div>
+
+      <div class="card">
+        <p class="kicker">Credentials</p>
+        <h3>Professional certifications</h3>
+        <ul class="list">
+          <li>CompTIA SecurityX Architect</li>
+          <li>AWS Solutions Architect – Professional</li>
+          <li>AWS Security Specialty</li>
+          <li>CISM — ISACA</li>
+          <li>ISO/IEC 27001 Lead Implementer — TÜV SÜD</li>
+          <li>NIS2 & DORA Trained Professional</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- DOCS -->
+  <section id="docs" class="anchor">
+    <div class="card">
+      <p class="kicker">Docs</p>
+      <h2>Documentation & whitepapers</h2>
+      <p class="muted">
+        Full technical and conceptual documentation is openly available.
+      </p>
+      <div class="pill-row" style="margin-top:14px;">
+        <!-- Update to your preferred docs URL -->
+        <a class="btn primary" href="https://docs.thinkwerke.com" target="_blank" rel="noreferrer">Open docs</a>
+        <a class="btn" href="https://docsthinkwerke.readthedocs.io" target="_blank" rel="noreferrer">ReadTheDocs mirror</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="anchor">
+    <div class="card">
+      <p class="kicker">Contact</p>
+      <h2>Let’s explore your use-case</h2>
+      <p class="muted">
+        If you would like to explore a project, PoC or advisory engagement, reach out via email or LinkedIn with a short note on your use-case
         (e.g. NIS2 readiness, ISO 27001, cloud transformation, tender preparation).
       </p>
-    </section>
-
-    <section id="about">
-      <h2>About Thinkwerke</h2>
-      <p>
-        Thinkwerke is led by <strong>Mayank Sekhar</strong>, an Information Security & Cloud Security Architect with
-        12+ years of experience at organisations such as IBM, Oracle and OpenText, plus consulting work
-        with Red Hat, Microsoft and AWS partners.
-      </p>
-      <p>
-        The focus is on European-centric security and cloud engineering: sovereign cloud, data-sovereignty,
-        GAIA-X and Data Space concepts, ISO 27001 ISMS governance, NIS2/CRA/DORA alignment, and
-        practical DevSecOps that teams can adopt without slowing down delivery.
-      </p>
-      <p>
-        Full technical and conceptual documentation is openly available at
-        <a href="https://docs.thinkwerke.com" target="_blank">https://docs.thinkwerke.com</a>.
-      </p>
-        <div class="card" style="margin-top:1.2rem;">
-          <h3>Credentials & Professional Certifications</h3>
-          <p>
-    Thinkwerke is led by <strong>Mayank Sekhar</strong>, Information Security & Cloud Security Architect,
-    with formal certifications and professional training aligned to EU regulatory and cloud security requirements.
-          </p>
-          <ul style="margin-top:0.6rem; padding-left:1.1rem;">
-             <li><strong>CompTIA SecurityX Architect</strong></li>
-             <li><strong>AWS Solutions Architect – Professional</strong></li>
-             <li><strong>AWS Security Specialty</strong></li>
-             <li><strong>CISM</strong> — ISACA</li>
-             <li><strong>ISO/IEC 27001 Lead Implementer</strong> — TÜV SÜD</li>
-             <li><strong>NIS2 & DORA Trained Professional</strong></li>
-          </section>
-         </ul>
+      <div class="split" style="margin-top:10px;">
+        <div class="card" style="background: rgba(233,238,252,.04); border-color: rgba(233,238,252,.10);">
+          <h3>Email</h3>
+          <p class="muted" style="margin:6px 0 0;"><a href="mailto:Thinkwerke@tutamail.com">Thinkwerke@tutamail.com</a></p>
         </div>
+        <div class="card" style="background: rgba(233,238,252,.04); border-color: rgba(233,238,252,.10);">
+          <h3>LinkedIn</h3>
+          <p class="muted" style="margin:6px 0 0;">
+            <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer">Mayank Sekhar (LinkedIn)</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>
-        If you would like to explore a project, PoC or advisory engagement:
-      </p>
-      <p>
-        📧 <a href="mailto:Thinkwerke@tutamail.com">Thinkwerke@tutamail.com</a><br />
-        🔗 <a href="https://www.linkedin.com/in/mayank-sekhar" target="_blank">LinkedIn: mayank-sekhar</a><br />
-        📚 <a href="https://docs.thinkwerke.com" target="_blank">Documentation & Whitepapers</a>
-      </p>
-    </section>
-  </main>
+  <div class="foot">
+    <div class="container" style="padding:0;">
+      <div style="display:flex; flex-wrap:wrap; gap:12px; justify-content:space-between; align-items:center;">
+        <span>© Thinkwerke — Security, Cloud & Compliance Engineering for EU-regulated environments.</span>
+        <span style="display:flex; gap:12px;">
+          <a href="#home" data-tab="home">Home</a>
+          <a href="#docs" data-tab="docs">Docs</a>
+          <a href="#contact" data-tab="contact">Contact</a>
+        </span>
+      </div>
+    </div>
+  </div>
+</main>
 
-  <footer>
-    © Thinkwerke. Security, Cloud & Compliance Engineering for EU-regulated environments.
-  </footer>
+<script>
+  // --- Dropdown mega-menu behavior (desktop) ---
+  const navItems = document.querySelectorAll('.nav-item[data-menu]');
+  const panels = document.querySelectorAll('.panel');
+
+  function closeAllMenus() {
+    navItems.forEach(item => {
+      const btn = item.querySelector('.nav-link');
+      const panel = item.querySelector('.panel');
+      if (panel) panel.classList.remove('open');
+      if (btn) btn.setAttribute('aria-expanded', 'false');
+    });
+  }
+
+  navItems.forEach(item => {
+    const btn = item.querySelector('.nav-link');
+    const panel = item.querySelector('.panel');
+    if (!btn || !panel) return;
+
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = panel.classList.contains('open');
+      closeAllMenus();
+      if (!isOpen) {
+        panel.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+
+    panel.addEventListener('click', (e) => e.stopPropagation());
+  });
+
+  document.addEventListener('click', closeAllMenus);
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeAllMenus();
+  });
+
+  // --- Mobile drawer ---
+  const hamburger = document.getElementById('hamburger');
+  const mobileDrawer = document.getElementById('mobileDrawer');
+
+  if (hamburger && mobileDrawer) {
+    hamburger.addEventListener('click', () => {
+      mobileDrawer.classList.toggle('open');
+      closeAllMenus();
+    });
+  }
+
+  // --- Smooth scroll + active hash update ---
+  function scrollToHash(hash) {
+    const el = document.querySelector(hash);
+    if (!el) return;
+    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  document.querySelectorAll('a[data-tab], .menu-item[data-tab]').forEach(link => {
+    link.addEventListener('click', (e) => {
+      const href = link.getAttribute('href') || '';
+      if (href.startsWith('#')) {
+        e.preventDefault();
+        closeAllMenus();
+        if (mobileDrawer) mobileDrawer.classList.remove('open');
+        history.pushState(null, '', href);
+        scrollToHash(href);
+      } else {
+        closeAllMenus();
+      }
+    });
+  });
+
+  // Handle direct loads with hash
+  window.addEventListener('load', () => {
+    if (location.hash) scrollToHash(location.hash);
+  });
+</script>
 </body>
 </html>
