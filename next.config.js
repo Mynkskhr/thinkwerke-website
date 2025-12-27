@@ -1,8 +1,12 @@
+const repo = "REPO_NAME";
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: "export",          // <-- REQUIRED for GitHub Pages
-  trailingSlash: true,       // helps with static routing on Pages
-  images: { unoptimized: true }, // next/image doesn't work on Pages without this
+  output: "export",
+  trailingSlash: true,
+  images: { unoptimized: true },
+  basePath: `/${repo}`,
+  assetPrefix: `/${repo}/`,
 };
 
 module.exports = nextConfig;
