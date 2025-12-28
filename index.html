@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Thinkwerke — Security, Cloud & Compliance Engineering</title>
-  <meta name="description" content="Security & Compliance Engineering for EU-regulated Business Domains: ISO 27001, NIS2, AI Act, CRA, DORA, GDPR into secure-by-design Cloud architectures and audit-ready evidence." />
+  <meta name="description" content="Security & Compliance Engineering for EU-regulated Sectors: ISO 27001, NIS2, AI Act, CRA, DORA, GDPR into secure-by-design Cloud architectures and audit-ready evidence." />
 
   <style>
     :root{
@@ -19,9 +19,6 @@
       --radius2: 22px;
       --max: 1120px;
       --focus: 0 0 0 3px rgba(233,238,252,.16);
-
-      /* tighter spacing */
-      --section-pad: 28px;
     }
 
     *{box-sizing:border-box}
@@ -163,10 +160,9 @@
     }
     .mobile-drawer a:last-child{border-bottom:none}
 
-    main{padding: 18px 0 54px;}                 /* tighter */
-    section{padding: var(--section-pad) 0;}     /* tighter */
-    .hero{padding-top: 10px;}                   /* tighter */
-
+    main{padding: 18px 0 54px;}
+    section{padding: 22px 0;}   /* reduced section gap */
+    .hero{padding-top: 12px;}  /* reduced because About is first */
     .hero-grid{
       display:grid;
       grid-template-columns: 1.15fr .85fr;
@@ -183,24 +179,14 @@
       padding: 20px;
       box-shadow: 0 16px 50px rgba(0,0,0,.25);
     }
-
-    /* Headings */
     h1{
       margin:0 0 10px;
-      font-size: clamp(30px, 3.2vw, 44px);
-      letter-spacing:-.4px;
-      line-height:1.05;
+      font-size: clamp(24px, 2.2vw, 30px); /* smaller hero title */
+      letter-spacing:-.3px;
+      line-height:1.12;
     }
-    /* Smaller hero line as requested (same “feel” as other H2s) */
-    .hero-title{
-      margin:0 0 10px;
-      font-size: 26px;               /* match h2 size */
-      letter-spacing:-.2px;
-      line-height:1.15;
-    }
-
     .lead{color: var(--muted); font-size: 15.5px; margin: 0 0 14px;}
-    .pill-row{display:flex; flex-wrap:wrap; gap:10px; margin-top:12px;} /* slightly tighter */
+    .pill-row{display:flex; flex-wrap:wrap; gap:10px; margin-top:14px;}
     .pill{
       font-size:12.5px;
       color: var(--text);
@@ -228,11 +214,15 @@
     @media (max-width: 980px){ .grid3{grid-template-columns:1fr;} }
     .foot{
       border-top:1px solid var(--border);
-      padding: 18px 0;   /* tighter */
+      padding: 18px 0;
       color: var(--muted);
+      margin-top: 10px;
     }
     .foot a{color: var(--text)}
     .anchor{scroll-margin-top: 92px;}
+
+    /* subtle helper for section headings */
+    .subkicker{margin:0 0 6px; color: var(--muted); font-weight:700; letter-spacing:.2px; font-size:13px;}
   </style>
 </head>
 
@@ -249,7 +239,6 @@
       </a>
 
       <nav aria-label="Primary">
-        <!-- Solutions & Use Cases -->
         <div class="nav-item" data-menu="solutions">
           <button class="nav-link" type="button" aria-haspopup="true" aria-expanded="false">
             Solutions & Use Cases <span class="chev">▾</span>
@@ -257,68 +246,40 @@
           <div class="panel" role="dialog" aria-label="Solutions & Use Cases">
             <div class="panel-grid">
               <div class="panel-col">
-                <h4>What Thinkwerke solves</h4>
+                <h4>Navigate</h4>
                 <div class="menu-list">
-                  <a class="menu-item" href="#solutions-compliance" data-tab="solutions-compliance">
-                    <b>Compliance readiness</b>
-                    <span>ISO 27001, NIS2, AI Act, CRA, DORA, GDPR, SOC 2 → executable control mapping & evidence</span>
+                  <a class="menu-item" href="#who" data-tab="who">
+                    <b>Who Thinkwerke is for</b>
+                    <span>Best-fit organisations & blockers removed</span>
                   </a>
-                  <a class="menu-item" href="#solutions-cloud" data-tab="solutions-cloud">
-                    <b>EU Kritis</b>
-                    <span>Architecture & Solutions patterns aligned with EU Regulatory Framework</span>
+                  <a class="menu-item" href="#deliver" data-tab="deliver">
+                    <b>What we deliver</b>
+                    <span>Capability pillars (solutions + services)</span>
                   </a>
-                  <a class="menu-item" href="#solutions-sslm" data-tab="solutions-sslm">
-                    <b>Secure software lifecycle (SSLM)</b>
-                    <span>SAST/SCA/SBOM/DAST/IaC checks + audit-ready artefacts</span>
+                  <a class="menu-item" href="#engagement" data-tab="engagement">
+                    <b>How we engage</b>
+                    <span>Engagement models + reference demo</span>
+                  </a>
+                  <a class="menu-item" href="#outcomes" data-tab="outcomes">
+                    <b>Outcomes</b>
+                    <span>Business results only</span>
                   </a>
                 </div>
               </div>
               <div class="panel-col">
                 <h4>Quick links</h4>
                 <div class="menu-list">
-                  <a class="menu-item" href="#about" data-tab="about">
-                    <b>About</b>
-                    <span>European delivery experience</span>
-                  </a>
-                  <a class="menu-item" href="#who" data-tab="who">
-                    <b>Who Thinkwerke is for</b>
-                    <span>Best-fit customers and teams</span>
-                  </a>
-                  <a class="menu-item" href="#problems" data-tab="problems">
-                    <b>Problems we fix</b>
-                    <span>Business Outcomes for Regulated Industries</span>
-                  </a>
-                  <a class="menu-item" href="#solutions" data-tab="solutions">
-                    <b>Solutions & Use Cases</b>
-                    <span>From regulation to engineering reality</span>
-                  </a>
-                  <a class="menu-item" href="#services" data-tab="services">
-                    <b>Services</b>
-                    <span>Architecture, engineering & delivery support</span>
-                  </a>
-                  <a class="menu-item" href="#engagement" data-tab="engagement">
-                    <b>Engagement models</b>
-                    <span>Clear Programs to hire Thinkwerke</span>
-                  </a>
-                  <a class="menu-item" href="#home" data-tab="home">
-                    <b>Security & Compliance Engineering</b>
-                    <span>Overview + “Solutions Designed & Delivered”</span>
-                  </a>
-                  <a class="menu-item" href="#outcomes" data-tab="outcomes">
-                    <b>Outcomes</b>
-                    <span>Measurable results, not activities</span>
-                  </a>
                   <a class="menu-item" href="#demo" data-tab="demo">
-                    <b>Demo / PoC</b>
-                    <span>See an end-to-end reference workflow</span>
+                    <b>Security & Compliance Engineering</b>
+                    <span>What we show, what we build</span>
                   </a>
                   <a class="menu-item" href="#docs" data-tab="docs">
-                    <b>Docs</b>
+                    <b>Documentation & whitepapers</b>
                     <span>Open technical documentation</span>
                   </a>
                   <a class="menu-item" href="#contact" data-tab="contact">
                     <b>Talk to Thinkwerke</b>
-                    <span>Explore a project, Request a PoC, or Advisory/Strategic engagement</span>
+                    <span>Explore a project, advisory or reference walkthrough</span>
                   </a>
                 </div>
               </div>
@@ -326,133 +287,67 @@
           </div>
         </div>
 
-        <!-- Services -->
-        <div class="nav-item" data-menu="services">
-          <button class="nav-link" type="button" aria-haspopup="true" aria-expanded="false">
-            Services <span class="chev">▾</span>
-          </button>
-          <div class="panel" role="dialog" aria-label="Services">
-            <div class="panel-grid">
-              <div class="panel-col">
-                <h4>Core services</h4>
-                <div class="menu-list">
-                  <a class="menu-item" href="#services-iso" data-tab="services-iso">
-                    <b>ISO 27001 programme</b>
-                    <span>Gap assessment, SoA, internal audits, evidence workflows, technical control mapping</span>
-                  </a>
-                  <a class="menu-item" href="#services-nis2" data-tab="services-nis2">
-                    <b>NIS2 & CRA readiness</b>
-                    <span>SSLM, vulnerability lifecycle, SBOM & OSS license governance, continuous evidence</span>
-                  </a>
-                  <a class="menu-item" href="#services-soc" data-tab="services-soc">
-                    <b>SOC & SIEM modernisation</b>
-                    <span>Cloud-centric/in-house SIEM, MITRE-mapped detections, CSIRT processes, regulator dashboards</span>
-                  </a>
-                </div>
-              </div>
-              <div class="panel-col">
-                <h4>Delivery enablement</h4>
-                <div class="menu-list">
-                  <a class="menu-item" href="#services-cnapp" data-tab="services-cnapp">
-                    <b>CSPM, ASPM & CNAPP</b>
-                    <span>AWS multi-account foundations, posture & cloud-native protection</span>
-                  </a>
-                  <a class="menu-item" href="#services-devsecops" data-tab="services-devsecops">
-                    <b>DevSecOps & CI/CD enablement</b>
-                    <span>Policy-as-code, artifact integrity, attestation, developer-friendly controls</span>
-                  </a>
-                  <a class="menu-item" href="#services-interim" data-tab="services-interim">
-                    <b>Interim architecture & capability uplift</b>
-                    <span>Hands-on leadership + skill uplift + knowledge transfer</span>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- About + Contact -->
-        <a class="nav-link" href="#about" data-tab="about">About</a>
+        <a class="nav-link" href="#deliver" data-tab="deliver">What we deliver</a>
+        <a class="nav-link" href="#engagement" data-tab="engagement">How we engage</a>
         <a class="nav-link" href="#contact" data-tab="contact">Contact</a>
       </nav>
 
       <div class="cta">
         <button class="btn hamburger" type="button" id="hamburger" aria-label="Open menu">☰</button>
         <a class="btn" href="#docs" data-tab="docs">View documentation</a>
-        <a class="btn primary" href="#demo" data-tab="demo">Request a demo</a>
+        <a class="btn primary" href="#contact" data-tab="contact">Request a walkthrough</a>
       </div>
     </div>
 
-    <!-- Mobile drawer -->
     <div class="mobile-drawer" id="mobileDrawer" aria-label="Mobile menu">
       <details>
-        <summary>Solutions & Use Cases</summary>
+        <summary>Navigate</summary>
         <a href="#about" data-tab="about">About</a>
         <a href="#who" data-tab="who">Who Thinkwerke is for</a>
-        <a href="#problems" data-tab="problems">Problems we fix</a>
-        <a href="#solutions" data-tab="solutions">Solutions & Use Cases</a>
-        <a href="#services" data-tab="services">Services</a>
-        <a href="#engagement" data-tab="engagement">Engagement models</a>
-        <a href="#home" data-tab="home">Security & Compliance Engineering</a>
+        <a href="#deliver" data-tab="deliver">What we deliver</a>
+        <a href="#engagement" data-tab="engagement">How we engage</a>
+        <a href="#demo" data-tab="demo">Security & Compliance Engineering</a>
         <a href="#outcomes" data-tab="outcomes">Outcomes</a>
-        <a href="#demo" data-tab="demo">Demo / PoC</a>
         <a href="#docs" data-tab="docs">Docs</a>
         <a href="#contact" data-tab="contact">Contact</a>
       </details>
-      <details>
-        <summary>Service areas</summary>
-        <a href="#services-iso" data-tab="services-iso">ISO 27001 programme</a>
-        <a href="#services-nis2" data-tab="services-nis2">NIS2 & CRA readiness</a>
-        <a href="#services-soc" data-tab="services-soc">SOC & SIEM modernisation</a>
-        <a href="#services-cnapp" data-tab="services-cnapp">CSPM, ASPM & CNAPP</a>
-        <a href="#services-devsecops" data-tab="services-devsecops">DevSecOps & CI/CD enablement</a>
-        <a href="#services-interim" data-tab="services-interim">Interim architecture & capability uplift</a>
-      </details>
-      <a href="#docs" data-tab="docs">Docs</a>
-      <a href="#contact" data-tab="contact">Contact</a>
     </div>
   </div>
 </header>
 
 <main class="container">
 
-  <!-- 1) ABOUT -->
+  <!-- 1) ABOUT THINKWERKE (FINAL, SAFE) -->
   <section id="about" class="anchor">
     <div class="card">
       <p class="kicker">About Thinkwerke</p>
-      <h2>European delivery experience for regulated industries</h2>
+      <h2>European market delivery experience for regulated and core industries</h2>
 
       <p class="muted">
-        Thinkwerke is led by a group of passionate engineers with deep European delivery experience across
-        information security, cloud security architecture, and software development. The team brings
-        15+ years of experience from organisations such as IBM, Oracle, and Red Hat, along with consulting
-        work for Microsoft, Tesco, and AWS partners across Europe.
+        Thinkwerke brings deep European market delivery experience to organisations operating in regulated and core industries.
+        The team is led by senior engineers with backgrounds spanning information security, cloud architecture, and software development,
+        built over 15+ years at organisations such as IBM, Oracle, and Red Hat, alongside consulting engagements with Microsoft, Tesco,
+        and AWS partners across Europe and USA.
       </p>
 
       <p class="muted">
-        <b>Focus:</b> strengthening trust and operational resilience for regulated and core-industry organisations
-        operating in vendor-hosted environments. Thinkwerke turns complex requirements into executable controls,
-        audit-ready evidence, and decision-grade visibility — enabling leadership to confidently scale products,
-        enter regulated markets, and respond to customers, auditors, and regulators without slowing engineering.
-        The result is reduced compliance friction, faster assurance cycles, and an operating posture built to
-        withstand scrutiny.
+        <b>Focus:</b> strengthening trust and operational resilience in vendor-hosted environments. Thinkwerke translates complex regulatory
+        and customer expectations into executable controls, audit-ready evidence, and decision-grade visibility. This enables leadership
+        teams to scale products, enter regulated markets, and respond confidently to customers, auditors, and regulators without slowing
+        engineering or delivery.
       </p>
 
-      <!-- 3) Credentials added AFTER Focus -->
-      <div style="margin-top:14px; padding-top:14px; border-top:1px solid var(--border);">
-        <p class="kicker">Credentials</p>
-        <h3>Professional certifications</h3>
-        <ul class="list">
-          <li>CompTIA SecurityX Architect</li>
-          <li>AWS Solutions Architect – Professional</li>
-          <li>AWS Security Specialty</li>
-          <li>CISM — ISACA</li>
-          <li>ISO/IEC 27001 Lead Implementer — TÜV SÜD</li>
-          <li>NIS2 & DORA Trained Professional</li>
-        </ul>
-      </div>
+      <p class="muted">
+        The result is lower compliance friction, faster assurance cycles, and an operating model designed to withstand external scrutiny.
+      </p>
 
-      <div class="pill-row" style="margin-top:12px;">
+      <p class="muted">
+        Our Expert Architects &amp; Engineers hold Credentials to showcase there depth and knowledge with CompTIA SecurityX Architect,
+        AWS Solutions Architect – Professional, AWS Security Specialty, CISM (ISACA), ISO/IEC 27001 Lead Implementer (TÜV SÜD),
+        and NIS2 &amp; DORA trained professional.
+      </p>
+
+      <div class="pill-row" style="margin-top:14px;">
         <span class="pill">Regulated industries</span>
         <span class="pill">Vendor-hosted environments</span>
         <span class="pill">Audit-ready evidence</span>
@@ -460,111 +355,53 @@
         <span class="pill">Decision-grade visibility</span>
       </div>
 
-      <div class="pill-row" style="margin-top:12px;">
+      <div class="pill-row" style="margin-top:14px;">
         <button class="btn primary openWalkthrough" type="button">Request a walkthrough</button>
-        <a class="btn" href="#services" data-tab="services">Explore services</a>
+        <a class="btn" href="#deliver" data-tab="deliver">See what we deliver</a>
       </div>
     </div>
   </section>
 
-  <!-- 2) WHO THINKWERKE IS FOR -->
+  <!-- 2) WHO THINKWERKE IS FOR (sub heading + main heading; 6 square blocks) -->
   <section id="who" class="anchor">
     <div class="card">
-      <p class="kicker">Who Thinkwerke is for</p>
-      <h2>Built for teams operating in regulated EU business domains</h2>
-      <p class="muted" style="margin-top:8px; max-width: 78ch;">
-        Thinkwerke works with organisations that need security and compliance to work in software and product solutions —
-        not just in policy documents.
+      <p class="subkicker">Who Thinkwerke is for</p>
+      <h2>Best-fit organisations &amp; blockers we remove</h2>
+      <p class="muted" style="margin-top:8px; max-width: 92ch;">
+        Thinkwerke is engaged when security, compliance, and engineering create uncertainty, slow delivery, or block commercial progress —
+        and leadership needs clarity and execution that stands up to customers, auditors, and regulators.
       </p>
 
-      <div class="split" style="margin-top:12px;">
+      <div class="split" style="margin-top:14px;">
         <div class="card" style="background: rgba(233,238,252,.04); border-color: rgba(233,238,252,.10);">
-          <h3>Business stakeholders & engineering leaders</h3>
+          <h3>Regulated and core industries</h3>
           <p class="muted" style="margin-top:6px;">
-            CTOs, CISOs, SVPs, Directors and Engineering Leaders who must align <b>software product security</b>, delivery, and compliance with
-            <b>ISO 27001</b>, <b>NIS2</b>, <b>CRA</b> and <b>DORA</b> — plus customer and market security requirements.
+            Organisations operating under EU regulatory expectations where assurance and operational resilience are business-critical —
+            not just “security best practice”.
           </p>
         </div>
 
         <div class="card" style="background: rgba(233,238,252,.04); border-color: rgba(233,238,252,.10);">
-          <h3>Vendor-hosted platforms & auditability</h3>
+          <h3>Vendor-hosted platforms</h3>
           <p class="muted" style="margin-top:6px;">
-            Product and SaaS companies running on <b>vendor-provided hosting</b> (public cloud/managed services) that need
-            clear <b>shared responsibility</b>, strong security controls, and <b>audit-ready evidence</b>.
-          </p>
-        </div>
-
-        <div class="card" style="background: rgba(233,238,252,.04); border-color: rgba(233,238,252,.10);">
-          <h3>Audit, customer assurance & market entry</h3>
-          <p class="muted" style="margin-top:6px;">
-            Teams preparing for audits, customer security assessments, tenders, or regulated market entry — where
-            evidence must extend beyond documentation into <b>software product implementations</b> and <b>CI/CD</b>.
-          </p>
-        </div>
-
-        <div class="card" style="background: rgba(233,238,252,.04); border-color: rgba(233,238,252,.10);">
-          <h3>Scale-ups to mature organisations</h3>
-          <p class="muted" style="margin-top:6px;">
-            Organisations moving from ad-hoc security to a <b>repeatable</b>, <b>auditable</b> operating model —
-            without slowing engineering teams.
-          </p>
-        </div>
-      </div>
-
-      <div class="pill-row" style="margin-top:12px;">
-        <span class="pill">Software product security</span>
-        <span class="pill">Vendor hosting controls</span>
-        <span class="pill">Audit-ready evidence</span>
-        <span class="pill">ISO 27001 / NIS2 / CRA / DORA</span>
-        <span class="pill">CI/CD & DevSecOps</span>
-      </div>
-
-      <p class="muted" style="margin-top:12px; max-width: 90ch;">
-        <b>If your challenge sits at the intersection of regulation, software product & cloud security, vendor hosting responsibilities,
-        and engineering delivery — Thinkwerke is designed for you.</b>
-      </p>
-
-      <div class="pill-row" style="margin-top:12px;">
-        <button class="btn primary openWalkthrough" type="button" id="openWalkthrough2">Request a walkthrough</button>
-        <a class="btn" href="#services" data-tab="services">Explore services</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- 3) PROBLEMS WE FIX -->
-  <section id="problems" class="anchor">
-    <div class="card">
-      <p class="kicker">Problems we fix</p>
-      <h2>Business outcomes for regulated industries</h2>
-      <p class="muted" style="margin-top:8px; max-width: 90ch;">
-        Security and compliance become expensive when they create uncertainty, slow delivery, or block commercial progress.
-        Thinkwerke is engaged when organisations need clarity and execution — fast.
-        <b>We enable core industries to focus on marketing, sales, and business expansion</b> while we remove the compliance,
-        engineering, and regulatory blockers affecting business objectives.
-      </p>
-
-      <div class="split" style="margin-top:12px;">
-        <div class="card" style="background: rgba(233,238,252,.04); border-color: rgba(233,238,252,.10);">
-          <h3>Regulation vs engineering deadlock</h3>
-          <p class="muted" style="margin-top:6px;">
-            Policies exist, but delivery teams don’t know what “good” looks like in cloud and CI/CD.
-            We translate requirements (ISO 27001, NIS2, CRA, DORA, AI Act, GDPR) into practical controls and implementation patterns.
+            Product and SaaS organisations running on public cloud and managed services that must prove shared responsibility,
+            control effectiveness, and audit-ready evidence.
           </p>
         </div>
 
         <div class="card" style="background: rgba(233,238,252,.04); border-color: rgba(233,238,252,.10);">
           <h3>Revenue blocked by assurance</h3>
           <p class="muted" style="margin-top:6px;">
-            Enterprise deals slow down due to questionnaires, tenders, and security reviews.
-            We build a reusable evidence library and clear narratives so sales cycles become predictable.
+            Deals slowing down due to customer security questionnaires, tenders, audits, or procurement requirements —
+            where evidence and narrative must be reusable and defensible.
           </p>
         </div>
 
         <div class="card" style="background: rgba(233,238,252,.04); border-color: rgba(233,238,252,.10);">
-          <h3>Vendor-hosted accountability gaps</h3>
+          <h3>Regulation vs delivery deadlock</h3>
           <p class="muted" style="margin-top:6px;">
-            Running on vendor-provided hosting (public cloud / managed services) creates shared responsibility confusion.
-            We map controls to services and show how to prove your side with audit-ready evidence.
+            Requirements exist, but delivery teams don’t know what “good” looks like in real cloud and CI/CD.
+            Thinkwerke turns requirements into implementable controls and proof.
           </p>
         </div>
 
@@ -572,212 +409,159 @@
           <h3>Tools exist, operating model doesn’t</h3>
           <p class="muted" style="margin-top:6px;">
             SIEM/CSPM/scanners are deployed but ownership, workflow, and reporting are missing.
-            We build the operating model: detections, vulnerability lifecycle, governance, and dashboards.
+            Thinkwerke builds the operating model and decision-grade visibility.
           </p>
         </div>
 
         <div class="card" style="background: rgba(233,238,252,.04); border-color: rgba(233,238,252,.10);">
-          <h3>Security slows delivery</h3>
+          <h3>Supply-chain becoming a blocker</h3>
           <p class="muted" style="margin-top:6px;">
-            Controls feel heavy and get bypassed. We embed security into DevSecOps using automation and policy-as-code
-            so teams can ship faster without increasing risk.
-          </p>
-        </div>
-
-        <div class="card" style="background: rgba(233,238,252,.04); border-color: rgba(233,238,252,.10);">
-          <h3>Supply-chain & SBOM becomes a blocker</h3>
-          <p class="muted" style="margin-top:6px;">
-            CRA expectations (SBOM, OSS license governance, vulnerability handling) need traceable workflows.
-            We implement evidence-producing pipelines that stand up to audits and customer scrutiny.
+            SBOM, OSS licensing, vulnerability handling, and traceability becoming contractual or regulatory blockers.
+            Thinkwerke implements evidence-producing workflows that withstand scrutiny.
           </p>
         </div>
       </div>
 
-      <div class="pill-row" style="margin-top:12px;">
+      <div class="pill-row" style="margin-top:14px;">
         <span class="pill">Remove regulatory blockers</span>
         <span class="pill">Customer assurance acceleration</span>
-        <span class="pill">Vendor hosting controls</span>
+        <span class="pill">Vendor-hosted accountability</span>
         <span class="pill">Evidence by design</span>
-        <span class="pill">DevSecOps enablement</span>
+        <span class="pill">Decision-grade visibility</span>
       </div>
 
-      <div class="pill-row" style="margin-top:12px;">
+      <div class="pill-row" style="margin-top:14px;">
         <button class="btn primary openWalkthrough" type="button">Talk through your blockers</button>
-        <a class="btn" href="#engagement" data-tab="engagement">See engagement models</a>
+        <a class="btn" href="#deliver" data-tab="deliver">See what we deliver</a>
       </div>
     </div>
   </section>
 
-  <!-- 4) SOLUTIONS & USE CASES -->
-  <section id="solutions" class="anchor">
-    <p class="kicker">Solutions & Use Cases</p>
-    <h2>From regulation to engineering reality</h2>
-    <div class="grid3" style="margin-top:12px;">
-      <div class="card anchor" id="solutions-compliance">
-        <h3>Compliance readiness</h3>
-        <p class="muted">Translate ISO 27001, NIS2, CRA, DORA and GDPR into practical controls, workflows and evidence.</p>
-        <ul class="list">
-          <li>Control mapping to cloud, identity, logging and CI/CD</li>
-          <li>Evidence workflows built for audits and tenders</li>
-          <li>Clear separation: policy → implementation → proof</li>
-        </ul>
-      </div>
-      <div class="card anchor" id="solutions-cloud">
-        <h3>EU sovereign cloud & data resilience</h3>
-        <p class="muted">Architecture patterns aligned with sovereignty, residency expectations and regulated operations.</p>
-        <ul class="list">
-          <li>Multi-account AWS foundations</li>
-          <li>Identity governance and least privilege</li>
-          <li>Logging, monitoring and resilience by design</li>
-        </ul>
-      </div>
-      <div class="card anchor" id="solutions-sslm">
-        <h3>Secure software lifecycle (SSLM)</h3>
-        <p class="muted">Make compliance part of delivery: pipelines that produce audit-ready artefacts continuously.</p>
-        <ul class="list">
-          <li>SAST / DAST / IaC / container checks</li>
-          <li>SBOM + OSS license governance</li>
-          <li>Artifact integrity, attestation, policy-as-code</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- 5) SERVICES -->
-  <section id="services" class="anchor">
-    <p class="kicker">Services</p>
-    <h2>Architecture, engineering & delivery support</h2>
-
-    <div class="split" style="margin-top:12px;">
-      <div class="card anchor" id="services-iso">
-        <h3>ISO 27001 Programme</h3>
-        <p class="muted">
-          Gap assessment, SoA, internal audits, evidence workflows and technical control mapping — from readiness to certification.
-        </p>
-        <div class="pill-row"><span class="pill">ISO 27001:2022</span><span class="pill">ISMS</span><span class="pill">Audit-ready</span></div>
-      </div>
-
-      <div class="card anchor" id="services-nis2">
-        <h3>NIS2 & CRA Readiness</h3>
-        <p class="muted">
-          SSLM, vulnerability lifecycle, SBOM and OSS license governance, and continuous evidence models aligned to NIS2, CRA and SOC 2.
-        </p>
-        <div class="pill-row"><span class="pill">NIS2</span><span class="pill">CRA</span><span class="pill">SBOM</span></div>
-      </div>
-
-      <div class="card anchor" id="services-soc">
-        <h3>SOC & SIEM Modernisation</h3>
-        <p class="muted">
-          Cloud-centric SIEM architectures, MITRE-mapped detections, CSIRT processes, and dashboards for regulators, auditors and customers.
-        </p>
-        <div class="pill-row"><span class="pill">SIEM</span><span class="pill">SOC</span><span class="pill">Detection engineering</span></div>
-      </div>
-
-      <div class="card anchor" id="services-cnapp">
-        <h3>CSPM, ASPM & CNAPP</h3>
-        <p class="muted">
-          AWS multi-account foundations, CSPM-driven posture, and cloud-native protection aligned with EU data-sovereignty expectations.
-        </p>
-        <div class="pill-row"><span class="pill">CSPM</span><span class="pill">ASPM</span><span class="pill">CNAPP</span></div>
-      </div>
-
-      <div class="card anchor" id="services-devsecops">
-        <h3>DevSecOps & CI/CD Enablement</h3>
-        <p class="muted">
-          Secure pipelines, policy-as-code, artifact integrity, attestation and developer-friendly controls that keep delivery fast.
-        </p>
-        <div class="pill-row"><span class="pill">DevSecOps</span><span class="pill">CI/CD</span><span class="pill">SSLM</span></div>
-      </div>
-
-      <div class="card anchor" id="services-interim">
-        <h3>Interim Architecture & Capability Uplift</h3>
-        <p class="muted">
-          Acting as Security & Cloud Architect / DevSecOps lead while enabling your teams with skills, process and ownership.
-        </p>
-        <div class="pill-row"><span class="pill">Interim leadership</span><span class="pill">Skill uplift</span><span class="pill">Knowledge transfer</span></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 6) ENGAGEMENT MODELS -->
-  <section id="engagement" class="anchor">
+  <!-- 3) WHAT WE DELIVER (heading + subheading; keyword/block style) -->
+  <section id="deliver" class="anchor">
     <div class="card">
-      <p class="kicker">Engagement models</p>
-      <h2>Clear programs to hire Thinkwerke</h2>
-      <p class="muted" style="margin-top:8px; max-width: 90ch;">
-        Our engagements are designed to reduce ambiguity quickly and deliver outcomes that are defensible in audits,
-        customer workshops, and procurement processes.
+      <p class="kicker">What we deliver</p>
+      <h2>Solutions &amp; Services</h2>
+
+      <p class="muted" style="margin-top:8px; max-width: 92ch;">
+        Thinkwerke delivers outcomes through a small number of well-defined capability pillars:
       </p>
 
-      <div class="split" style="margin-top:12px;">
+      <div class="split" style="margin-top:14px;">
         <div class="card" style="background: rgba(233,238,252,.04); border-color: rgba(233,238,252,.10);">
-          <h3>1) Advisory & Architecture</h3>
-          <p class="muted" style="margin-top:6px;">Best when you need direction, control mapping, or a defensible plan.</p>
+          <h3>Compliance translated into execution</h3>
           <ul class="list">
-            <li>Regulatory + technical assessment (ISO 27001 / NIS2 / CRA / DORA / AI Act / GDPR)</li>
-            <li>Cloud security architecture (including vendor-hosted/shared responsibility)</li>
-            <li>Target state + implementation roadmap</li>
-            <li>Buyer-ready materials for customers, partners, and procurement</li>
+            <li>Mapping ISO 27001, NIS2, CRA, DORA, GDPR and customer requirements to real cloud and CI/CD controls</li>
+            <li>Clear separation of policy, implementation, and proof</li>
+            <li>Evidence workflows built for audits, tenders, and customer assurance</li>
           </ul>
         </div>
 
         <div class="card" style="background: rgba(233,238,252,.04); border-color: rgba(233,238,252,.10);">
-          <h3>2) Implementation & Enablement</h3>
-          <p class="muted" style="margin-top:6px;">Best when you need hands-on engineering execution, not just recommendations.</p>
+          <h3>Vendor-hosted accountability</h3>
           <ul class="list">
-            <li>SSLM pipelines: SAST/SCA/SBOM/DAST/IaC checks</li>
-            <li>Evidence-by-design: controls → implementation → proof</li>
-            <li>Vulnerability lifecycle: triage → SLA → workflow → evidence</li>
-            <li>Cloud foundations: identity, logging, monitoring, posture</li>
-            <li>Knowledge transfer so you keep ownership</li>
+            <li>Operationalising shared responsibility models for public cloud and managed services</li>
+            <li>Control mapping to cloud-native services, identity, logging, and monitoring</li>
+            <li>Defensible narratives and evidence showing what you own and how it’s proven</li>
           </ul>
         </div>
 
         <div class="card" style="background: rgba(233,238,252,.04); border-color: rgba(233,238,252,.10);">
-          <h3>3) Assurance Acceleration</h3>
-          <p class="muted" style="margin-top:6px;">Best when revenue is blocked by customer assurance requests or audits.</p>
+          <h3>Secure software delivery (SSLM)</h3>
           <ul class="list">
-            <li>Security questionnaire readiness packs</li>
-            <li>Reusable evidence library for tenders and assessments</li>
-            <li>Customer workshop narratives + demo flow</li>
-            <li>Audit preparation and internal audit support</li>
+            <li>Secure pipelines covering SAST, SCA/SBOM, DAST, IaC and container checks</li>
+            <li>Vulnerability lifecycle with ownership, SLAs, workflow, and traceability</li>
+            <li>Artifact integrity, attestation, and policy-as-code embedded into CI/CD</li>
           </ul>
         </div>
 
         <div class="card" style="background: rgba(233,238,252,.04); border-color: rgba(233,238,252,.10);">
-          <h3>4) Interim Architect / Embedded Leadership</h3>
-          <p class="muted" style="margin-top:6px;">Best when you need senior capability immediately.</p>
+          <h3>Security operating models</h3>
           <ul class="list">
-            <li>Stabilise risk posture while delivery continues</li>
-            <li>Build operating model, governance, and reporting</li>
-            <li>Coach teams and enable internal capability</li>
-            <li>Exit with knowledge transferred (no dependency)</li>
+            <li>Cloud-centric SOC and SIEM modernisation</li>
+            <li>CSPM / ASPM / CNAPP integrated into governance and reporting</li>
+            <li>Dashboards and metrics aligned to executives, auditors, and regulators</li>
           </ul>
         </div>
       </div>
 
-      <div class="pill-row" style="margin-top:12px;">
-        <span class="pill">Short diagnostic → roadmap</span>
-        <span class="pill">Hands-on build → evidence</span>
-        <span class="pill">Deal / audit acceleration</span>
-        <span class="pill">Interim leadership</span>
+      <p class="muted" style="margin-top:14px; max-width: 92ch;">
+        All delivery is designed to be auditable, repeatable, and owned by your teams — not dependent on long-term external presence.
+      </p>
+
+      <div class="pill-row" style="margin-top:14px;">
+        <button class="btn primary openWalkthrough" type="button">Discuss your use-case</button>
+        <a class="btn" href="#engagement" data-tab="engagement">See how we engage</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4) HOW WE ENGAGE (incl. reference demo) -->
+  <section id="engagement" class="anchor">
+    <div class="card">
+      <p class="kicker">How we engage</p>
+      <h2>Engagement models + reference demo</h2>
+
+      <p class="muted" style="margin-top:8px; max-width: 92ch;">
+        Thinkwerke engagements are structured to reduce ambiguity quickly and deliver defensible outcomes.
+      </p>
+
+      <div class="split" style="margin-top:14px;">
+        <div class="card" style="background: rgba(233,238,252,.04); border-color: rgba(233,238,252,.10);">
+          <h3>Advisory &amp; Architecture</h3>
+          <p class="muted" style="margin-top:6px;">
+            For organisations needing direction, control mapping, and a defensible target state.
+          </p>
+        </div>
+
+        <div class="card" style="background: rgba(233,238,252,.04); border-color: rgba(233,238,252,.10);">
+          <h3>Implementation &amp; Enablement</h3>
+          <p class="muted" style="margin-top:6px;">
+            Hands-on engineering to build pipelines, controls, workflows, and evidence — with knowledge transfer built in.
+          </p>
+        </div>
+
+        <div class="card" style="background: rgba(233,238,252,.04); border-color: rgba(233,238,252,.10);">
+          <h3>Assurance Acceleration</h3>
+          <p class="muted" style="margin-top:6px;">
+            Focused support when revenue or market entry is blocked by customer assurance, tenders, or audits.
+          </p>
+        </div>
+
+        <div class="card" style="background: rgba(233,238,252,.04); border-color: rgba(233,238,252,.10);">
+          <h3>Interim / Embedded Leadership</h3>
+          <p class="muted" style="margin-top:6px;">
+            Senior capability embedded short-term to stabilise posture, build operating models, and uplift teams.
+          </p>
+        </div>
       </div>
 
-      <div class="pill-row" style="margin-top:12px;">
-        <button class="btn primary openWalkthrough" type="button">Discuss an engagement</button>
+      <div class="card" style="margin-top:14px; background: rgba(233,238,252,.04); border-color: rgba(233,238,252,.10);">
+        <h3>Reference demo / PoC</h3>
+        <p class="muted" style="margin-top:6px;">
+          A working, end-to-end reference implementation showing how regulatory and customer expectations translate into:
+        </p>
+        <ul class="list">
+          <li>Secure CI/CD pipelines producing continuous evidence</li>
+          <li>Vulnerability and supply-chain workflows aligned to CRA</li>
+          <li>Cloud security foundations with clear accountability</li>
+          <li>Exportable artefacts suitable for audits and customer reviews</li>
+        </ul>
+      </div>
+
+      <div class="pill-row" style="margin-top:14px;">
+        <button class="btn primary openWalkthrough" type="button">Request a walkthrough</button>
         <a class="btn" href="#outcomes" data-tab="outcomes">See outcomes</a>
       </div>
     </div>
   </section>
 
-  <!-- 7) SECURITY & COMPLIANCE ENGINEERING (HERO MOVED DOWN) -->
-  <section id="home" class="hero anchor">
+  <!-- 5) SECURITY & COMPLIANCE ENGINEERING (hero content moved later, as requested) -->
+  <section id="demo" class="hero anchor">
     <div class="hero-grid">
       <div class="card">
-        <p class="kicker">Security & Compliance Engineering</p>
-        <!-- 1) make this smaller -->
-        <h2 class="hero-title">for EU-Regulated Business Domains</h2>
-
+        <p class="kicker">Security &amp; Compliance Engineering</p>
+        <h1>for EU-Regulated Sectors</h1>
         <p class="lead">
           Thinkwerke helps organisations turn regulations like ISO 27001, NIS2, CRA, DORA and GDPR into
           secure-by-design AWS architectures, automated pipelines, and continuous evidence for audits, tenders,
@@ -790,21 +574,21 @@
           <span class="pill">AWS Security Architecture</span>
           <span class="pill">DevSecOps & CI/CD</span>
         </div>
-        <div class="pill-row" style="margin-top:12px;">
-          <a class="btn primary" href="#demo" data-tab="demo">Request a demo</a>
+        <div class="pill-row" style="margin-top:14px;">
+          <button class="btn primary openWalkthrough" type="button">Request a walkthrough</button>
           <a class="btn" href="#docs" data-tab="docs">View open documentation</a>
         </div>
       </div>
 
       <div class="card">
-        <h3>Solutions Designed & Delivered</h3>
+        <h3>Solutions Designed &amp; Delivered</h3>
         <p class="muted" style="margin-top:8px;">
-          ON Information Security & Cloud Architecture focused on EU Kritis Business Domains
+          ON Information Security &amp; Cloud Architecture focused on EU Kritis Sectors
         </p>
-        <div style="margin-top:12px; padding-top:12px; border-top:1px solid var(--border);">
+        <div style="margin-top:14px; padding-top:14px; border-top:1px solid var(--border);">
           <p class="kicker">What we show in the demo</p>
           <ul class="list">
-            <li>SSLM pipeline: SAST, SCA/SBOM, DAST, IaC & container checks.</li>
+            <li>SSLM pipeline: SAST, SCA/SBOM, DAST, IaC &amp; container checks.</li>
             <li>Automated vulnerability handling: detection → SLA → Jira workflow → evidence.</li>
             <li>Supply-chain governance: SBOM and OSS license controls aligned to CRA.</li>
             <li>AWS security foundation: CSPM visibility, identity governance, secure CI/CD.</li>
@@ -814,119 +598,69 @@
     </div>
   </section>
 
-  <!-- 8) OUTCOMES -->
+  <!-- 6) OUTCOMES -->
   <section id="outcomes" class="anchor">
     <div class="card">
-      <p class="kicker">Outcomes, not activities</p>
+      <p class="kicker">Outcomes (business results only)</p>
       <h2>What changes after Thinkwerke</h2>
-      <p class="muted" style="margin-top:8px; max-width: 90ch;">
-        We are measured by what changes for the business — not by how many documents get produced.
-        The goal: <b>reduce compliance friction</b>, <b>remove regulatory blockers</b>, and <b>accelerate delivery and revenue</b>.
+
+      <p class="muted" style="margin-top:8px; max-width: 92ch;">
+        After Thinkwerke engagements, organisations typically achieve:
       </p>
 
-      <div class="grid3" style="margin-top:12px;">
+      <div class="split" style="margin-top:14px;">
         <div class="card" style="background: rgba(233,238,252,.04); border-color: rgba(233,238,252,.10);">
-          <h3>Faster enterprise sales cycles</h3>
-          <p class="muted" style="margin-top:6px;">
-            Customer assurance becomes predictable because evidence is structured, reusable, and mapped to real cloud implementations.
-          </p>
-        </div>
-        <div class="card" style="background: rgba(233,238,252,.04); border-color: rgba(233,238,252,.10);">
-          <h3>Audit readiness without chaos</h3>
-          <p class="muted" style="margin-top:6px;">
-            Shift from firefighting to a repeatable model: policy → controls → implementation → proof.
-          </p>
-        </div>
-        <div class="card" style="background: rgba(233,238,252,.04); border-color: rgba(233,238,252,.10);">
-          <h3>Clear vendor-hosting accountability</h3>
-          <p class="muted" style="margin-top:6px;">
-            Shared responsibility becomes operational: what you own, what your vendor provides, and how you prove both.
-          </p>
-        </div>
-      </div>
-
-      <div class="split" style="margin-top:12px;">
-        <div class="card" style="background: rgba(233,238,252,.04); border-color: rgba(233,238,252,.10);">
-          <h3>Security that supports engineering speed</h3>
-          <p class="muted" style="margin-top:6px;">
-            Controls embedded into DevSecOps so teams ship faster with fewer escalations and less manual gating.
-          </p>
-          <ul class="list">
-            <li>SSLM pipelines producing continuous evidence</li>
-            <li>Policy-as-code + developer-friendly controls</li>
-            <li>Traceable approvals and artefacts for audits</li>
+          <ul class="list" style="margin-top:0;">
+            <li>Faster and more predictable enterprise sales and tender cycles</li>
+            <li>Audit readiness without last-minute firefighting</li>
+            <li>Clear, defensible shared responsibility in vendor-hosted environments</li>
           </ul>
         </div>
 
         <div class="card" style="background: rgba(233,238,252,.04); border-color: rgba(233,238,252,.10);">
-          <h3>Business focus for core industries</h3>
-          <p class="muted" style="margin-top:6px;">
-            Your teams focus on marketing, sales, and business expansion while Thinkwerke removes the blockers affecting business objectives.
-          </p>
-          <ul class="list">
-            <li>Reduced time spent on questionnaires and tenders</li>
-            <li>Fewer “security as a blocker” escalations</li>
-            <li>Higher confidence in audits and customer reviews</li>
+          <ul class="list" style="margin-top:0;">
+            <li>Reduced internal friction between security, engineering, and leadership</li>
+            <li>Security controls that support — not slow — delivery</li>
+            <li>Reusable evidence that scales across audits, customers, and regulators</li>
           </ul>
         </div>
       </div>
 
-      <div class="pill-row" style="margin-top:12px;">
-        <span class="pill">Less friction</span>
-        <span class="pill">More confidence</span>
-        <span class="pill">Clear accountability</span>
-        <span class="pill">Reusable evidence</span>
-        <span class="pill">Faster delivery</span>
-      </div>
+      <p class="muted" style="margin-top:14px; max-width: 92ch;">
+        In short: less uncertainty, fewer blockers, and higher confidence at executive level.
+      </p>
 
-      <div class="pill-row" style="margin-top:12px;">
+      <div class="pill-row" style="margin-top:14px;">
         <button class="btn primary openWalkthrough" type="button">Request a walkthrough</button>
-        <a class="btn" href="#demo" data-tab="demo">See demo / PoC</a>
+        <a class="btn" href="#docs" data-tab="docs">Open docs</a>
       </div>
     </div>
   </section>
 
-  <!-- 9) DEMO -->
-  <section id="demo" class="anchor">
-    <div class="card">
-      <p class="kicker">Demo / PoC</p>
-      <h2>End-to-end reference workflow</h2>
-      <p class="muted">
-        A working PoC showing how expectations from ENISA-style thinking, ISO 27001, NIS2 and CRA can be turned into
-        concrete AWS-based security architecture and automated workflows — producing exportable, audit-ready artefacts.
-      </p>
-      <p class="muted">
-        Covers SSLM, vulnerability management, SBOM & OSS license governance, CSPM-driven cloud visibility and secure CI/CD.
-      </p>
-      <div class="pill-row" style="margin-top:12px;">
-        <button class="btn primary openWalkthrough" type="button">Request a walkthrough</button>
-        <a class="btn" href="#services" data-tab="services">Explore services</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- 10) DOCS -->
+  <!-- 7) DOCS -->
   <section id="docs" class="anchor">
     <div class="card">
       <p class="kicker">Docs</p>
-      <h2>Documentation & whitepapers</h2>
-      <p class="muted">
-        Full technical and conceptual documentation is openly available.
+      <h2>Documentation &amp; whitepapers</h2>
+      <p class="muted" style="margin-top:8px; max-width: 92ch;">
+        Thinkwerke maintains open technical and conceptual documentation covering architectures, workflows, and reference models used in engagements.
+        These materials are designed to support internal alignment, customer discussions, and procurement processes.
       </p>
-      <div class="pill-row" style="margin-top:12px;">
+      <div class="pill-row" style="margin-top:14px;">
         <a class="btn primary" href="https://docs.thinkwerke.com" target="_blank" rel="noreferrer">Open docs</a>
+        <a class="btn" href="#contact" data-tab="contact">Contact</a>
       </div>
     </div>
   </section>
 
-  <!-- CONTACT (kept at end) -->
+  <!-- CONTACT -->
   <section id="contact" class="anchor">
     <div class="card">
       <p class="kicker">Contact</p>
       <h2>Let’s explore your use-case</h2>
-      <p class="muted">
-        If you would like to explore a project, PoC or advisory engagement, reach out via email or LinkedIn with a short note on your use-case
-        (e.g. NIS2 readiness, ISO 27001, cloud transformation, tender preparation).
+      <p class="muted" style="margin-top:8px; max-width: 92ch;">
+        If you would like to explore a project, advisory engagement, or reference walkthrough, reach out with a short description of your context —
+        for example market entry, regulatory readiness, vendor-hosted accountability, or assurance challenges.
       </p>
       <div class="split" style="margin-top:10px;">
         <div class="card" style="background: rgba(233,238,252,.04); border-color: rgba(233,238,252,.10);">
@@ -960,6 +694,7 @@
 <script>
   // --- Dropdown mega-menu behavior (desktop) ---
   const navItems = document.querySelectorAll('.nav-item[data-menu]');
+  const panels = document.querySelectorAll('.panel');
 
   function closeAllMenus() {
     navItems.forEach(item => {
@@ -1039,11 +774,8 @@
     scrollToHash('#contact');
   }
 
-  const openWalkthrough2 = document.getElementById('openWalkthrough2');
-  if (openWalkthrough2) openWalkthrough2.addEventListener('click', goToContact);
-
   document.querySelectorAll('.openWalkthrough').forEach(btn => {
-    if (btn !== openWalkthrough2) btn.addEventListener('click', goToContact);
+    btn.addEventListener('click', goToContact);
   });
 </script>
 </body>
