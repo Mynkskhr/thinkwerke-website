@@ -19,7 +19,9 @@
       --radius2: 22px;
       --max: 1120px;
       --focus: 0 0 0 3px rgba(233,238,252,.16);
-      --section-pad: 28px;
+
+      /* tighter spacing (reduced further) */
+      --section-pad: 20px;
     }
 
     *{box-sizing:border-box}
@@ -161,19 +163,18 @@
     }
     .mobile-drawer a:last-child{border-bottom:none}
 
-    main{padding: 18px 0 54px;}
+    /* tighter vertical rhythm */
+    main{padding: 12px 0 40px;}
     section{padding: var(--section-pad) 0;}
-    .hero{padding-top: 10px;}
+    .hero{padding-top: 6px;}
 
     .hero-grid{
       display:grid;
-      grid-template-columns: 1.15fr .85fr;
-      gap:18px;
+      grid-template-columns: 1fr;
+      gap:14px;
       align-items:start;
     }
-    @media (max-width: 980px){
-      .hero-grid{grid-template-columns: 1fr;}
-    }
+
     .card{
       background: rgba(15,22,35,.65);
       border: 1px solid var(--border);
@@ -188,15 +189,9 @@
       letter-spacing:-.4px;
       line-height:1.05;
     }
-    .hero-title{
-      margin:0 0 10px;
-      font-size: 26px;
-      letter-spacing:-.2px;
-      line-height:1.15;
-    }
 
     .lead{color: var(--muted); font-size: 15.5px; margin: 0 0 14px;}
-    .pill-row{display:flex; flex-wrap:wrap; gap:10px; margin-top:12px;}
+    .pill-row{display:flex; flex-wrap:wrap; gap:10px; margin-top:10px;}
     .pill{
       font-size:12.5px;
       color: var(--text);
@@ -224,7 +219,7 @@
     @media (max-width: 980px){ .grid3{grid-template-columns:1fr;} }
     .foot{
       border-top:1px solid var(--border);
-      padding: 18px 0;
+      padding: 16px 0;
       color: var(--muted);
     }
     .foot a{color: var(--text)}
@@ -245,7 +240,6 @@
       </a>
 
       <nav aria-label="Primary">
-        <!-- TOP BAR: SERVICES -->
         <div class="nav-item" data-menu="servicesTop">
           <button class="nav-link" type="button" aria-haspopup="true" aria-expanded="false">
             Services <span class="chev">▾</span>
@@ -383,7 +377,6 @@
         withstand scrutiny.
       </p>
 
-      <!-- Credentials now as its own complete card block under focus -->
       <div class="card" style="margin-top:14px; background: rgba(233,238,252,.04); border-color: rgba(233,238,252,.10);">
         <p class="kicker">Credentials</p>
         <p class="muted" style="margin-top:6px; max-width: 95ch;">
@@ -597,7 +590,6 @@
       <p class="kicker">How we engage</p>
       <h2>Engagement programs & reference demo</h2>
 
-      <!-- Trusted Advisor: full-width expanded block -->
       <div class="card" style="margin-top:12px; background: rgba(233,238,252,.04); border-color: rgba(233,238,252,.10);">
         <h3>Trusted Advisor to Leadership</h3>
         <p class="muted" style="margin-top:6px;">
@@ -612,10 +604,9 @@
         </ul>
       </div>
 
-      <!-- 1 + 2 side-by-side -->
       <div class="split" style="margin-top:12px;">
         <div class="card" style="background: rgba(233,238,252,.04); border-color: rgba(233,238,252,.10);">
-          <h3>1) Architecture & Project Development</h3>
+          <h3>1) Architecture & Project Delivery</h3>
           <p class="muted" style="margin-top:6px;">Best when you need direction, control mapping, or a defensible plan.</p>
           <ul class="list">
             <li>Regulatory + technical assessment (ISO 27001 / NIS2 / CRA / DORA / AI Act / GDPR)</li>
@@ -638,7 +629,6 @@
         </div>
       </div>
 
-      <!-- 3 + 4 side-by-side -->
       <div class="split" style="margin-top:12px;">
         <div class="card" style="background: rgba(233,238,252,.04); border-color: rgba(233,238,252,.10);">
           <h3>3) Interim Architect / Embedded Leadership</h3>
@@ -663,7 +653,6 @@
         </div>
       </div>
 
-      <!-- PoC/Demo: full-width expanded block at bottom -->
       <div class="card" style="margin-top:12px; background: rgba(233,238,252,.04); border-color: rgba(233,238,252,.10);">
         <h3>Reference demo / PoC</h3>
         <p class="muted" style="margin-top:6px;">
@@ -684,16 +673,18 @@
     </div>
   </section>
 
-  <!-- HERO / USE CASES DELIVERED (no "Security & Compliance Engineering") -->
+  <!-- USE CASES DELIVERED (expanded to full-width; removed the “for EU-Regulated Business Domains” line entirely) -->
   <section id="home" class="hero anchor">
     <div class="hero-grid">
       <div class="card">
-        <h2 class="hero-title">for EU-Regulated Business Domains</h2>
+        <h2>Use cases & solutions delivered</h2>
+        <p class="muted" style="margin-top:6px;">
+          ON Information Security & Cloud Architecture focused on EU Kritis Business Domains
+        </p>
 
-        <p class="lead">
-          Thinkwerke helps organisations turn regulations like ISO 27001, NIS2, CRA, DORA and GDPR into
-          secure-by-design AWS architectures, automated pipelines, and continuous evidence for audits, tenders,
-          and customer assessments.
+        <p class="lead" style="margin-top:12px;">
+          Thinkwerke helps organisations turn regulations like ISO 27001, NIS2, CRA, DORA and GDPR into secure-by-design AWS architectures,
+          automated pipelines, and continuous evidence for audits, tenders, and customer assessments.
         </p>
 
         <div class="pill-row" aria-label="Key focus areas">
@@ -704,18 +695,6 @@
           <span class="pill">DevSecOps & CI/CD</span>
         </div>
 
-        <div class="pill-row" style="margin-top:12px;">
-          <a class="btn primary" href="#engagement" data-tab="engagement">Request a walkthrough</a>
-          <a class="btn" href="#docs" data-tab="docs">Open docs</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <h3>Use cases & solutions delivered</h3>
-        <p class="muted" style="margin-top:8px;">
-          ON Information Security & Cloud Architecture focused on EU Kritis Business Domains
-        </p>
-
         <div style="margin-top:12px; padding-top:12px; border-top:1px solid var(--border);">
           <p class="kicker">What we show in the demo</p>
           <ul class="list">
@@ -724,6 +703,11 @@
             <li>Supply-chain governance: SBOM and OSS license controls aligned to CRA — delivered for NIS2 & ISO 27001</li>
             <li>AWS security foundation: CSPM visibility, identity governance, secure CI/CD — integrated into delivery pipelines</li>
           </ul>
+        </div>
+
+        <div class="pill-row" style="margin-top:12px;">
+          <a class="btn primary" href="#engagement" data-tab="engagement">Request a walkthrough</a>
+          <a class="btn" href="#docs" data-tab="docs">Open docs</a>
         </div>
       </div>
     </div>
