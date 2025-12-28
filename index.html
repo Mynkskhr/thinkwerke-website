@@ -19,8 +19,6 @@
       --radius2: 22px;
       --max: 1120px;
       --focus: 0 0 0 3px rgba(233,238,252,.16);
-
-      /* tighter spacing */
       --section-pad: 28px;
     }
 
@@ -247,7 +245,7 @@
       </a>
 
       <nav aria-label="Primary">
-        <!-- TOP BAR: SERVICES (replaces Solutions & Use Cases) -->
+        <!-- TOP BAR: SERVICES -->
         <div class="nav-item" data-menu="servicesTop">
           <button class="nav-link" type="button" aria-haspopup="true" aria-expanded="false">
             Services <span class="chev">▾</span>
@@ -255,7 +253,6 @@
 
           <div class="panel" role="dialog" aria-label="Services">
             <div class="panel-grid">
-              <!-- Left: Core Services (links to Core Services section) -->
               <div class="panel-col">
                 <h4>Core services</h4>
                 <div class="menu-list">
@@ -286,7 +283,6 @@
                 </div>
               </div>
 
-              <!-- Right: Quick links (separate, appropriate place) -->
               <div class="panel-col">
                 <h4>Quick links</h4>
                 <div class="menu-list">
@@ -329,7 +325,6 @@
           </div>
         </div>
 
-        <!-- About + Contact -->
         <a class="nav-link" href="#about" data-tab="about">About</a>
         <a class="nav-link" href="#contact" data-tab="contact">Contact</a>
       </nav>
@@ -366,7 +361,7 @@
 
 <main class="container">
 
-  <!-- ABOUT (unchanged) -->
+  <!-- ABOUT -->
   <section id="about" class="anchor">
     <div class="card">
       <p class="kicker">About Thinkwerke</p>
@@ -388,9 +383,15 @@
         withstand scrutiny.
       </p>
 
-      <div style="margin-top:14px; padding-top:14px; border-top:1px solid var(--border);">
+      <!-- Credentials now as its own complete card block under focus -->
+      <div class="card" style="margin-top:14px; background: rgba(233,238,252,.04); border-color: rgba(233,238,252,.10);">
         <p class="kicker">Credentials</p>
-        <h3>Professional certifications</h3>
+        <p class="muted" style="margin-top:6px; max-width: 95ch;">
+          Thinkwerke Architects and Engineers hold following credentials which showcases there depth and expertise in Solutions and Security Architecture
+          with deep understanding for transforming Business objectives into implementable technical outputs and empower businesses
+        </p>
+
+        <h3 style="margin-top:12px;">Professional certifications</h3>
         <ul class="list">
           <li>CompTIA SecurityX Architect</li>
           <li>AWS Solutions Architect – Professional</li>
@@ -416,7 +417,7 @@
     </div>
   </section>
 
-  <!-- WHO (unchanged from previous output) -->
+  <!-- WHO -->
   <section id="who" class="anchor">
     <div class="card">
       <p class="kicker">Who Thinkwerke is for</p>
@@ -492,7 +493,7 @@
     </div>
   </section>
 
-  <!-- WHAT WE DELIVER (unchanged structure) -->
+  <!-- WHAT WE DELIVER -->
   <section id="deliver" class="anchor">
     <div class="card">
       <p class="kicker">What we deliver</p>
@@ -590,21 +591,29 @@
     </div>
   </section>
 
-  <!-- HOW WE ENGAGE (unchanged) -->
+  <!-- HOW WE ENGAGE -->
   <section id="engagement" class="anchor">
     <div class="card">
       <p class="kicker">How we engage</p>
       <h2>Engagement programs & reference demo</h2>
 
-      <div class="split" style="margin-top:12px;">
-        <div class="card" style="background: rgba(233,238,252,.04); border-color: rgba(233,238,252,.10);">
-          <h3>Trusted Advisor to Leadership</h3>
-          <p class="muted" style="margin-top:6px;">
-            Thinkwerke acts as a trusted advisor to C-level and senior leadership, translating regulatory, security, and technical complexity
-            into clear decisions, defensible positions, and confident execution.
-          </p>
-        </div>
+      <!-- Trusted Advisor: full-width expanded block -->
+      <div class="card" style="margin-top:12px; background: rgba(233,238,252,.04); border-color: rgba(233,238,252,.10);">
+        <h3>Trusted Advisor to Leadership</h3>
+        <p class="muted" style="margin-top:6px;">
+          Thinkwerke acts as a trusted advisor to C-level and senior leadership, translating regulatory, security, and technical complexity
+          into clear decisions, defensible positions, and confident execution.
+        </p>
+        <ul class="list">
+          <li>Translate regulatory and customer expectations into decision-ready options and clear ownership.</li>
+          <li>Define defensible positions for auditors, regulators, customers, and procurement stakeholders.</li>
+          <li>Align business objectives to implementable technical outputs across cloud, CI/CD, and product portfolios.</li>
+          <li>Reduce ambiguity early so delivery teams can execute without rework or last-minute escalation.</li>
+        </ul>
+      </div>
 
+      <!-- 1 + 2 side-by-side -->
+      <div class="split" style="margin-top:12px;">
         <div class="card" style="background: rgba(233,238,252,.04); border-color: rgba(233,238,252,.10);">
           <h3>1) Advisory & Architecture</h3>
           <p class="muted" style="margin-top:6px;">Best when you need direction, control mapping, or a defensible plan.</p>
@@ -627,7 +636,10 @@
             <li>Knowledge transfer so you keep ownership</li>
           </ul>
         </div>
+      </div>
 
+      <!-- 3 + 4 side-by-side -->
+      <div class="split" style="margin-top:12px;">
         <div class="card" style="background: rgba(233,238,252,.04); border-color: rgba(233,238,252,.10);">
           <h3>3) Interim Architect / Embedded Leadership</h3>
           <p class="muted" style="margin-top:6px;">Best when you need senior capability immediately.</p>
@@ -649,29 +661,30 @@
             <li>Audit preparation and internal audit support</li>
           </ul>
         </div>
-
-        <div class="card" style="background: rgba(233,238,252,.04); border-color: rgba(233,238,252,.10);">
-          <h3>Reference demo / PoC</h3>
-          <p class="muted" style="margin-top:6px;">
-            A working, end-to-end reference implementation showing how regulatory and customer expectations translate into:
-          </p>
-          <ul class="list">
-            <li>Secure CI/CD pipelines producing continuous evidence</li>
-            <li>Vulnerability and supply-chain workflows aligned to CRA</li>
-            <li>Cloud security foundations with clear accountability</li>
-            <li>Exportable artefacts suitable for audits and customer reviews</li>
-          </ul>
-        </div>
       </div>
 
-      <div class="pill-row" style="margin-top:12px;">
-        <button class="btn primary openWalkthrough" type="button">Request a walkthrough</button>
-        <a class="btn" href="#contact" data-tab="contact">Talk to us</a>
+      <!-- PoC/Demo: full-width expanded block at bottom -->
+      <div class="card" style="margin-top:12px; background: rgba(233,238,252,.04); border-color: rgba(233,238,252,.10);">
+        <h3>Reference demo / PoC</h3>
+        <p class="muted" style="margin-top:6px;">
+          A working, end-to-end reference implementation showing how regulatory and customer expectations translate into:
+        </p>
+        <ul class="list">
+          <li>Secure CI/CD pipelines producing continuous evidence</li>
+          <li>Vulnerability and supply-chain workflows aligned to CRA</li>
+          <li>Cloud security foundations with clear accountability</li>
+          <li>Exportable artefacts suitable for audits and customer reviews</li>
+        </ul>
+
+        <div class="pill-row" style="margin-top:12px;">
+          <button class="btn primary openWalkthrough" type="button">Request a walkthrough</button>
+          <a class="btn" href="#contact" data-tab="contact">Talk to us</a>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- HERO / USE CASES DELIVERED (REMOVED "Security & Compliance Engineering" kicker completely) -->
+  <!-- HERO / USE CASES DELIVERED (no "Security & Compliance Engineering") -->
   <section id="home" class="hero anchor">
     <div class="hero-grid">
       <div class="card">
