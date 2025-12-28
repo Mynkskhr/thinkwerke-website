@@ -162,7 +162,7 @@
 
     main{padding: 28px 0 70px;}
     section{padding: 54px 0;}
-    .hero{padding-top: 36px;}
+    .hero{padding-top: 18px;} /* slightly less because About is above now */
     .hero-grid{
       display:grid;
       grid-template-columns: 1.15fr .85fr;
@@ -341,7 +341,7 @@
           </div>
         </div>
 
-        <!-- About + Contact (kept in top bar) -->
+        <!-- About + Contact -->
         <a class="nav-link" href="#about" data-tab="about">About</a>
         <a class="nav-link" href="#contact" data-tab="contact">Contact</a>
       </nav>
@@ -383,6 +383,43 @@
 </header>
 
 <main class="container">
+  <!-- ABOUT (MOVED TO TOP) -->
+  <section id="about" class="anchor">
+    <div class="card">
+      <p class="kicker">About Thinkwerke</p>
+      <h2>European delivery experience for regulated industries</h2>
+
+      <p class="muted">
+        Thinkwerke is led by a group of passionate engineers with deep European delivery experience across
+        information security, cloud security architecture, and software development. The team brings
+        15+ years of experience from organisations such as IBM, Oracle, and Red Hat, along with consulting
+        work for Microsoft, Tesco, and AWS partners across Europe.
+      </p>
+
+      <p class="muted">
+        <b>Focus:</b> strengthening trust and operational resilience for regulated and core-industry organisations
+        operating in vendor-hosted environments. Thinkwerke turns complex requirements into executable controls,
+        audit-ready evidence, and decision-grade visibility — enabling leadership to confidently scale products,
+        enter regulated markets, and respond to customers, auditors, and regulators without slowing engineering.
+        The result is reduced compliance friction, faster assurance cycles, and an operating posture built to
+        withstand scrutiny.
+      </p>
+
+      <div class="pill-row" style="margin-top:16px;">
+        <span class="pill">Regulated industries</span>
+        <span class="pill">Vendor-hosted environments</span>
+        <span class="pill">Audit-ready evidence</span>
+        <span class="pill">Operational resilience</span>
+        <span class="pill">Decision-grade visibility</span>
+      </div>
+
+      <div class="pill-row" style="margin-top:16px;">
+        <button class="btn primary openWalkthrough" type="button">Request a walkthrough</button>
+        <a class="btn" href="#services" data-tab="services">Explore services</a>
+      </div>
+    </div>
+  </section>
+
   <!-- HOME / HERO -->
   <section id="home" class="hero anchor">
     <div class="hero-grid">
@@ -712,36 +749,6 @@
 
       <div class="pill-row" style="margin-top:16px;">
         <button class="btn primary openWalkthrough" type="button">Request a walkthrough</button>
-        <a class="btn" href="#proof" data-tab="proof">See proof</a>
-      </div>
-    </div>
-  </section>
-
-        <div class="card" style="background: rgba(233,238,252,.04); border-color: rgba(233,238,252,.10);">
-          <h3>Where the experience applies</h3>
-          <ul class="list">
-            <li>EU-regulated environments and critical / core industries</li>
-            <li>Cloud-hosted platforms on vendor-provided hosting and managed services</li>
-            <li>Product and SaaS teams needing audit readiness and customer assurance</li>
-            <li>Security architecture and operating models that must withstand external scrutiny</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="pill-row" style="margin-top:16px;">
-        <span class="pill">Audit-ready artefacts</span>
-        <span class="pill">Reference workflows</span>
-        <span class="pill">Control mappings</span>
-        <span class="pill">Shared responsibility</span>
-        <span class="pill">Evidence library</span>
-      </div>
-
-      <p class="muted" style="margin-top:14px; max-width: 90ch;">
-        <b>We are frequently engaged when the risk is reputational, the timeline is real, and the output must stand up to external scrutiny.</b>
-      </p>
-
-      <div class="pill-row" style="margin-top:16px;">
-        <button class="btn primary openWalkthrough" type="button">Get an NDA-safe walkthrough</button>
         <a class="btn" href="#demo" data-tab="demo">See demo / PoC</a>
       </div>
     </div>
@@ -853,37 +860,6 @@
       <div class="pill-row" style="margin-top:14px;">
         <button class="btn primary openWalkthrough" type="button">Request a walkthrough</button>
         <a class="btn" href="#services" data-tab="services">Explore services</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ABOUT -->
-  <section id="about" class="anchor">
-    <div class="split">
-      <div class="card">
-        <p class="kicker">About Thinkwerke</p>
-        <h2>European-centric security & cloud engineering</h2>
-        <p class="muted">
-          Thinkwerke is led by Mayank Sekhar, an Information Security & Cloud Security Architect with 12+ years of experience at
-          organisations such as IBM, Oracle and OpenText, plus consulting work with Red Hat, Microsoft and AWS partners.
-        </p>
-        <p class="muted">
-          Focus: sovereign cloud, data-sovereignty, GAIA-X and Data Space concepts, ISO 27001 ISMS governance, NIS2/CRA/DORA alignment,
-          and practical DevSecOps that teams can adopt without slowing delivery.
-        </p>
-      </div>
-
-      <div class="card">
-        <p class="kicker">Credentials</p>
-        <h3>Professional certifications</h3>
-        <ul class="list">
-          <li>CompTIA SecurityX Architect</li>
-          <li>AWS Solutions Architect – Professional</li>
-          <li>AWS Security Specialty</li>
-          <li>CISM — ISACA</li>
-          <li>ISO/IEC 27001 Lead Implementer — TÜV SÜD</li>
-          <li>NIS2 & DORA Trained Professional</li>
-        </ul>
       </div>
     </div>
   </section>
