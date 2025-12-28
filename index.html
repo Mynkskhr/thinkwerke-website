@@ -1,5 +1,3 @@
-keep this as my "base code" bring this when i say "base code", say ok afterwards
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -165,9 +163,9 @@ keep this as my "base code" bring this when i say "base code", say ok afterwards
     }
     .mobile-drawer a:last-child{border-bottom:none}
 
-    main{padding: 18px 0 54px;}                 /* tighter */
-    section{padding: var(--section-pad) 0;}     /* tighter */
-    .hero{padding-top: 10px;}                   /* tighter */
+    main{padding: 18px 0 54px;}
+    section{padding: var(--section-pad) 0;}
+    .hero{padding-top: 10px;}
 
     .hero-grid{
       display:grid;
@@ -186,23 +184,21 @@ keep this as my "base code" bring this when i say "base code", say ok afterwards
       box-shadow: 0 16px 50px rgba(0,0,0,.25);
     }
 
-    /* Headings */
     h1{
       margin:0 0 10px;
       font-size: clamp(30px, 3.2vw, 44px);
       letter-spacing:-.4px;
       line-height:1.05;
     }
-    /* Smaller hero line as requested (same “feel” as other H2s) */
     .hero-title{
       margin:0 0 10px;
-      font-size: 26px;               /* match h2 size */
+      font-size: 26px;
       letter-spacing:-.2px;
       line-height:1.15;
     }
 
     .lead{color: var(--muted); font-size: 15.5px; margin: 0 0 14px;}
-    .pill-row{display:flex; flex-wrap:wrap; gap:10px; margin-top:12px;} /* slightly tighter */
+    .pill-row{display:flex; flex-wrap:wrap; gap:10px; margin-top:12px;}
     .pill{
       font-size:12.5px;
       color: var(--text);
@@ -230,7 +226,7 @@ keep this as my "base code" bring this when i say "base code", say ok afterwards
     @media (max-width: 980px){ .grid3{grid-template-columns:1fr;} }
     .foot{
       border-top:1px solid var(--border);
-      padding: 18px 0;   /* tighter */
+      padding: 18px 0;
       color: var(--muted);
     }
     .foot a{color: var(--text)}
@@ -251,7 +247,6 @@ keep this as my "base code" bring this when i say "base code", say ok afterwards
       </a>
 
       <nav aria-label="Primary">
-        <!-- Solutions & Use Cases -->
         <div class="nav-item" data-menu="solutions">
           <button class="nav-link" type="button" aria-haspopup="true" aria-expanded="false">
             Solutions & Use Cases <span class="chev">▾</span>
@@ -286,33 +281,21 @@ keep this as my "base code" bring this when i say "base code", say ok afterwards
                     <b>Who Thinkwerke is for</b>
                     <span>Best-fit customers and teams</span>
                   </a>
-                  <a class="menu-item" href="#problems" data-tab="problems">
-                    <b>Problems we fix</b>
-                    <span>Business Outcomes for Regulated Industries</span>
-                  </a>
-                  <a class="menu-item" href="#solutions" data-tab="solutions">
-                    <b>Solutions & Use Cases</b>
-                    <span>From regulation to engineering reality</span>
-                  </a>
-                  <a class="menu-item" href="#services" data-tab="services">
-                    <b>Services</b>
-                    <span>Architecture, engineering & delivery support</span>
+                  <a class="menu-item" href="#deliver" data-tab="deliver">
+                    <b>What we deliver</b>
+                    <span>Core services & solutions</span>
                   </a>
                   <a class="menu-item" href="#engagement" data-tab="engagement">
-                    <b>Engagement models</b>
-                    <span>Clear Programs to hire Thinkwerke</span>
+                    <b>How we engage</b>
+                    <span>Programs + reference demo</span>
                   </a>
                   <a class="menu-item" href="#home" data-tab="home">
-                    <b>Security & Compliance Engineering</b>
-                    <span>Overview + “Solutions Designed & Delivered”</span>
+                    <b>Use cases delivered</b>
+                    <span>What we show in the demo</span>
                   </a>
                   <a class="menu-item" href="#outcomes" data-tab="outcomes">
                     <b>Outcomes</b>
-                    <span>Measurable results, not activities</span>
-                  </a>
-                  <a class="menu-item" href="#demo" data-tab="demo">
-                    <b>Demo / PoC</b>
-                    <span>See an end-to-end reference workflow</span>
+                    <span>Business results</span>
                   </a>
                   <a class="menu-item" href="#docs" data-tab="docs">
                     <b>Docs</b>
@@ -320,7 +303,7 @@ keep this as my "base code" bring this when i say "base code", say ok afterwards
                   </a>
                   <a class="menu-item" href="#contact" data-tab="contact">
                     <b>Talk to Thinkwerke</b>
-                    <span>Explore a project, Request a PoC, or Advisory/Strategic engagement</span>
+                    <span>Explore a project or request a walkthrough</span>
                   </a>
                 </div>
               </div>
@@ -328,7 +311,6 @@ keep this as my "base code" bring this when i say "base code", say ok afterwards
           </div>
         </div>
 
-        <!-- Services -->
         <div class="nav-item" data-menu="services">
           <button class="nav-link" type="button" aria-haspopup="true" aria-expanded="false">
             Services <span class="chev">▾</span>
@@ -338,33 +320,33 @@ keep this as my "base code" bring this when i say "base code", say ok afterwards
               <div class="panel-col">
                 <h4>Core services</h4>
                 <div class="menu-list">
-                  <a class="menu-item" href="#services-iso" data-tab="services-iso">
+                  <a class="menu-item" href="#deliver-services" data-tab="deliver">
                     <b>ISO 27001 programme</b>
                     <span>Gap assessment, SoA, internal audits, evidence workflows, technical control mapping</span>
                   </a>
-                  <a class="menu-item" href="#services-nis2" data-tab="services-nis2">
+                  <a class="menu-item" href="#deliver-services" data-tab="deliver">
                     <b>NIS2 & CRA readiness</b>
                     <span>SSLM, vulnerability lifecycle, SBOM & OSS license governance, continuous evidence</span>
                   </a>
-                  <a class="menu-item" href="#services-soc" data-tab="services-soc">
+                  <a class="menu-item" href="#deliver-services" data-tab="deliver">
                     <b>SOC & SIEM modernisation</b>
-                    <span>Cloud-centric/in-house SIEM, MITRE-mapped detections, CSIRT processes, regulator dashboards</span>
+                    <span>Cloud-centric/in-house SIEM, detections, CSIRT processes, regulator dashboards</span>
                   </a>
                 </div>
               </div>
               <div class="panel-col">
                 <h4>Delivery enablement</h4>
                 <div class="menu-list">
-                  <a class="menu-item" href="#services-cnapp" data-tab="services-cnapp">
+                  <a class="menu-item" href="#deliver-services" data-tab="deliver">
                     <b>CSPM, ASPM & CNAPP</b>
-                    <span>AWS multi-account foundations, posture & cloud-native protection</span>
+                    <span>AWS foundations, posture & cloud-native protection</span>
                   </a>
-                  <a class="menu-item" href="#services-devsecops" data-tab="services-devsecops">
+                  <a class="menu-item" href="#deliver-services" data-tab="deliver">
                     <b>DevSecOps & CI/CD enablement</b>
-                    <span>Policy-as-code, artifact integrity, attestation, developer-friendly controls</span>
+                    <span>Policy-as-code, integrity, attestation, developer-friendly controls</span>
                   </a>
-                  <a class="menu-item" href="#services-interim" data-tab="services-interim">
-                    <b>Interim architecture & capability uplift</b>
+                  <a class="menu-item" href="#deliver-services" data-tab="deliver">
+                    <b>Interim capability uplift</b>
                     <span>Hands-on leadership + skill uplift + knowledge transfer</span>
                   </a>
                 </div>
@@ -373,7 +355,6 @@ keep this as my "base code" bring this when i say "base code", say ok afterwards
           </div>
         </div>
 
-        <!-- About + Contact -->
         <a class="nav-link" href="#about" data-tab="about">About</a>
         <a class="nav-link" href="#contact" data-tab="contact">Contact</a>
       </nav>
@@ -381,34 +362,21 @@ keep this as my "base code" bring this when i say "base code", say ok afterwards
       <div class="cta">
         <button class="btn hamburger" type="button" id="hamburger" aria-label="Open menu">☰</button>
         <a class="btn" href="#docs" data-tab="docs">View documentation</a>
-        <a class="btn primary" href="#demo" data-tab="demo">Request a demo</a>
+        <a class="btn primary" href="#engagement" data-tab="engagement">Request a walkthrough</a>
       </div>
     </div>
 
-    <!-- Mobile drawer -->
     <div class="mobile-drawer" id="mobileDrawer" aria-label="Mobile menu">
       <details>
-        <summary>Solutions & Use Cases</summary>
+        <summary>Navigate</summary>
         <a href="#about" data-tab="about">About</a>
         <a href="#who" data-tab="who">Who Thinkwerke is for</a>
-        <a href="#problems" data-tab="problems">Problems we fix</a>
-        <a href="#solutions" data-tab="solutions">Solutions & Use Cases</a>
-        <a href="#services" data-tab="services">Services</a>
-        <a href="#engagement" data-tab="engagement">Engagement models</a>
-        <a href="#home" data-tab="home">Security & Compliance Engineering</a>
+        <a href="#deliver" data-tab="deliver">What we deliver</a>
+        <a href="#engagement" data-tab="engagement">How we engage</a>
+        <a href="#home" data-tab="home">Use cases delivered</a>
         <a href="#outcomes" data-tab="outcomes">Outcomes</a>
-        <a href="#demo" data-tab="demo">Demo / PoC</a>
         <a href="#docs" data-tab="docs">Docs</a>
         <a href="#contact" data-tab="contact">Contact</a>
-      </details>
-      <details>
-        <summary>Service areas</summary>
-        <a href="#services-iso" data-tab="services-iso">ISO 27001 programme</a>
-        <a href="#services-nis2" data-tab="services-nis2">NIS2 & CRA readiness</a>
-        <a href="#services-soc" data-tab="services-soc">SOC & SIEM modernisation</a>
-        <a href="#services-cnapp" data-tab="services-cnapp">CSPM, ASPM & CNAPP</a>
-        <a href="#services-devsecops" data-tab="services-devsecops">DevSecOps & CI/CD enablement</a>
-        <a href="#services-interim" data-tab="services-interim">Interim architecture & capability uplift</a>
       </details>
       <a href="#docs" data-tab="docs">Docs</a>
       <a href="#contact" data-tab="contact">Contact</a>
@@ -418,7 +386,7 @@ keep this as my "base code" bring this when i say "base code", say ok afterwards
 
 <main class="container">
 
-  <!-- 1) ABOUT -->
+  <!-- 1) ABOUT (UNCHANGED STRUCTURE, CONTENT KEPT AS YOUR BASE) -->
   <section id="about" class="anchor">
     <div class="card">
       <p class="kicker">About Thinkwerke</p>
@@ -440,7 +408,6 @@ keep this as my "base code" bring this when i say "base code", say ok afterwards
         withstand scrutiny.
       </p>
 
-      <!-- 3) Credentials added AFTER Focus -->
       <div style="margin-top:14px; padding-top:14px; border-top:1px solid var(--border);">
         <p class="kicker">Credentials</p>
         <h3>Professional certifications</h3>
@@ -464,109 +431,52 @@ keep this as my "base code" bring this when i say "base code", say ok afterwards
 
       <div class="pill-row" style="margin-top:12px;">
         <button class="btn primary openWalkthrough" type="button">Request a walkthrough</button>
-        <a class="btn" href="#services" data-tab="services">Explore services</a>
+        <a class="btn" href="#deliver" data-tab="deliver">See what we deliver</a>
       </div>
     </div>
   </section>
 
-  <!-- 2) WHO THINKWERKE IS FOR -->
+  <!-- 2) WHO THINKWERKE IS FOR (UPDATED CONTENT + 6 BLOCKS) -->
   <section id="who" class="anchor">
     <div class="card">
       <p class="kicker">Who Thinkwerke is for</p>
       <h2>Built for teams operating in regulated EU business domains</h2>
-      <p class="muted" style="margin-top:8px; max-width: 78ch;">
-        Thinkwerke works with organisations that need security and compliance to work in software and product solutions —
-        not just in policy documents.
+
+      <p class="muted" style="margin-top:8px; max-width: 90ch;">
+        We work with organisations that need governance and compliance to operate across a software and product portfolio —
+        not only in policy documents, but through real technical artefacts that demonstrate control ownership and execution.
       </p>
 
       <div class="split" style="margin-top:12px;">
         <div class="card" style="background: rgba(233,238,252,.04); border-color: rgba(233,238,252,.10);">
           <h3>Business stakeholders & engineering leaders</h3>
           <p class="muted" style="margin-top:6px;">
-            CTOs, CISOs, SVPs, Directors and Engineering Leaders who must align <b>software product security</b>, delivery, and compliance with
-            <b>ISO 27001</b>, <b>NIS2</b>, <b>CRA</b> and <b>DORA</b> — plus customer and market security requirements.
+            CTOs, CISOs, SVPs, Directors and Engineering Leaders aligning software product security, delivery, and compliance with
+            ISO 27001, NIS2, CRA and DORA — plus customer and market security requirements.
           </p>
         </div>
 
         <div class="card" style="background: rgba(233,238,252,.04); border-color: rgba(233,238,252,.10);">
-          <h3>Vendor-hosted platforms & auditability</h3>
+          <h3>Vendor-hosted problems & gaps</h3>
           <p class="muted" style="margin-top:6px;">
-            Product and SaaS companies running on <b>vendor-provided hosting</b> (public cloud/managed services) that need
-            clear <b>shared responsibility</b>, strong security controls, and <b>audit-ready evidence</b>.
+            Vendor-provided hosting creates shared responsibility confusion. We map controls to services and show how to prove your side
+            with clear accountability, strong controls, and audit-ready evidence.
           </p>
         </div>
 
         <div class="card" style="background: rgba(233,238,252,.04); border-color: rgba(233,238,252,.10);">
-          <h3>Audit, customer assurance & market entry</h3>
+          <h3>Software supply-chain becoming a blocker</h3>
           <p class="muted" style="margin-top:6px;">
-            Teams preparing for audits, customer security assessments, tenders, or regulated market entry — where
-            evidence must extend beyond documentation into <b>software product implementations</b> and <b>CI/CD</b>.
+            SBOM, OSS licensing, vulnerability handling, and traceability become contractual or regulatory blockers.
+            We implement evidence-producing workflows that withstand scrutiny.
           </p>
         </div>
 
         <div class="card" style="background: rgba(233,238,252,.04); border-color: rgba(233,238,252,.10);">
-          <h3>Scale-ups to mature organisations</h3>
+          <h3>Slow tender submission process</h3>
           <p class="muted" style="margin-top:6px;">
-            Organisations moving from ad-hoc security to a <b>repeatable</b>, <b>auditable</b> operating model —
-            without slowing engineering teams.
-          </p>
-        </div>
-      </div>
-
-      <div class="pill-row" style="margin-top:12px;">
-        <span class="pill">Software product security</span>
-        <span class="pill">Vendor hosting controls</span>
-        <span class="pill">Audit-ready evidence</span>
-        <span class="pill">ISO 27001 / NIS2 / CRA / DORA</span>
-        <span class="pill">CI/CD & DevSecOps</span>
-      </div>
-
-      <p class="muted" style="margin-top:12px; max-width: 90ch;">
-        <b>If your challenge sits at the intersection of regulation, software product & cloud security, vendor hosting responsibilities,
-        and engineering delivery — Thinkwerke is designed for you.</b>
-      </p>
-
-      <div class="pill-row" style="margin-top:12px;">
-        <button class="btn primary openWalkthrough" type="button" id="openWalkthrough2">Request a walkthrough</button>
-        <a class="btn" href="#services" data-tab="services">Explore services</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- 3) PROBLEMS WE FIX -->
-  <section id="problems" class="anchor">
-    <div class="card">
-      <p class="kicker">Problems we fix</p>
-      <h2>Business outcomes for regulated industries</h2>
-      <p class="muted" style="margin-top:8px; max-width: 90ch;">
-        Security and compliance become expensive when they create uncertainty, slow delivery, or block commercial progress.
-        Thinkwerke is engaged when organisations need clarity and execution — fast.
-        <b>We enable core industries to focus on marketing, sales, and business expansion</b> while we remove the compliance,
-        engineering, and regulatory blockers affecting business objectives.
-      </p>
-
-      <div class="split" style="margin-top:12px;">
-        <div class="card" style="background: rgba(233,238,252,.04); border-color: rgba(233,238,252,.10);">
-          <h3>Regulation vs engineering deadlock</h3>
-          <p class="muted" style="margin-top:6px;">
-            Policies exist, but delivery teams don’t know what “good” looks like in cloud and CI/CD.
-            We translate requirements (ISO 27001, NIS2, CRA, DORA, AI Act, GDPR) into practical controls and implementation patterns.
-          </p>
-        </div>
-
-        <div class="card" style="background: rgba(233,238,252,.04); border-color: rgba(233,238,252,.10);">
-          <h3>Revenue blocked by assurance</h3>
-          <p class="muted" style="margin-top:6px;">
-            Enterprise deals slow down due to questionnaires, tenders, and security reviews.
-            We build a reusable evidence library and clear narratives so sales cycles become predictable.
-          </p>
-        </div>
-
-        <div class="card" style="background: rgba(233,238,252,.04); border-color: rgba(233,238,252,.10);">
-          <h3>Vendor-hosted accountability gaps</h3>
-          <p class="muted" style="margin-top:6px;">
-            Running on vendor-provided hosting (public cloud / managed services) creates shared responsibility confusion.
-            We map controls to services and show how to prove your side with audit-ready evidence.
+            We build reusable, audit-ready tender evidence so security questionnaires and compliance sections can be completed quickly
+            and consistently — without last-minute engineering involvement.
           </p>
         </div>
 
@@ -579,139 +489,142 @@ keep this as my "base code" bring this when i say "base code", say ok afterwards
         </div>
 
         <div class="card" style="background: rgba(233,238,252,.04); border-color: rgba(233,238,252,.10);">
-          <h3>Security slows delivery</h3>
+          <h3>Preparing for NIS2, CRA & ISO 27001</h3>
           <p class="muted" style="margin-top:6px;">
-            Controls feel heavy and get bypassed. We embed security into DevSecOps using automation and policy-as-code
-            so teams can ship faster without increasing risk.
+            We translate regulatory requirements into executable controls, clear ownership, and audit-ready evidence —
+            so compliance supports business growth instead of slowing delivery.
+          </p>
+        </div>
+      </div>
+
+      <div class="pill-row" style="margin-top:12px;">
+        <span class="pill">Governance with evidence</span>
+        <span class="pill">Vendor-hosted accountability</span>
+        <span class="pill">Tender acceleration</span>
+        <span class="pill">Supply-chain traceability</span>
+        <span class="pill">Operating model uplift</span>
+      </div>
+
+      <div class="pill-row" style="margin-top:12px;">
+        <button class="btn primary openWalkthrough" type="button" id="openWalkthrough2">Talk through your context</button>
+        <a class="btn" href="#deliver" data-tab="deliver">See what we deliver</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3) WHAT WE DELIVER (MERGED: CORE SERVICES + CORE SOLUTIONS) -->
+  <section id="deliver" class="anchor">
+    <div class="card">
+      <p class="kicker">What we deliver</p>
+      <h2>Core services</h2>
+
+      <div class="split" id="deliver-services" style="margin-top:12px;">
+        <div class="card" style="background: rgba(233,238,252,.04); border-color: rgba(233,238,252,.10);">
+          <h3>ISO 27001 Programme</h3>
+          <p class="muted" style="margin-top:6px;">
+            Gap assessment, SoA, internal audits, evidence workflows and technical control mapping — from readiness to certification.
           </p>
         </div>
 
         <div class="card" style="background: rgba(233,238,252,.04); border-color: rgba(233,238,252,.10);">
-          <h3>Supply-chain & SBOM becomes a blocker</h3>
+          <h3>NIS2 & CRA Readiness</h3>
           <p class="muted" style="margin-top:6px;">
-            CRA expectations (SBOM, OSS license governance, vulnerability handling) need traceable workflows.
-            We implement evidence-producing pipelines that stand up to audits and customer scrutiny.
+            SSLM, vulnerability lifecycle, SBOM and OSS license governance, and continuous evidence models aligned to NIS2, CRA and SOC 2.
+          </p>
+        </div>
+
+        <div class="card" style="background: rgba(233,238,252,.04); border-color: rgba(233,238,252,.10);">
+          <h3>SOC & SIEM Modernisation</h3>
+          <p class="muted" style="margin-top:6px;">
+            Cloud-centric SIEM architectures, MITRE-mapped detections, CSIRT processes, and dashboards for regulators, auditors and customers.
+          </p>
+        </div>
+
+        <div class="card" style="background: rgba(233,238,252,.04); border-color: rgba(233,238,252,.10);">
+          <h3>CSPM, ASPM & CNAPP</h3>
+          <p class="muted" style="margin-top:6px;">
+            AWS multi-account foundations, CSPM-driven posture, and cloud-native protection aligned with EU data-sovereignty expectations.
+          </p>
+        </div>
+
+        <div class="card" style="background: rgba(233,238,252,.04); border-color: rgba(233,238,252,.10);">
+          <h3>DevSecOps & CI/CD Enablement</h3>
+          <p class="muted" style="margin-top:6px;">
+            Secure pipelines, policy-as-code, artifact integrity, attestation and developer-friendly controls that keep delivery fast.
+          </p>
+        </div>
+
+        <div class="card" style="background: rgba(233,238,252,.04); border-color: rgba(233,238,252,.10);">
+          <h3>Interim Architecture & Capability Uplift</h3>
+          <p class="muted" style="margin-top:6px;">
+            Acting as Security & Cloud Architect / DevSecOps lead while enabling your teams with skills, process and ownership.
           </p>
         </div>
       </div>
 
-      <div class="pill-row" style="margin-top:12px;">
-        <span class="pill">Remove regulatory blockers</span>
-        <span class="pill">Customer assurance acceleration</span>
-        <span class="pill">Vendor hosting controls</span>
-        <span class="pill">Evidence by design</span>
-        <span class="pill">DevSecOps enablement</span>
+      <div style="margin-top:14px; padding-top:14px; border-top:1px solid var(--border);">
+        <p class="kicker">Core solutions</p>
+        <h2 style="margin:0 0 10px;">Capability pillars</h2>
+
+        <div class="split" style="margin-top:12px;">
+          <div class="card" style="background: rgba(233,238,252,.04); border-color: rgba(233,238,252,.10);" id="solutions-sslm">
+            <h3>Secure software delivery (SSLM)</h3>
+            <ul class="list">
+              <li>Secure pipelines covering SAST, SCA/SBOM, DAST, IaC and container checks</li>
+              <li>Vulnerability lifecycle with ownership, SLAs, workflow, and traceability</li>
+              <li>Artifact integrity, attestation, and policy-as-code embedded into CI/CD</li>
+            </ul>
+          </div>
+
+          <div class="card" style="background: rgba(233,238,252,.04); border-color: rgba(233,238,252,.10);" id="solutions-compliance">
+            <h3>Compliance translated into execution</h3>
+            <ul class="list">
+              <li>Mapping ISO 27001, NIS2, CRA, DORA, GDPR and customer requirements to real software product portfolio and CI/CD controls</li>
+              <li>Clear separation of policy, implementation, and proof</li>
+              <li>Evidence workflows built for audits, tenders, and customer assurance</li>
+            </ul>
+          </div>
+
+          <div class="card" style="background: rgba(233,238,252,.04); border-color: rgba(233,238,252,.10);" id="solutions-cloud">
+            <h3>Security operating models</h3>
+            <ul class="list">
+              <li>Cloud-centric SOC and SIEM modernisation</li>
+              <li>CSPM / ASPM / CNAPP integrated into governance and reporting</li>
+              <li>Dashboards and metrics aligned to executives, auditors, and regulators</li>
+            </ul>
+          </div>
+
+          <div class="card" style="background: rgba(233,238,252,.04); border-color: rgba(233,238,252,.10);">
+            <h3>Delivery designed for ownership</h3>
+            <p class="muted" style="margin-top:6px;">
+              All delivery is designed to be auditable, repeatable, and owned by your teams — not dependent on long-term external presence.
+            </p>
+          </div>
+        </div>
       </div>
 
       <div class="pill-row" style="margin-top:12px;">
-        <button class="btn primary openWalkthrough" type="button">Talk through your blockers</button>
-        <a class="btn" href="#engagement" data-tab="engagement">See engagement models</a>
+        <button class="btn primary openWalkthrough" type="button">Discuss delivery scope</button>
+        <a class="btn" href="#engagement" data-tab="engagement">See how we engage</a>
       </div>
     </div>
   </section>
 
-  <!-- 4) SOLUTIONS & USE CASES -->
-  <section id="solutions" class="anchor">
-    <p class="kicker">Solutions & Use Cases</p>
-    <h2>From regulation to engineering reality</h2>
-    <div class="grid3" style="margin-top:12px;">
-      <div class="card anchor" id="solutions-compliance">
-        <h3>Compliance readiness</h3>
-        <p class="muted">Translate ISO 27001, NIS2, CRA, DORA and GDPR into practical controls, workflows and evidence.</p>
-        <ul class="list">
-          <li>Control mapping to cloud, identity, logging and CI/CD</li>
-          <li>Evidence workflows built for audits and tenders</li>
-          <li>Clear separation: policy → implementation → proof</li>
-        </ul>
-      </div>
-      <div class="card anchor" id="solutions-cloud">
-        <h3>EU sovereign cloud & data resilience</h3>
-        <p class="muted">Architecture patterns aligned with sovereignty, residency expectations and regulated operations.</p>
-        <ul class="list">
-          <li>Multi-account AWS foundations</li>
-          <li>Identity governance and least privilege</li>
-          <li>Logging, monitoring and resilience by design</li>
-        </ul>
-      </div>
-      <div class="card anchor" id="solutions-sslm">
-        <h3>Secure software lifecycle (SSLM)</h3>
-        <p class="muted">Make compliance part of delivery: pipelines that produce audit-ready artefacts continuously.</p>
-        <ul class="list">
-          <li>SAST / DAST / IaC / container checks</li>
-          <li>SBOM + OSS license governance</li>
-          <li>Artifact integrity, attestation, policy-as-code</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- 5) SERVICES -->
-  <section id="services" class="anchor">
-    <p class="kicker">Services</p>
-    <h2>Architecture, engineering & delivery support</h2>
-
-    <div class="split" style="margin-top:12px;">
-      <div class="card anchor" id="services-iso">
-        <h3>ISO 27001 Programme</h3>
-        <p class="muted">
-          Gap assessment, SoA, internal audits, evidence workflows and technical control mapping — from readiness to certification.
-        </p>
-        <div class="pill-row"><span class="pill">ISO 27001:2022</span><span class="pill">ISMS</span><span class="pill">Audit-ready</span></div>
-      </div>
-
-      <div class="card anchor" id="services-nis2">
-        <h3>NIS2 & CRA Readiness</h3>
-        <p class="muted">
-          SSLM, vulnerability lifecycle, SBOM and OSS license governance, and continuous evidence models aligned to NIS2, CRA and SOC 2.
-        </p>
-        <div class="pill-row"><span class="pill">NIS2</span><span class="pill">CRA</span><span class="pill">SBOM</span></div>
-      </div>
-
-      <div class="card anchor" id="services-soc">
-        <h3>SOC & SIEM Modernisation</h3>
-        <p class="muted">
-          Cloud-centric SIEM architectures, MITRE-mapped detections, CSIRT processes, and dashboards for regulators, auditors and customers.
-        </p>
-        <div class="pill-row"><span class="pill">SIEM</span><span class="pill">SOC</span><span class="pill">Detection engineering</span></div>
-      </div>
-
-      <div class="card anchor" id="services-cnapp">
-        <h3>CSPM, ASPM & CNAPP</h3>
-        <p class="muted">
-          AWS multi-account foundations, CSPM-driven posture, and cloud-native protection aligned with EU data-sovereignty expectations.
-        </p>
-        <div class="pill-row"><span class="pill">CSPM</span><span class="pill">ASPM</span><span class="pill">CNAPP</span></div>
-      </div>
-
-      <div class="card anchor" id="services-devsecops">
-        <h3>DevSecOps & CI/CD Enablement</h3>
-        <p class="muted">
-          Secure pipelines, policy-as-code, artifact integrity, attestation and developer-friendly controls that keep delivery fast.
-        </p>
-        <div class="pill-row"><span class="pill">DevSecOps</span><span class="pill">CI/CD</span><span class="pill">SSLM</span></div>
-      </div>
-
-      <div class="card anchor" id="services-interim">
-        <h3>Interim Architecture & Capability Uplift</h3>
-        <p class="muted">
-          Acting as Security & Cloud Architect / DevSecOps lead while enabling your teams with skills, process and ownership.
-        </p>
-        <div class="pill-row"><span class="pill">Interim leadership</span><span class="pill">Skill uplift</span><span class="pill">Knowledge transfer</span></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 6) ENGAGEMENT MODELS -->
+  <!-- 4) HOW WE ENGAGE (UPDATED + FIXED ASSURANCE ACCELERATION + DEMO) -->
   <section id="engagement" class="anchor">
     <div class="card">
-      <p class="kicker">Engagement models</p>
-      <h2>Clear programs to hire Thinkwerke</h2>
-      <p class="muted" style="margin-top:8px; max-width: 90ch;">
-        Our engagements are designed to reduce ambiguity quickly and deliver outcomes that are defensible in audits,
-        customer workshops, and procurement processes.
-      </p>
+      <p class="kicker">How we engage</p>
+      <h2>Engagement programs & reference demo</h2>
 
       <div class="split" style="margin-top:12px;">
+        <div class="card" style="background: rgba(233,238,252,.04); border-color: rgba(233,238,252,.10);">
+          <h3>Trusted Advisor to Leadership</h3>
+          <p class="muted" style="margin-top:6px;">
+            Thinkwerke acts as a trusted advisor to C-level and senior leadership, translating regulatory, security, and technical complexity
+            into clear decisions, defensible positions, and confident execution.
+          </p>
+        </div>
+
         <div class="card" style="background: rgba(233,238,252,.04); border-color: rgba(233,238,252,.10);">
           <h3>1) Advisory & Architecture</h3>
           <p class="muted" style="margin-top:6px;">Best when you need direction, control mapping, or a defensible plan.</p>
@@ -736,8 +649,19 @@ keep this as my "base code" bring this when i say "base code", say ok afterwards
         </div>
 
         <div class="card" style="background: rgba(233,238,252,.04); border-color: rgba(233,238,252,.10);">
-          <h3>3) Assurance Acceleration</h3>
-          <p class="muted" style="margin-top:6px;">Best when revenue is blocked by customer assurance requests or audits.</p>
+          <h3>3) Interim Architect / Embedded Leadership</h3>
+          <p class="muted" style="margin-top:6px;">Best when you need senior capability immediately.</p>
+          <ul class="list">
+            <li>Stabilise risk posture while delivery continues</li>
+            <li>Build operating model, governance, and reporting</li>
+            <li>Coach teams and enable internal capability</li>
+            <li>Exit with knowledge transferred (no dependency)</li>
+          </ul>
+        </div>
+
+        <div class="card" style="background: rgba(233,238,252,.04); border-color: rgba(233,238,252,.10);">
+          <h3>4) Assurance Acceleration</h3>
+          <p class="muted" style="margin-top:6px;">Best when revenue is blocked by customer assurance requests, tenders, or audits.</p>
           <ul class="list">
             <li>Security questionnaire readiness packs</li>
             <li>Reusable evidence library for tenders and assessments</li>
@@ -747,37 +671,31 @@ keep this as my "base code" bring this when i say "base code", say ok afterwards
         </div>
 
         <div class="card" style="background: rgba(233,238,252,.04); border-color: rgba(233,238,252,.10);">
-          <h3>4) Interim Architect / Embedded Leadership</h3>
-          <p class="muted" style="margin-top:6px;">Best when you need senior capability immediately.</p>
+          <h3>Reference demo / PoC</h3>
+          <p class="muted" style="margin-top:6px;">
+            A working, end-to-end reference implementation showing how regulatory and customer expectations translate into:
+          </p>
           <ul class="list">
-            <li>Stabilise risk posture while delivery continues</li>
-            <li>Build operating model, governance, and reporting</li>
-            <li>Coach teams and enable internal capability</li>
-            <li>Exit with knowledge transferred (no dependency)</li>
+            <li>Secure CI/CD pipelines producing continuous evidence</li>
+            <li>Vulnerability and supply-chain workflows aligned to CRA</li>
+            <li>Cloud security foundations with clear accountability</li>
+            <li>Exportable artefacts suitable for audits and customer reviews</li>
           </ul>
         </div>
       </div>
 
       <div class="pill-row" style="margin-top:12px;">
-        <span class="pill">Short diagnostic → roadmap</span>
-        <span class="pill">Hands-on build → evidence</span>
-        <span class="pill">Deal / audit acceleration</span>
-        <span class="pill">Interim leadership</span>
-      </div>
-
-      <div class="pill-row" style="margin-top:12px;">
-        <button class="btn primary openWalkthrough" type="button">Discuss an engagement</button>
-        <a class="btn" href="#outcomes" data-tab="outcomes">See outcomes</a>
+        <button class="btn primary openWalkthrough" type="button">Request a walkthrough</button>
+        <a class="btn" href="#contact" data-tab="contact">Talk to us</a>
       </div>
     </div>
   </section>
 
-  <!-- 7) SECURITY & COMPLIANCE ENGINEERING (HERO MOVED DOWN) -->
+  <!-- 5) HERO / USE CASES DELIVERED (UPDATED HEADING + BULLETS) -->
   <section id="home" class="hero anchor">
     <div class="hero-grid">
       <div class="card">
         <p class="kicker">Security & Compliance Engineering</p>
-        <!-- 1) make this smaller -->
         <h2 class="hero-title">for EU-Regulated Business Domains</h2>
 
         <p class="lead">
@@ -785,6 +703,7 @@ keep this as my "base code" bring this when i say "base code", say ok afterwards
           secure-by-design AWS architectures, automated pipelines, and continuous evidence for audits, tenders,
           and customer assessments.
         </p>
+
         <div class="pill-row" aria-label="Key focus areas">
           <span class="pill">EU Sovereign Cloud & Data Resilience</span>
           <span class="pill">Secure Software Lifecycle (SSLM)</span>
@@ -792,39 +711,37 @@ keep this as my "base code" bring this when i say "base code", say ok afterwards
           <span class="pill">AWS Security Architecture</span>
           <span class="pill">DevSecOps & CI/CD</span>
         </div>
+
         <div class="pill-row" style="margin-top:12px;">
-          <a class="btn primary" href="#demo" data-tab="demo">Request a demo</a>
-          <a class="btn" href="#docs" data-tab="docs">View open documentation</a>
+          <a class="btn primary" href="#engagement" data-tab="engagement">Request a walkthrough</a>
+          <a class="btn" href="#docs" data-tab="docs">Open docs</a>
         </div>
       </div>
 
       <div class="card">
-        <h3>Solutions Designed & Delivered</h3>
+        <h3>Use cases & solutions delivered</h3>
         <p class="muted" style="margin-top:8px;">
           ON Information Security & Cloud Architecture focused on EU Kritis Business Domains
         </p>
+
         <div style="margin-top:12px; padding-top:12px; border-top:1px solid var(--border);">
           <p class="kicker">What we show in the demo</p>
           <ul class="list">
-            <li>SSLM pipeline: SAST, SCA/SBOM, DAST, IaC & container checks.</li>
-            <li>Automated vulnerability handling: detection → SLA → Jira workflow → evidence.</li>
-            <li>Supply-chain governance: SBOM and OSS license controls aligned to CRA.</li>
-            <li>AWS security foundation: CSPM visibility, identity governance, secure CI/CD.</li>
+            <li>SSLM pipeline: SAST, SCA/SBOM, DAST, IaC & container checks — delivered for DORA / NIS2 compliance</li>
+            <li>Automated vulnerability handling: detection → SLA → Jira workflow → evidence — delivered for ISO 27001</li>
+            <li>Supply-chain governance: SBOM and OSS license controls aligned to CRA — delivered for NIS2 & ISO 27001</li>
+            <li>AWS security foundation: CSPM visibility, identity governance, secure CI/CD — integrated into delivery pipelines</li>
           </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 8) OUTCOMES -->
+  <!-- 6) OUTCOMES (UPDATED TO YOUR TEXT) -->
   <section id="outcomes" class="anchor">
     <div class="card">
-      <p class="kicker">Outcomes, not activities</p>
+      <p class="kicker">Outcomes</p>
       <h2>What changes after Thinkwerke</h2>
-      <p class="muted" style="margin-top:8px; max-width: 90ch;">
-        We are measured by what changes for the business — not by how many documents get produced.
-        The goal: <b>reduce compliance friction</b>, <b>remove regulatory blockers</b>, and <b>accelerate delivery and revenue</b>.
-      </p>
 
       <div class="grid3" style="margin-top:12px;">
         <div class="card" style="background: rgba(233,238,252,.04); border-color: rgba(233,238,252,.10);">
@@ -833,12 +750,14 @@ keep this as my "base code" bring this when i say "base code", say ok afterwards
             Customer assurance becomes predictable because evidence is structured, reusable, and mapped to real cloud implementations.
           </p>
         </div>
+
         <div class="card" style="background: rgba(233,238,252,.04); border-color: rgba(233,238,252,.10);">
           <h3>Audit readiness without chaos</h3>
           <p class="muted" style="margin-top:6px;">
             Shift from firefighting to a repeatable model: policy → controls → implementation → proof.
           </p>
         </div>
+
         <div class="card" style="background: rgba(233,238,252,.04); border-color: rgba(233,238,252,.10);">
           <h3>Clear vendor-hosting accountability</h3>
           <p class="muted" style="margin-top:6px;">
@@ -849,7 +768,7 @@ keep this as my "base code" bring this when i say "base code", say ok afterwards
 
       <div class="split" style="margin-top:12px;">
         <div class="card" style="background: rgba(233,238,252,.04); border-color: rgba(233,238,252,.10);">
-          <h3>Security that supports engineering speed</h3>
+          <h3>Controls that support engineering speed</h3>
           <p class="muted" style="margin-top:6px;">
             Controls embedded into DevSecOps so teams ship faster with fewer escalations and less manual gating.
           </p>
@@ -873,41 +792,18 @@ keep this as my "base code" bring this when i say "base code", say ok afterwards
         </div>
       </div>
 
-      <div class="pill-row" style="margin-top:12px;">
-        <span class="pill">Less friction</span>
-        <span class="pill">More confidence</span>
-        <span class="pill">Clear accountability</span>
-        <span class="pill">Reusable evidence</span>
-        <span class="pill">Faster delivery</span>
-      </div>
+      <p class="muted" style="margin-top:12px; max-width: 95ch;">
+        <b>In short:</b> less uncertainty, fewer blockers, and higher confidence at executive level.
+      </p>
 
       <div class="pill-row" style="margin-top:12px;">
         <button class="btn primary openWalkthrough" type="button">Request a walkthrough</button>
-        <a class="btn" href="#demo" data-tab="demo">See demo / PoC</a>
+        <a class="btn" href="#docs" data-tab="docs">Open docs</a>
       </div>
     </div>
   </section>
 
-  <!-- 9) DEMO -->
-  <section id="demo" class="anchor">
-    <div class="card">
-      <p class="kicker">Demo / PoC</p>
-      <h2>End-to-end reference workflow</h2>
-      <p class="muted">
-        A working PoC showing how expectations from ENISA-style thinking, ISO 27001, NIS2 and CRA can be turned into
-        concrete AWS-based security architecture and automated workflows — producing exportable, audit-ready artefacts.
-      </p>
-      <p class="muted">
-        Covers SSLM, vulnerability management, SBOM & OSS license governance, CSPM-driven cloud visibility and secure CI/CD.
-      </p>
-      <div class="pill-row" style="margin-top:12px;">
-        <button class="btn primary openWalkthrough" type="button">Request a walkthrough</button>
-        <a class="btn" href="#services" data-tab="services">Explore services</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- 10) DOCS -->
+  <!-- 7) DOCS -->
   <section id="docs" class="anchor">
     <div class="card">
       <p class="kicker">Docs</p>
@@ -921,7 +817,7 @@ keep this as my "base code" bring this when i say "base code", say ok afterwards
     </div>
   </section>
 
-  <!-- CONTACT (kept at end) -->
+  <!-- 8) CONTACT -->
   <section id="contact" class="anchor">
     <div class="card">
       <p class="kicker">Contact</p>
