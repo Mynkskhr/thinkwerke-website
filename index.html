@@ -8,31 +8,26 @@
 
   <style>
     :root{
-      /* Option A — Nordic Enterprise Trust (explicit + consistently applied) */
-      --bg: #0b0f16;
-      --panel: #0f1623;
-      --panel2:#0c1320;
-
-      --text: #e9eefc;
-      --muted:#a9b5d3;
-      --border: rgba(233,238,252,.12);
-
-      /* Nordic accents */
-      --primary: #6c8eff;   /* cool Nordic blue */
-      --secondary: #60dcff; /* icy cyan */
-      --accent: #976cff;    /* restrained violet */
-
-      /* Derived UI tokens */
-      --shadow: 0 18px 60px rgba(0,0,0,.45);
+      /* Option A — Nordic Enterprise Trust */
+      --bg: #F6F8FB;          /* page background */
+      --surface: #FFFFFF;     /* cards */
+      --surface2: #EEF3F8;    /* alt surfaces */
+      --text: #0B1F33;        /* primary text */
+      --muted: #4B5B6B;       /* muted text */
+      --muted2:#6B7C8F;       /* subtler text */
+      --border: #D6E0EA;      /* borders */
+      --shadow: 0 10px 30px rgba(11,31,51,.10);
       --radius: 16px;
       --radius2: 22px;
       --max: 1120px;
 
-      --focus: 0 0 0 3px rgba(108,142,255,.28); /* based on --primary */
-      --btn-border: rgba(233,238,252,.16);
-      --btn-bg: rgba(233,238,252,.06);
+      --accent: #03ACE9;      /* primary accent */
+      --accent-hover:#0299D1;
+      --accent-active:#0187BA;
 
-      /* tighter spacing */
+      --focus: 0 0 0 3px rgba(3,172,233,.22);
+
+      /* tighter spacing (reduced further) */
       --section-pad: 20px;
     }
 
@@ -42,26 +37,11 @@
       margin:0;
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
       color:var(--text);
-
-      /* Nordic background glow, now based on explicit palette tokens */
       background:
-        radial-gradient(1200px 600px at 20% -10%, color-mix(in oklab, var(--primary) 22%, transparent), transparent 60%),
-        radial-gradient(900px 520px at 90% 0%,  color-mix(in oklab, var(--secondary) 16%, transparent), transparent 60%),
-        radial-gradient(1100px 800px at 70% 120%, color-mix(in oklab, var(--accent) 12%, transparent), transparent 55%),
+        radial-gradient(900px 500px at 15% -10%, rgba(3,172,233,.10), transparent 60%),
+        radial-gradient(900px 520px at 90% 0%, rgba(11,31,51,.06), transparent 60%),
         var(--bg);
-
       line-height:1.45;
-    }
-
-    /* Fallback for browsers without color-mix */
-    @supports not (background: radial-gradient(circle, color-mix(in oklab, #000 10%, transparent), transparent)) {
-      body{
-        background:
-          radial-gradient(1200px 600px at 20% -10%, rgba(108,142,255,.22), transparent 60%),
-          radial-gradient(900px 520px at 90% 0%, rgba(96,220,255,.16), transparent 60%),
-          radial-gradient(1100px 800px at 70% 120%, rgba(151,108,255,.12), transparent 55%),
-          var(--bg);
-      }
     }
 
     a{color:inherit; text-decoration:none}
@@ -71,7 +51,7 @@
     header{
       position:sticky; top:0; z-index:50;
       backdrop-filter: blur(10px);
-      background: rgba(11,15,22,.55);
+      background: rgba(246,248,251,.78);
       border-bottom: 1px solid var(--border);
     }
     .nav{
@@ -103,40 +83,32 @@
       cursor:pointer;
       font: inherit;
     }
-    .nav-link:hover{background: rgba(233,238,252,.06); border-color: rgba(233,238,252,.10);}
+    .nav-link:hover{background: rgba(3,172,233,.08); border-color: rgba(3,172,233,.18);}
     .chev{opacity:.75; font-size: 12px; transform: translateY(1px);}
     .cta{
       display:flex; align-items:center; gap:10px;
       min-width: 250px;
       justify-content:flex-end;
     }
-
     .btn{
-      border:1px solid var(--btn-border);
-      background: var(--btn-bg);
+      border:1px solid var(--border);
+      background: var(--surface);
       color:var(--text);
       padding:10px 12px;
       border-radius:14px;
       font-weight:700;
       cursor:pointer;
+      box-shadow: 0 6px 18px rgba(11,31,51,.06);
     }
-    .btn:hover{background: rgba(233,238,252,.10);}
-
-    /* Nordic primary button (token-based, not hard-coded) */
+    .btn:hover{background: rgba(3,172,233,.06); border-color: rgba(3,172,233,.22);}
     .btn.primary{
-      border-color: color-mix(in oklab, var(--primary) 55%, rgba(233,238,252,.16));
-      background:
-        linear-gradient(135deg,
-          color-mix(in oklab, var(--primary) 60%, transparent),
-          color-mix(in oklab, var(--secondary) 28%, transparent)
-        );
+      border-color: rgba(3,172,233,.45);
+      background: linear-gradient(135deg, rgba(3,172,233,.95), rgba(3,172,233,.75));
+      color:#FFFFFF;
+      box-shadow: 0 10px 26px rgba(3,172,233,.22);
     }
-    @supports not (background: linear-gradient(135deg, color-mix(in oklab, #000 10%, transparent), transparent)) {
-      .btn.primary{
-        border-color: rgba(108,142,255,.55);
-        background: linear-gradient(135deg, rgba(108,142,255,.55), rgba(96,220,255,.28));
-      }
-    }
+    .btn.primary:hover{background: linear-gradient(135deg, rgba(2,153,209,.98), rgba(2,153,209,.78));}
+    .btn.primary:active{background: linear-gradient(135deg, rgba(1,135,186,.98), rgba(1,135,186,.78));}
 
     .panel{
       position:absolute;
@@ -144,7 +116,7 @@
       transform: translateX(-50%);
       top: 48px;
       width: min(860px, calc(100vw - 24px));
-      background: rgba(15,22,35,.92);
+      background: rgba(255,255,255,.96);
       border: 1px solid var(--border);
       border-radius: var(--radius2);
       box-shadow: var(--shadow);
@@ -158,20 +130,20 @@
       gap:16px;
     }
     .panel-col{
-      background: rgba(11,15,22,.35);
-      border:1px solid rgba(233,238,252,.10);
+      background: var(--surface2);
+      border:1px solid var(--border);
       border-radius: var(--radius);
       padding: 14px;
     }
-    .panel h4{margin:0 0 10px; font-size:14px; color: var(--muted); letter-spacing:.3px; text-transform:uppercase;}
+    .panel h4{margin:0 0 10px; font-size:14px; color: var(--muted2); letter-spacing:.3px; text-transform:uppercase;}
     .menu-list{display:grid; gap:8px;}
     .menu-item{
       padding:10px 10px;
       border-radius: 14px;
       border:1px solid transparent;
-      background: rgba(233,238,252,.04);
+      background: rgba(3,172,233,.06);
     }
-    .menu-item:hover{border-color: rgba(233,238,252,.14); background: rgba(233,238,252,.07);}
+    .menu-item:hover{border-color: rgba(3,172,233,.24); background: rgba(3,172,233,.10);}
     .menu-item b{display:block; font-size:14px;}
     .menu-item span{display:block; font-size:12.5px; color: var(--muted); margin-top:2px;}
 
@@ -185,12 +157,13 @@
       display:none;
       border-top:1px solid var(--border);
       padding: 10px 0 18px;
+      background: rgba(246,248,251,.72);
     }
     .mobile-drawer.open{display:block;}
     .mobile-drawer details{
-      border:1px solid rgba(233,238,252,.12);
+      border:1px solid var(--border);
       border-radius: 16px;
-      background: rgba(233,238,252,.04);
+      background: var(--surface);
       padding: 10px 12px;
       margin-top:10px;
     }
@@ -198,10 +171,11 @@
     .mobile-drawer a{
       display:block; padding:10px 0;
       color: var(--muted);
-      border-bottom:1px solid rgba(233,238,252,.08);
+      border-bottom:1px solid rgba(214,224,234,.70);
     }
     .mobile-drawer a:last-child{border-bottom:none}
 
+    /* tighter vertical rhythm */
     main{padding: 12px 0 40px;}
     section{padding: var(--section-pad) 0;}
     .hero{padding-top: 6px;}
@@ -214,11 +188,11 @@
     }
 
     .card{
-      background: rgba(15,22,35,.65);
+      background: var(--surface);
       border: 1px solid var(--border);
       border-radius: var(--radius2);
       padding: 20px;
-      box-shadow: 0 16px 50px rgba(0,0,0,.25);
+      box-shadow: var(--shadow);
     }
 
     h1{
@@ -233,8 +207,8 @@
     .pill{
       font-size:12.5px;
       color: var(--text);
-      background: rgba(233,238,252,.06);
-      border:1px solid rgba(233,238,252,.12);
+      background: rgba(3,172,233,.10);
+      border:1px solid rgba(3,172,233,.22);
       padding: 8px 10px;
       border-radius: 999px;
     }
@@ -244,7 +218,7 @@
       gap:14px;
     }
     @media (max-width: 800px){ .split{grid-template-columns:1fr;} }
-    .kicker{margin:0 0 10px; color: var(--muted); text-transform:uppercase; letter-spacing:.35px; font-size:13px;}
+    .kicker{margin:0 0 10px; color: var(--muted2); text-transform:uppercase; letter-spacing:.35px; font-size:13px;}
     h2{margin: 0 0 10px; font-size: 26px; letter-spacing:-.2px;}
     h3{margin: 0 0 6px; font-size: 18px;}
     .muted{color:var(--muted)}
@@ -259,6 +233,7 @@
       border-top:1px solid var(--border);
       padding: 16px 0;
       color: var(--muted);
+      background: rgba(246,248,251,.70);
     }
     .foot a{color: var(--text)}
     .anchor{scroll-margin-top: 92px;}
@@ -336,7 +311,7 @@
                   </a>
                   <a class="menu-item" href="#home" data-tab="home">
                     <b>Use cases delivered</b>
-                    <span>What we delivered in projects</span>
+                    <span>What we show in the demo</span>
                   </a>
                   <a class="menu-item" href="#outcomes" data-tab="outcomes">
                     <b>Outcomes</b>
@@ -392,12 +367,487 @@
 </header>
 
 <main class="container">
-  <!-- (rest of your HTML stays exactly the same as your current base code content) -->
-  <!-- If you want, paste “the rest” and I’ll return the single complete file again. -->
+
+  <!-- ABOUT -->
+  <section id="about" class="anchor">
+    <div class="card">
+      <p class="kicker">About Thinkwerke</p>
+      <h2>European delivery experience for regulated industries</h2>
+
+      <p class="muted">
+        Thinkwerke is led by a group of passionate engineers with deep European delivery experience across
+        information security, cloud security architecture, and software development. The team brings
+        15+ years of experience from organisations such as IBM, Oracle, and Red Hat, along with consulting
+        work for Microsoft, Tesco, and AWS partners across Europe.
+      </p>
+
+      <p class="muted">
+        <b>Focus:</b> strengthening trust and operational resilience for regulated and core-industry organisations
+        operating in vendor-hosted environments. Thinkwerke turns complex requirements into executable controls,
+        audit-ready evidence, and decision-grade visibility — enabling leadership to confidently scale products,
+        enter regulated markets, and respond to customers, auditors, and regulators without slowing engineering.
+        The result is reduced compliance friction, faster assurance cycles, and an operating posture built to
+        withstand scrutiny.
+      </p>
+
+      <div class="card" style="margin-top:14px; background: var(--surface2); border-color: var(--border);">
+        <p class="kicker">Credentials</p>
+        <p class="muted" style="margin-top:6px; max-width: 95ch;">
+          Thinkwerke Architects and Engineers hold following credentials which showcases there depth and expertise in Solutions and Security Architecture
+          with deep understanding for transforming Business objectives into implementable technical outputs and empower businesses
+        </p>
+
+        <h3 style="margin-top:12px;">Professional certifications</h3>
+        <ul class="list">
+          <li>CompTIA SecurityX Architect</li>
+          <li>AWS Solutions Architect – Professional</li>
+          <li>AWS Security Specialty</li>
+          <li>CISM — ISACA</li>
+          <li>ISO/IEC 27001 Lead Implementer — TÜV SÜD</li>
+          <li>NIS2 & DORA Trained Professional</li>
+        </ul>
+      </div>
+
+      <div class="pill-row" style="margin-top:12px;">
+        <span class="pill">Regulated industries</span>
+        <span class="pill">Vendor-hosted environments</span>
+        <span class="pill">Audit-ready evidence</span>
+        <span class="pill">Operational resilience</span>
+        <span class="pill">Decision-grade visibility</span>
+      </div>
+
+      <div class="pill-row" style="margin-top:12px;">
+        <button class="btn primary openWalkthrough" type="button">Request a walkthrough</button>
+        <a class="btn" href="#deliver" data-tab="deliver">See what we deliver</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO -->
+  <section id="who" class="anchor">
+    <div class="card">
+      <p class="kicker">Who Thinkwerke is for</p>
+      <h2>Built for teams operating in regulated EU business domains</h2>
+
+      <p class="muted" style="margin-top:8px; max-width: 90ch;">
+        We work with organisations that need governance and compliance to operate across a software and product portfolio —
+        not only in policy documents, but through real technical artefacts that demonstrate control ownership and execution.
+      </p>
+
+      <div class="split" style="margin-top:12px;">
+        <div class="card" style="background: var(--surface2); border-color: var(--border);">
+          <h3>Business stakeholders & engineering leaders</h3>
+          <p class="muted" style="margin-top:6px;">
+            CTOs, CISOs, SVPs, Directors and Engineering Leaders aligning software product security, delivery, and compliance with
+            ISO 27001, NIS2, CRA and DORA — plus customer and market security requirements.
+          </p>
+        </div>
+
+        <div class="card" style="background: var(--surface2); border-color: var(--border);">
+          <h3>Vendor-hosted problems & gaps</h3>
+          <p class="muted" style="margin-top:6px;">
+            Vendor-provided hosting creates shared responsibility confusion. We map controls to services and show how to prove your side
+            with clear accountability, strong controls, and audit-ready evidence.
+          </p>
+        </div>
+
+        <div class="card" style="background: var(--surface2); border-color: var(--border);">
+          <h3>Software supply-chain becoming a blocker</h3>
+          <p class="muted" style="margin-top:6px;">
+            SBOM, OSS licensing, vulnerability handling, and traceability become contractual or regulatory blockers.
+            We implement evidence-producing workflows that withstand scrutiny.
+          </p>
+        </div>
+
+        <div class="card" style="background: var(--surface2); border-color: var(--border);">
+          <h3>Slow tender submission process</h3>
+          <p class="muted" style="margin-top:6px;">
+            We build reusable, audit-ready tender evidence so security questionnaires and compliance sections can be completed quickly
+            and consistently — without last-minute engineering involvement.
+          </p>
+        </div>
+
+        <div class="card" style="background: var(--surface2); border-color: var(--border);">
+          <h3>Tools exist, operating model doesn’t</h3>
+          <p class="muted" style="margin-top:6px;">
+            SIEM/CSPM/scanners are deployed but ownership, workflow, and reporting are missing.
+            We build the operating model: detections, vulnerability lifecycle, governance, and dashboards.
+          </p>
+        </div>
+
+        <div class="card" style="background: var(--surface2); border-color: var(--border);">
+          <h3>Preparing for NIS2, CRA & ISO 27001</h3>
+          <p class="muted" style="margin-top:6px;">
+            We translate regulatory requirements into executable controls, clear ownership, and audit-ready evidence —
+            so compliance supports business growth instead of slowing delivery.
+          </p>
+        </div>
+      </div>
+
+      <div class="pill-row" style="margin-top:12px;">
+        <span class="pill">Governance with evidence</span>
+        <span class="pill">Vendor-hosted accountability</span>
+        <span class="pill">Tender acceleration</span>
+        <span class="pill">Supply-chain traceability</span>
+        <span class="pill">Operating model uplift</span>
+      </div>
+
+      <div class="pill-row" style="margin-top:12px;">
+        <button class="btn primary openWalkthrough" type="button" id="openWalkthrough2">Talk through your context</button>
+        <a class="btn" href="#deliver" data-tab="deliver">See what we deliver</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT WE DELIVER -->
+  <section id="deliver" class="anchor">
+    <div class="card">
+      <p class="kicker">What we deliver</p>
+      <h2>Core services</h2>
+
+      <div class="split" id="deliver-services" style="margin-top:12px;">
+        <div class="card" style="background: var(--surface2); border-color: var(--border);">
+          <h3>ISO 27001 Programme</h3>
+          <p class="muted" style="margin-top:6px;">
+            Gap assessment, SoA, internal audits, evidence workflows and technical control mapping — from readiness to certification.
+          </p>
+        </div>
+
+        <div class="card" style="background: var(--surface2); border-color: var(--border);">
+          <h3>NIS2 & CRA Readiness</h3>
+          <p class="muted" style="margin-top:6px;">
+            SSLM, vulnerability lifecycle, SBOM and OSS license governance, and continuous evidence models aligned to NIS2, CRA and SOC 2.
+          </p>
+        </div>
+
+        <div class="card" style="background: var(--surface2); border-color: var(--border);">
+          <h3>SOC & SIEM Modernisation</h3>
+          <p class="muted" style="margin-top:6px;">
+            Cloud-centric SIEM architectures, MITRE-mapped detections, CSIRT processes, and dashboards for regulators, auditors and customers.
+          </p>
+        </div>
+
+        <div class="card" style="background: var(--surface2); border-color: var(--border);">
+          <h3>CSPM, ASPM & CNAPP</h3>
+          <p class="muted" style="margin-top:6px;">
+            AWS multi-account foundations, CSPM-driven posture, and cloud-native protection aligned with EU data-sovereignty expectations.
+          </p>
+        </div>
+
+        <div class="card" style="background: var(--surface2); border-color: var(--border);">
+          <h3>DevSecOps & CI/CD Enablement</h3>
+          <p class="muted" style="margin-top:6px;">
+            Secure pipelines, policy-as-code, artifact integrity, attestation and developer-friendly controls that keep delivery fast.
+          </p>
+        </div>
+
+        <div class="card" style="background: var(--surface2); border-color: var(--border);">
+          <h3>Interim Architecture & Capability Uplift</h3>
+          <p class="muted" style="margin-top:6px;">
+            Acting as Security & Cloud Architect / DevSecOps lead while enabling your teams with skills, process and ownership.
+          </p>
+        </div>
+      </div>
+
+      <div style="margin-top:14px; padding-top:14px; border-top:1px solid var(--border);">
+        <p class="kicker">Core solutions</p>
+        <h2 style="margin:0 0 10px;">Capability pillars</h2>
+
+        <div class="split" style="margin-top:12px;">
+          <div class="card" style="background: var(--surface2); border-color: var(--border);">
+            <h3>Secure software delivery (SSLM)</h3>
+            <ul class="list">
+              <li>Secure pipelines covering SAST, SCA/SBOM, DAST, IaC and container checks</li>
+              <li>Vulnerability lifecycle with ownership, SLAs, workflow, and traceability</li>
+              <li>Artifact integrity, attestation, and policy-as-code embedded into CI/CD</li>
+            </ul>
+          </div>
+
+          <div class="card" style="background: var(--surface2); border-color: var(--border);">
+            <h3>Compliance translated into execution</h3>
+            <ul class="list">
+              <li>Mapping ISO 27001, NIS2, CRA, DORA, GDPR and customer requirements to real software product portfolio and CI/CD controls</li>
+              <li>Clear separation of policy, implementation, and proof</li>
+              <li>Evidence workflows built for audits, tenders, and customer assurance</li>
+            </ul>
+          </div>
+
+          <div class="card" style="background: var(--surface2); border-color: var(--border);">
+            <h3>Security operating models</h3>
+            <ul class="list">
+              <li>Cloud-centric SOC and SIEM modernisation</li>
+              <li>CSPM / ASPM / CNAPP integrated into governance and reporting</li>
+              <li>Dashboards and metrics aligned to executives, auditors, and regulators</li>
+            </ul>
+          </div>
+
+          <div class="card" style="background: var(--surface2); border-color: var(--border);">
+            <h3>Delivery designed for ownership</h3>
+            <p class="muted" style="margin-top:6px;">
+              All delivery is designed to be auditable, repeatable, and owned by your teams — not dependent on long-term external presence.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="pill-row" style="margin-top:12px;">
+        <button class="btn primary openWalkthrough" type="button">Discuss delivery scope</button>
+        <a class="btn" href="#engagement" data-tab="engagement">See how we engage</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW WE ENGAGE -->
+  <section id="engagement" class="anchor">
+    <div class="card">
+      <p class="kicker">How we engage</p>
+      <h2>Engagement programs & reference demo</h2>
+
+      <div class="card" style="margin-top:12px; background: var(--surface2); border-color: var(--border);">
+        <h3>Trusted Advisor to Leadership</h3>
+        <p class="muted" style="margin-top:6px;">
+          Thinkwerke acts as a trusted advisor to C-level and senior leadership, translating regulatory, security, and technical complexity
+          into clear decisions, defensible positions, and confident execution.
+        </p>
+        <ul class="list">
+          <li>Translate regulatory and customer expectations into decision-ready options and clear ownership.</li>
+          <li>Define defensible positions for auditors, regulators, customers, and procurement stakeholders.</li>
+          <li>Align business objectives to implementable technical outputs across cloud, CI/CD, and product portfolios.</li>
+          <li>Reduce ambiguity early so delivery teams can execute without rework or last-minute escalation.</li>
+        </ul>
+      </div>
+
+      <div class="split" style="margin-top:12px;">
+        <div class="card" style="background: var(--surface2); border-color: var(--border);">
+          <h3>1) Architecture & Project Delivery</h3>
+          <p class="muted" style="margin-top:6px;">Best when you need direction, control mapping, or a defensible plan.</p>
+          <ul class="list">
+            <li>Regulatory + technical assessment (ISO 27001 / NIS2 / CRA / DORA / AI Act / GDPR)</li>
+            <li>Cloud security architecture (including vendor-hosted/shared responsibility)</li>
+            <li>Target state + implementation roadmap</li>
+            <li>Buyer-ready materials for customers, partners, and procurement</li>
+          </ul>
+        </div>
+
+        <div class="card" style="background: var(--surface2); border-color: var(--border);">
+          <h3>2) Implementation & Enablement</h3>
+          <p class="muted" style="margin-top:6px;">Best when you need hands-on engineering execution, not just recommendations.</p>
+          <ul class="list">
+            <li>SSLM pipelines: SAST/SCA/SBOM/DAST/IaC checks</li>
+            <li>Evidence-by-design: controls → implementation → proof</li>
+            <li>Vulnerability lifecycle: triage → SLA → workflow → evidence</li>
+            <li>Cloud foundations: identity, logging, monitoring, posture</li>
+            <li>Knowledge transfer so you keep ownership</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="split" style="margin-top:12px;">
+        <div class="card" style="background: var(--surface2); border-color: var(--border);">
+          <h3>3) Interim Architect / Embedded Leadership</h3>
+          <p class="muted" style="margin-top:6px;">Best when you need senior capability immediately.</p>
+          <ul class="list">
+            <li>Stabilise risk posture while delivery continues</li>
+            <li>Build operating model, governance, and reporting</li>
+            <li>Coach teams and enable internal capability</li>
+            <li>Exit with knowledge transferred (no dependency)</li>
+          </ul>
+        </div>
+
+        <div class="card" style="background: var(--surface2); border-color: var(--border);">
+          <h3>4) Assurance Acceleration</h3>
+          <p class="muted" style="margin-top:6px;">Best when revenue is blocked by customer assurance requests, tenders, or audits.</p>
+          <ul class="list">
+            <li>Security questionnaire readiness packs</li>
+            <li>Reusable evidence library for tenders and assessments</li>
+            <li>Customer workshop narratives + demo flow</li>
+            <li>Audit preparation and internal audit support</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:12px; background: var(--surface2); border-color: var(--border);">
+        <h3>Reference demo / PoC</h3>
+        <p class="muted" style="margin-top:6px;">
+          A working, end-to-end reference implementation showing how regulatory and customer expectations translate into:
+        </p>
+        <ul class="list">
+          <li>Secure CI/CD pipelines producing continuous evidence</li>
+          <li>Vulnerability and supply-chain workflows aligned to CRA</li>
+          <li>Cloud security foundations with clear accountability</li>
+          <li>Exportable artefacts suitable for audits and customer reviews</li>
+        </ul>
+
+        <div class="pill-row" style="margin-top:12px;">
+          <button class="btn primary openWalkthrough" type="button">Request a walkthrough</button>
+          <a class="btn" href="#contact" data-tab="contact">Talk to us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- USE CASES DELIVERED -->
+  <section id="home" class="hero anchor">
+    <div class="hero-grid">
+      <div class="card">
+        <h2>Use cases & solutions delivered</h2>
+        <p class="muted" style="margin-top:6px;">
+          ON Information Security & Cloud Architecture focused on EU Kritis Business Domains
+        </p>
+
+        <p class="lead" style="margin-top:12px;">
+          Thinkwerke helps organisations turn regulations like ISO 27001, NIS2, CRA, DORA and GDPR into secure-by-design AWS architectures,
+          automated pipelines, and continuous evidence for audits, tenders, and customer assessments.
+        </p>
+
+        <div class="pill-row" aria-label="Key focus areas">
+          <span class="pill">EU Sovereign Cloud & Data Resilience</span>
+          <span class="pill">Secure Software Lifecycle (SSLM)</span>
+          <span class="pill">NIS2 / CRA / ISO 27001</span>
+          <span class="pill">AWS Security Architecture</span>
+          <span class="pill">DevSecOps & CI/CD</span>
+        </div>
+
+        <div style="margin-top:12px; padding-top:12px; border-top:1px solid var(--border);">
+          <p class="kicker">What we show in the demo</p>
+          <ul class="list">
+            <li>SSLM pipeline: SAST, SCA/SBOM, DAST, IaC & container checks — delivered for DORA / NIS2 compliance</li>
+            <li>Automated vulnerability handling: detection → SLA → Jira workflow → evidence — delivered for ISO 27001</li>
+            <li>Supply-chain governance: SBOM and OSS license controls aligned to CRA — delivered for NIS2 & ISO 27001</li>
+            <li>AWS security foundation: CSPM visibility, identity governance, secure CI/CD — integrated into delivery pipelines</li>
+          </ul>
+        </div>
+
+        <div class="pill-row" style="margin-top:12px;">
+          <a class="btn primary" href="#engagement" data-tab="engagement">Request a walkthrough</a>
+          <a class="btn" href="#docs" data-tab="docs">Open docs</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OUTCOMES -->
+  <section id="outcomes" class="anchor">
+    <div class="card">
+      <p class="kicker">Outcomes</p>
+      <h2>What changes after Thinkwerke</h2>
+
+      <div class="grid3" style="margin-top:12px;">
+        <div class="card" style="background: var(--surface2); border-color: var(--border);">
+          <h3>Faster enterprise sales cycles</h3>
+          <p class="muted" style="margin-top:6px;">
+            Customer assurance becomes predictable because evidence is structured, reusable, and mapped to real cloud implementations.
+          </p>
+        </div>
+
+        <div class="card" style="background: var(--surface2); border-color: var(--border);">
+          <h3>Audit readiness without chaos</h3>
+          <p class="muted" style="margin-top:6px;">
+            Shift from firefighting to a repeatable model: policy → controls → implementation → proof.
+          </p>
+        </div>
+
+        <div class="card" style="background: var(--surface2); border-color: var(--border);">
+          <h3>Clear vendor-hosting accountability</h3>
+          <p class="muted" style="margin-top:6px;">
+            Shared responsibility becomes operational: what you own, what your vendor provides, and how you prove both.
+          </p>
+        </div>
+      </div>
+
+      <div class="split" style="margin-top:12px;">
+        <div class="card" style="background: var(--surface2); border-color: var(--border);">
+          <h3>Controls that support engineering speed</h3>
+          <p class="muted" style="margin-top:6px;">
+            Controls embedded into DevSecOps so teams ship faster with fewer escalations and less manual gating.
+          </p>
+          <ul class="list">
+            <li>SSLM pipelines producing continuous evidence</li>
+            <li>Policy-as-code + developer-friendly controls</li>
+            <li>Traceable approvals and artefacts for audits</li>
+          </ul>
+        </div>
+
+        <div class="card" style="background: var(--surface2); border-color: var(--border);">
+          <h3>Business focus for core industries</h3>
+          <p class="muted" style="margin-top:6px;">
+            Your teams focus on marketing, sales, and business expansion while Thinkwerke removes the blockers affecting business objectives.
+          </p>
+          <ul class="list">
+            <li>Reduced time spent on questionnaires and tenders</li>
+            <li>Fewer “security as a blocker” escalations</li>
+            <li>Higher confidence in audits and customer reviews</li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="muted" style="margin-top:12px; max-width: 95ch;">
+        <b>In short:</b> less uncertainty, fewer blockers, and higher confidence at executive level.
+      </p>
+
+      <div class="pill-row" style="margin-top:12px;">
+        <button class="btn primary openWalkthrough" type="button">Request a walkthrough</button>
+        <a class="btn" href="#docs" data-tab="docs">Open docs</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- DOCS -->
+  <section id="docs" class="anchor">
+    <div class="card">
+      <p class="kicker">Docs</p>
+      <h2>Documentation & whitepapers</h2>
+      <p class="muted">
+        Full technical and conceptual documentation is openly available.
+      </p>
+      <div class="pill-row" style="margin-top:12px;">
+        <a class="btn primary" href="https://docs.thinkwerke.com" target="_blank" rel="noreferrer">Open docs</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="anchor">
+    <div class="card">
+      <p class="kicker">Contact</p>
+      <h2>Let’s explore your use-case</h2>
+      <p class="muted">
+        If you would like to explore a project, PoC or advisory engagement, reach out via email or LinkedIn with a short note on your use-case
+        (e.g. NIS2 readiness, ISO 27001, cloud transformation, tender preparation).
+      </p>
+      <div class="split" style="margin-top:10px;">
+        <div class="card" style="background: var(--surface2); border-color: var(--border);">
+          <h3>Email</h3>
+          <p class="muted" style="margin:6px 0 0;"><a href="mailto:Thinkwerke@tutamail.com">Thinkwerke@tutamail.com</a></p>
+        </div>
+        <div class="card" style="background: var(--surface2); border-color: var(--border);">
+          <h3>LinkedIn</h3>
+          <p class="muted" style="margin:6px 0 0;">
+            <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer">Mayank Sekhar (LinkedIn)</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="foot">
+    <div class="container" style="padding:0;">
+      <div style="display:flex; flex-wrap:wrap; gap:12px; justify-content:space-between; align-items:center;">
+        <span>© Thinkwerke — Security, Cloud & Compliance Engineering for EU-regulated environments.</span>
+        <span style="display:flex; gap:12px;">
+          <a href="#about" data-tab="about">About</a>
+          <a href="#docs" data-tab="docs">Docs</a>
+          <a href="#contact" data-tab="contact">Contact</a>
+        </span>
+      </div>
+    </div>
+  </div>
 </main>
 
 <script>
+  // --- Dropdown mega-menu behavior (desktop) ---
   const navItems = document.querySelectorAll('.nav-item[data-menu]');
+
   function closeAllMenus() {
     navItems.forEach(item => {
       const btn = item.querySelector('.nav-link');
@@ -406,27 +856,42 @@
       if (btn) btn.setAttribute('aria-expanded', 'false');
     });
   }
+
   navItems.forEach(item => {
     const btn = item.querySelector('.nav-link');
     const panel = item.querySelector('.panel');
     if (!btn || !panel) return;
+
     btn.addEventListener('click', (e) => {
       e.stopPropagation();
       const isOpen = panel.classList.contains('open');
       closeAllMenus();
-      if (!isOpen) { panel.classList.add('open'); btn.setAttribute('aria-expanded', 'true'); }
+      if (!isOpen) {
+        panel.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
     });
+
     panel.addEventListener('click', (e) => e.stopPropagation());
   });
-  document.addEventListener('click', closeAllMenus);
-  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeAllMenus(); });
 
+  document.addEventListener('click', closeAllMenus);
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeAllMenus();
+  });
+
+  // --- Mobile drawer ---
   const hamburger = document.getElementById('hamburger');
   const mobileDrawer = document.getElementById('mobileDrawer');
+
   if (hamburger && mobileDrawer) {
-    hamburger.addEventListener('click', () => { mobileDrawer.classList.toggle('open'); closeAllMenus(); });
+    hamburger.addEventListener('click', () => {
+      mobileDrawer.classList.toggle('open');
+      closeAllMenus();
+    });
   }
 
+  // --- Smooth scroll + active hash update ---
   function scrollToHash(hash) {
     const el = document.querySelector(hash);
     if (!el) return;
@@ -448,8 +913,11 @@
     });
   });
 
-  window.addEventListener('load', () => { if (location.hash) scrollToHash(location.hash); });
+  window.addEventListener('load', () => {
+    if (location.hash) scrollToHash(location.hash);
+  });
 
+  // --- Walkthrough buttons: scroll to Contact ---
   function goToContact(e){
     e.preventDefault();
     closeAllMenus();
@@ -457,8 +925,10 @@
     history.pushState(null, '', '#contact');
     scrollToHash('#contact');
   }
+
   const openWalkthrough2 = document.getElementById('openWalkthrough2');
   if (openWalkthrough2) openWalkthrough2.addEventListener('click', goToContact);
+
   document.querySelectorAll('.openWalkthrough').forEach(btn => {
     if (btn !== openWalkthrough2) btn.addEventListener('click', goToContact);
   });
