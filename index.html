@@ -85,6 +85,7 @@
     }
     .nav-link:hover{background: rgba(3,172,233,.08); border-color: rgba(3,172,233,.18);}
     .chev{opacity:.75; font-size: 12px; transform: translateY(1px);}
+
     .cta{
       display:flex; align-items:center; gap:10px;
       min-width: 250px;
@@ -110,6 +111,19 @@
     .btn.primary:hover{background: linear-gradient(135deg, rgba(2,153,209,.98), rgba(2,153,209,.78));}
     .btn.primary:active{background: linear-gradient(135deg, rgba(1,135,186,.98), rgba(1,135,186,.78));}
 
+    /* Desktop “three dashes” quick links button */
+    .hamburger{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:44px;
+      padding:10px 0;
+      border-radius:14px;
+      line-height:1;
+      font-size:18px;
+    }
+
+    /* Services mega panel (kept) */
     .panel{
       position:absolute;
       left:50%;
@@ -126,7 +140,7 @@
     .panel.open{display:block;}
     .panel-grid{
       display:grid;
-      grid-template-columns: 1.1fr .9fr;
+      grid-template-columns: 1fr;
       gap:16px;
     }
     .panel-col{
@@ -147,12 +161,39 @@
     .menu-item b{display:block; font-size:14px;}
     .menu-item span{display:block; font-size:12.5px; color: var(--muted); margin-top:2px;}
 
-    .hamburger{display:none}
+    /* Quick-links dropdown (attached to hamburger) */
+    .quick-panel{
+      position:absolute;
+      right:0;
+      top: 48px;
+      width: min(420px, calc(100vw - 24px));
+      background: rgba(255,255,255,.96);
+      border: 1px solid var(--border);
+      border-radius: var(--radius2);
+      box-shadow: var(--shadow);
+      padding: 14px;
+      display:none;
+    }
+    .quick-panel.open{display:block;}
+    .quick-grid{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:10px;
+    }
+    .quick-title{
+      margin:0 0 8px;
+      font-size:14px;
+      color: var(--muted2);
+      letter-spacing:.3px;
+      text-transform:uppercase;
+    }
+
+    /* Responsive: hide center nav on small screens; hamburger still exists (same button controls same drawer) */
     @media (max-width: 980px){
       nav{display:none}
       .cta{min-width:auto}
-      .hamburger{display:inline-flex}
     }
+
     .mobile-drawer{
       display:none;
       border-top:1px solid var(--border);
@@ -258,6 +299,7 @@
             Services <span class="chev">▾</span>
           </button>
 
+          <!-- Services panel now ONLY includes Core services -->
           <div class="panel" role="dialog" aria-label="Services">
             <div class="panel-grid">
               <div class="panel-col">
@@ -289,45 +331,6 @@
                   </a>
                 </div>
               </div>
-
-              <div class="panel-col">
-                <h4>Quick links</h4>
-                <div class="menu-list">
-                  <a class="menu-item" href="#about" data-tab="about">
-                    <b>About</b>
-                    <span>European delivery experience</span>
-                  </a>
-                  <a class="menu-item" href="#who" data-tab="who">
-                    <b>Who Thinkwerke is for</b>
-                    <span>Best-fit organisations & blockers removed</span>
-                  </a>
-                  <a class="menu-item" href="#deliver" data-tab="deliver">
-                    <b>What we deliver</b>
-                    <span>Core services & capability pillars</span>
-                  </a>
-                  <a class="menu-item" href="#engagement" data-tab="engagement">
-                    <b>How we engage</b>
-                    <span>Programs + reference demo</span>
-                  </a>
-                  <a class="menu-item" href="#home" data-tab="home">
-                    <b>Use cases delivered</b>
-                    <span>What we delivered in projects in 2025</span>
-                  </a>
-                  <a class="menu-item" href="#outcomes" data-tab="outcomes">
-                    <b>Outcomes</b>
-                    <span>Business results</span>
-                  </a>
-                  <a class="menu-item" href="#docs" data-tab="docs">
-                    <b>Docs</b>
-                    <span>Open technical documentation</span>
-                  </a>
-                  <a class="menu-item" href="#contact" data-tab="contact">
-                    <b>Talk to Thinkwerke</b>
-                    <span>Explore a project or request a walkthrough</span>
-                  </a>
-                </div>
-              </div>
-
             </div>
           </div>
         </div>
@@ -337,12 +340,56 @@
       </nav>
 
       <div class="cta">
-        <button class="btn hamburger" type="button" id="hamburger" aria-label="Open menu">☰</button>
+        <!-- “Three dashes” quick links button (desktop + mobile) -->
+        <div class="nav-item" data-menu="quickLinks" style="position:relative;">
+          <button class="btn hamburger" type="button" id="hamburger" aria-label="Open quick links" aria-haspopup="true" aria-expanded="false">☰</button>
+
+          <!-- Detached Quick links dropdown -->
+          <div class="quick-panel" role="dialog" aria-label="Quick links">
+            <div class="quick-title">Quick links</div>
+            <div class="quick-grid menu-list">
+              <a class="menu-item" href="#about" data-tab="about">
+                <b>About</b>
+                <span>Who we are + credentials</span>
+              </a>
+              <a class="menu-item" href="#who" data-tab="who">
+                <b>Who Thinkwerke is for</b>
+                <span>Best-fit organisations & blockers removed</span>
+              </a>
+              <a class="menu-item" href="#deliver" data-tab="deliver">
+                <b>What we deliver</b>
+                <span>Core services & capability pillars</span>
+              </a>
+              <a class="menu-item" href="#engagement" data-tab="engagement">
+                <b>How we engage</b>
+                <span>Programs + reference demo</span>
+              </a>
+              <a class="menu-item" href="#home" data-tab="home">
+                <b>Use cases delivered</b>
+                <span>What we delivered in 2025</span>
+              </a>
+              <a class="menu-item" href="#outcomes" data-tab="outcomes">
+                <b>Outcomes</b>
+                <span>Business results</span>
+              </a>
+              <a class="menu-item" href="#docs" data-tab="docs">
+                <b>Docs</b>
+                <span>Open technical documentation</span>
+              </a>
+              <a class="menu-item" href="#contact" data-tab="contact">
+                <b>Talk to Thinkwerke</b>
+                <span>Explore a project or request a walkthrough</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
         <a class="btn" href="#docs" data-tab="docs">View documentation</a>
         <a class="btn primary" href="#engagement" data-tab="engagement">Request a walkthrough</a>
       </div>
     </div>
 
+    <!-- Mobile drawer (still used when hamburger toggles on small screens) -->
     <div class="mobile-drawer" id="mobileDrawer" aria-label="Mobile menu">
       <details>
         <summary>Services</summary>
@@ -381,13 +428,16 @@
         work for Microsoft, Tesco, and AWS partners across Europe.
       </p>
 
-      <!-- INSERTED: Mission (before Focus) -->
-      <p class="muted">
-        <b>Mission:</b> Enable individuals, teams, and regulated enterprises to build secure, compliant, and operationally resilient cloud
-        systems aligned with EU cybersecurity standards and global best practices.
-      </p>
+      <!-- ADDED: Mission (before Focus) -->
+      <div class="card" style="margin-top:14px; background: var(--surface2); border-color: var(--border);">
+        <p class="kicker">Mission</p>
+        <p class="muted" style="margin-top:6px; max-width: 95ch;">
+          Enable individuals, teams, and regulated enterprises to build secure, compliant, and operationally resilient cloud systems
+          aligned with EU cybersecurity standards and global best practices.
+        </p>
+      </div>
 
-      <p class="muted">
+      <p class="muted" style="margin-top:14px;">
         <b>Focus:</b> strengthening trust and operational resilience for regulated and core-industry organisations
         operating in vendor-hosted environments. Thinkwerke turns complex requirements into executable controls,
         audit-ready evidence, and decision-grade visibility — enabling leadership to confidently scale products,
@@ -672,6 +722,7 @@
         </div>
       </div>
 
+      <!-- UPDATED: Reference demo / PoC bullets -->
       <div class="card" style="margin-top:12px; background: var(--surface2); border-color: var(--border);">
         <h3>Reference demo / PoC</h3>
         <p class="muted" style="margin-top:6px;">
@@ -699,7 +750,7 @@
       <div class="card">
         <h2>Use cases & solutions delivered</h2>
         <p class="muted" style="margin-top:6px;">
-          ON Information Security & Cloud Architecture focused on EU Kritis Business Domains
+          ON Information Security &amp; Cloud Architecture focused on EU Kritis Business Domains
         </p>
 
         <p class="lead" style="margin-top:12px;">
@@ -715,13 +766,14 @@
           <span class="pill">DevSecOps & CI/CD</span>
         </div>
 
+        <!-- UPDATED: title + bullets -->
         <div style="margin-top:12px; padding-top:12px; border-top:1px solid var(--border);">
           <p class="kicker">What we delivered in projects in 2025</p>
           <ul class="list">
             <li>Secure CI/CD pipelines producing continuous evidence for compliance</li>
             <li>Software &amp; platform vulnerability for supply-chain workflows aligned to CRA</li>
             <li>Cloud and container security strength with clear accountability</li>
-            <li>Exportable artefacts suitable for audits, customer reviews, and tender process</li>
+            <li>Exportable artefacts suitable for audits, customer reviews, and tender processes</li>
           </ul>
         </div>
 
@@ -857,20 +909,33 @@
 
   function closeAllMenus() {
     navItems.forEach(item => {
-      const btn = item.querySelector('.nav-link');
-      const panel = item.querySelector('.panel');
+      const btn = item.querySelector('button');
+      const panel = item.querySelector('.panel, .quick-panel');
       if (panel) panel.classList.remove('open');
       if (btn) btn.setAttribute('aria-expanded', 'false');
     });
   }
 
   navItems.forEach(item => {
-    const btn = item.querySelector('.nav-link');
-    const panel = item.querySelector('.panel');
+    const btn = item.querySelector('button');
+    const panel = item.querySelector('.panel, .quick-panel');
     if (!btn || !panel) return;
 
     btn.addEventListener('click', (e) => {
       e.stopPropagation();
+
+      // On small screens, hamburger toggles the mobile drawer (and closes dropdowns)
+      if (btn.id === 'hamburger' && window.matchMedia('(max-width: 980px)').matches) {
+        const mobileDrawer = document.getElementById('mobileDrawer');
+        if (mobileDrawer) {
+          const willOpen = !mobileDrawer.classList.contains('open');
+          closeAllMenus();
+          mobileDrawer.classList.toggle('open', willOpen);
+        }
+        return;
+      }
+
+      // Desktop dropdown behavior
       const isOpen = panel.classList.contains('open');
       closeAllMenus();
       if (!isOpen) {
@@ -882,21 +947,23 @@
     panel.addEventListener('click', (e) => e.stopPropagation());
   });
 
-  document.addEventListener('click', closeAllMenus);
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeAllMenus();
+  document.addEventListener('click', () => {
+    closeAllMenus();
+    const mobileDrawer = document.getElementById('mobileDrawer');
+    if (mobileDrawer) mobileDrawer.classList.remove('open');
   });
 
-  // --- Mobile drawer ---
-  const hamburger = document.getElementById('hamburger');
-  const mobileDrawer = document.getElementById('mobileDrawer');
-
-  if (hamburger && mobileDrawer) {
-    hamburger.addEventListener('click', () => {
-      mobileDrawer.classList.toggle('open');
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
       closeAllMenus();
-    });
-  }
+      const mobileDrawer = document.getElementById('mobileDrawer');
+      if (mobileDrawer) mobileDrawer.classList.remove('open');
+    }
+  });
+
+  // Prevent click-inside mobile drawer from closing it
+  const mobileDrawer = document.getElementById('mobileDrawer');
+  if (mobileDrawer) mobileDrawer.addEventListener('click', (e) => e.stopPropagation());
 
   // --- Smooth scroll + active hash update ---
   function scrollToHash(hash) {
@@ -911,6 +978,7 @@
       if (href.startsWith('#')) {
         e.preventDefault();
         closeAllMenus();
+        const mobileDrawer = document.getElementById('mobileDrawer');
         if (mobileDrawer) mobileDrawer.classList.remove('open');
         history.pushState(null, '', href);
         scrollToHash(href);
@@ -928,6 +996,7 @@
   function goToContact(e){
     e.preventDefault();
     closeAllMenus();
+    const mobileDrawer = document.getElementById('mobileDrawer');
     if (mobileDrawer) mobileDrawer.classList.remove('open');
     history.pushState(null, '', '#contact');
     scrollToHash('#contact');
@@ -938,6 +1007,13 @@
 
   document.querySelectorAll('.openWalkthrough').forEach(btn => {
     if (btn !== openWalkthrough2) btn.addEventListener('click', goToContact);
+  });
+
+  // Close dropdowns if viewport crosses breakpoint (prevents “stuck open”)
+  window.addEventListener('resize', () => {
+    closeAllMenus();
+    const md = document.getElementById('mobileDrawer');
+    if (md && !window.matchMedia('(max-width: 980px)').matches) md.classList.remove('open');
   });
 </script>
 </body>
