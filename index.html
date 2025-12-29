@@ -8,24 +8,18 @@
 
   <style>
     :root{
-      /* Option A — Nordic Enterprise Trust */
-      --bg: #F6F8FB;          /* page background */
-      --surface: #FFFFFF;     /* cards */
-      --surface2: #EEF3F8;    /* alt surfaces */
-      --text: #0B1F33;        /* primary text */
-      --muted: #4B5B6B;       /* muted text */
-      --muted2:#6B7C8F;       /* subtler text */
-      --border: #D6E0EA;      /* borders */
-      --shadow: 0 10px 30px rgba(11,31,51,.10);
+      /* Option A (“Nordic Enterprise Trust”) */
+      --bg: #0b0f16;
+      --panel: #0f1623;
+      --panel2:#0c1320;
+      --text: #e9eefc;
+      --muted:#a9b5d3;
+      --border: rgba(233,238,252,.12);
+      --shadow: 0 18px 60px rgba(0,0,0,.45);
       --radius: 16px;
       --radius2: 22px;
       --max: 1120px;
-
-      --accent: #03ACE9;      /* primary accent */
-      --accent-hover:#0299D1;
-      --accent-active:#0187BA;
-
-      --focus: 0 0 0 3px rgba(3,172,233,.22);
+      --focus: 0 0 0 3px rgba(233,238,252,.16);
 
       /* tighter spacing (reduced further) */
       --section-pad: 20px;
@@ -38,8 +32,9 @@
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
       color:var(--text);
       background:
-        radial-gradient(900px 500px at 15% -10%, rgba(3,172,233,.10), transparent 60%),
-        radial-gradient(900px 520px at 90% 0%, rgba(11,31,51,.06), transparent 60%),
+        radial-gradient(1200px 600px at 20% -10%, rgba(108,142,255,.20), transparent 60%),
+        radial-gradient(900px 520px at 90% 0%, rgba(96,220,255,.14), transparent 60%),
+        radial-gradient(1100px 800px at 70% 120%, rgba(151,108,255,.10), transparent 55%),
         var(--bg);
       line-height:1.45;
     }
@@ -51,7 +46,7 @@
     header{
       position:sticky; top:0; z-index:50;
       backdrop-filter: blur(10px);
-      background: rgba(246,248,251,.78);
+      background: rgba(11,15,22,.55);
       border-bottom: 1px solid var(--border);
     }
     .nav{
@@ -83,7 +78,7 @@
       cursor:pointer;
       font: inherit;
     }
-    .nav-link:hover{background: rgba(3,172,233,.08); border-color: rgba(3,172,233,.18);}
+    .nav-link:hover{background: rgba(233,238,252,.06); border-color: rgba(233,238,252,.10);}
     .chev{opacity:.75; font-size: 12px; transform: translateY(1px);}
     .cta{
       display:flex; align-items:center; gap:10px;
@@ -91,24 +86,19 @@
       justify-content:flex-end;
     }
     .btn{
-      border:1px solid var(--border);
-      background: var(--surface);
+      border:1px solid rgba(233,238,252,.16);
+      background: rgba(233,238,252,.06);
       color:var(--text);
       padding:10px 12px;
       border-radius:14px;
       font-weight:700;
       cursor:pointer;
-      box-shadow: 0 6px 18px rgba(11,31,51,.06);
     }
-    .btn:hover{background: rgba(3,172,233,.06); border-color: rgba(3,172,233,.22);}
+    .btn:hover{background: rgba(233,238,252,.10);}
     .btn.primary{
-      border-color: rgba(3,172,233,.45);
-      background: linear-gradient(135deg, rgba(3,172,233,.95), rgba(3,172,233,.75));
-      color:#FFFFFF;
-      box-shadow: 0 10px 26px rgba(3,172,233,.22);
+      border-color: rgba(108,142,255,.55);
+      background: linear-gradient(135deg, rgba(108,142,255,.55), rgba(96,220,255,.28));
     }
-    .btn.primary:hover{background: linear-gradient(135deg, rgba(2,153,209,.98), rgba(2,153,209,.78));}
-    .btn.primary:active{background: linear-gradient(135deg, rgba(1,135,186,.98), rgba(1,135,186,.78));}
 
     .panel{
       position:absolute;
@@ -116,7 +106,7 @@
       transform: translateX(-50%);
       top: 48px;
       width: min(860px, calc(100vw - 24px));
-      background: rgba(255,255,255,.96);
+      background: rgba(15,22,35,.92);
       border: 1px solid var(--border);
       border-radius: var(--radius2);
       box-shadow: var(--shadow);
@@ -130,20 +120,20 @@
       gap:16px;
     }
     .panel-col{
-      background: var(--surface2);
-      border:1px solid var(--border);
+      background: rgba(11,15,22,.35);
+      border:1px solid rgba(233,238,252,.10);
       border-radius: var(--radius);
       padding: 14px;
     }
-    .panel h4{margin:0 0 10px; font-size:14px; color: var(--muted2); letter-spacing:.3px; text-transform:uppercase;}
+    .panel h4{margin:0 0 10px; font-size:14px; color: var(--muted); letter-spacing:.3px; text-transform:uppercase;}
     .menu-list{display:grid; gap:8px;}
     .menu-item{
       padding:10px 10px;
       border-radius: 14px;
       border:1px solid transparent;
-      background: rgba(3,172,233,.06);
+      background: rgba(233,238,252,.04);
     }
-    .menu-item:hover{border-color: rgba(3,172,233,.24); background: rgba(3,172,233,.10);}
+    .menu-item:hover{border-color: rgba(233,238,252,.14); background: rgba(233,238,252,.07);}
     .menu-item b{display:block; font-size:14px;}
     .menu-item span{display:block; font-size:12.5px; color: var(--muted); margin-top:2px;}
 
@@ -157,13 +147,12 @@
       display:none;
       border-top:1px solid var(--border);
       padding: 10px 0 18px;
-      background: rgba(246,248,251,.72);
     }
     .mobile-drawer.open{display:block;}
     .mobile-drawer details{
-      border:1px solid var(--border);
+      border:1px solid rgba(233,238,252,.12);
       border-radius: 16px;
-      background: var(--surface);
+      background: rgba(233,238,252,.04);
       padding: 10px 12px;
       margin-top:10px;
     }
@@ -171,7 +160,7 @@
     .mobile-drawer a{
       display:block; padding:10px 0;
       color: var(--muted);
-      border-bottom:1px solid rgba(214,224,234,.70);
+      border-bottom:1px solid rgba(233,238,252,.08);
     }
     .mobile-drawer a:last-child{border-bottom:none}
 
@@ -188,11 +177,11 @@
     }
 
     .card{
-      background: var(--surface);
+      background: rgba(15,22,35,.65);
       border: 1px solid var(--border);
       border-radius: var(--radius2);
       padding: 20px;
-      box-shadow: var(--shadow);
+      box-shadow: 0 16px 50px rgba(0,0,0,.25);
     }
 
     h1{
@@ -207,8 +196,8 @@
     .pill{
       font-size:12.5px;
       color: var(--text);
-      background: rgba(3,172,233,.10);
-      border:1px solid rgba(3,172,233,.22);
+      background: rgba(233,238,252,.06);
+      border:1px solid rgba(233,238,252,.12);
       padding: 8px 10px;
       border-radius: 999px;
     }
@@ -218,7 +207,7 @@
       gap:14px;
     }
     @media (max-width: 800px){ .split{grid-template-columns:1fr;} }
-    .kicker{margin:0 0 10px; color: var(--muted2); text-transform:uppercase; letter-spacing:.35px; font-size:13px;}
+    .kicker{margin:0 0 10px; color: var(--muted); text-transform:uppercase; letter-spacing:.35px; font-size:13px;}
     h2{margin: 0 0 10px; font-size: 26px; letter-spacing:-.2px;}
     h3{margin: 0 0 6px; font-size: 18px;}
     .muted{color:var(--muted)}
@@ -233,7 +222,6 @@
       border-top:1px solid var(--border);
       padding: 16px 0;
       color: var(--muted);
-      background: rgba(246,248,251,.70);
     }
     .foot a{color: var(--text)}
     .anchor{scroll-margin-top: 92px;}
@@ -311,7 +299,7 @@
                   </a>
                   <a class="menu-item" href="#home" data-tab="home">
                     <b>Use cases delivered</b>
-                    <span>What we show in the demo</span>
+                    <span>What we delivered in projects</span>
                   </a>
                   <a class="menu-item" href="#outcomes" data-tab="outcomes">
                     <b>Outcomes</b>
@@ -390,7 +378,7 @@
         withstand scrutiny.
       </p>
 
-      <div class="card" style="margin-top:14px; background: var(--surface2); border-color: var(--border);">
+      <div class="card" style="margin-top:14px; background: rgba(233,238,252,.04); border-color: rgba(233,238,252,.10);">
         <p class="kicker">Credentials</p>
         <p class="muted" style="margin-top:6px; max-width: 95ch;">
           Thinkwerke Architects and Engineers hold following credentials which showcases there depth and expertise in Solutions and Security Architecture
@@ -435,7 +423,7 @@
       </p>
 
       <div class="split" style="margin-top:12px;">
-        <div class="card" style="background: var(--surface2); border-color: var(--border);">
+        <div class="card" style="background: rgba(233,238,252,.04); border-color: rgba(233,238,252,.10);">
           <h3>Business stakeholders & engineering leaders</h3>
           <p class="muted" style="margin-top:6px;">
             CTOs, CISOs, SVPs, Directors and Engineering Leaders aligning software product security, delivery, and compliance with
@@ -443,7 +431,7 @@
           </p>
         </div>
 
-        <div class="card" style="background: var(--surface2); border-color: var(--border);">
+        <div class="card" style="background: rgba(233,238,252,.04); border-color: rgba(233,238,252,.10);">
           <h3>Vendor-hosted problems & gaps</h3>
           <p class="muted" style="margin-top:6px;">
             Vendor-provided hosting creates shared responsibility confusion. We map controls to services and show how to prove your side
@@ -451,7 +439,7 @@
           </p>
         </div>
 
-        <div class="card" style="background: var(--surface2); border-color: var(--border);">
+        <div class="card" style="background: rgba(233,238,252,.04); border-color: rgba(233,238,252,.10);">
           <h3>Software supply-chain becoming a blocker</h3>
           <p class="muted" style="margin-top:6px;">
             SBOM, OSS licensing, vulnerability handling, and traceability become contractual or regulatory blockers.
@@ -459,7 +447,7 @@
           </p>
         </div>
 
-        <div class="card" style="background: var(--surface2); border-color: var(--border);">
+        <div class="card" style="background: rgba(233,238,252,.04); border-color: rgba(233,238,252,.10);">
           <h3>Slow tender submission process</h3>
           <p class="muted" style="margin-top:6px;">
             We build reusable, audit-ready tender evidence so security questionnaires and compliance sections can be completed quickly
@@ -467,7 +455,7 @@
           </p>
         </div>
 
-        <div class="card" style="background: var(--surface2); border-color: var(--border);">
+        <div class="card" style="background: rgba(233,238,252,.04); border-color: rgba(233,238,252,.10);">
           <h3>Tools exist, operating model doesn’t</h3>
           <p class="muted" style="margin-top:6px;">
             SIEM/CSPM/scanners are deployed but ownership, workflow, and reporting are missing.
@@ -475,7 +463,7 @@
           </p>
         </div>
 
-        <div class="card" style="background: var(--surface2); border-color: var(--border);">
+        <div class="card" style="background: rgba(233,238,252,.04); border-color: rgba(233,238,252,.10);">
           <h3>Preparing for NIS2, CRA & ISO 27001</h3>
           <p class="muted" style="margin-top:6px;">
             We translate regulatory requirements into executable controls, clear ownership, and audit-ready evidence —
@@ -506,42 +494,42 @@
       <h2>Core services</h2>
 
       <div class="split" id="deliver-services" style="margin-top:12px;">
-        <div class="card" style="background: var(--surface2); border-color: var(--border);">
+        <div class="card" style="background: rgba(233,238,252,.04); border-color: rgba(233,238,252,.10);">
           <h3>ISO 27001 Programme</h3>
           <p class="muted" style="margin-top:6px;">
             Gap assessment, SoA, internal audits, evidence workflows and technical control mapping — from readiness to certification.
           </p>
         </div>
 
-        <div class="card" style="background: var(--surface2); border-color: var(--border);">
+        <div class="card" style="background: rgba(233,238,252,.04); border-color: rgba(233,238,252,.10);">
           <h3>NIS2 & CRA Readiness</h3>
           <p class="muted" style="margin-top:6px;">
             SSLM, vulnerability lifecycle, SBOM and OSS license governance, and continuous evidence models aligned to NIS2, CRA and SOC 2.
           </p>
         </div>
 
-        <div class="card" style="background: var(--surface2); border-color: var(--border);">
+        <div class="card" style="background: rgba(233,238,252,.04); border-color: rgba(233,238,252,.10);">
           <h3>SOC & SIEM Modernisation</h3>
           <p class="muted" style="margin-top:6px;">
             Cloud-centric SIEM architectures, MITRE-mapped detections, CSIRT processes, and dashboards for regulators, auditors and customers.
           </p>
         </div>
 
-        <div class="card" style="background: var(--surface2); border-color: var(--border);">
+        <div class="card" style="background: rgba(233,238,252,.04); border-color: rgba(233,238,252,.10);">
           <h3>CSPM, ASPM & CNAPP</h3>
           <p class="muted" style="margin-top:6px;">
             AWS multi-account foundations, CSPM-driven posture, and cloud-native protection aligned with EU data-sovereignty expectations.
           </p>
         </div>
 
-        <div class="card" style="background: var(--surface2); border-color: var(--border);">
+        <div class="card" style="background: rgba(233,238,252,.04); border-color: rgba(233,238,252,.10);">
           <h3>DevSecOps & CI/CD Enablement</h3>
           <p class="muted" style="margin-top:6px;">
             Secure pipelines, policy-as-code, artifact integrity, attestation and developer-friendly controls that keep delivery fast.
           </p>
         </div>
 
-        <div class="card" style="background: var(--surface2); border-color: var(--border);">
+        <div class="card" style="background: rgba(233,238,252,.04); border-color: rgba(233,238,252,.10);">
           <h3>Interim Architecture & Capability Uplift</h3>
           <p class="muted" style="margin-top:6px;">
             Acting as Security & Cloud Architect / DevSecOps lead while enabling your teams with skills, process and ownership.
@@ -554,7 +542,7 @@
         <h2 style="margin:0 0 10px;">Capability pillars</h2>
 
         <div class="split" style="margin-top:12px;">
-          <div class="card" style="background: var(--surface2); border-color: var(--border);">
+          <div class="card" style="background: rgba(233,238,252,.04); border-color: rgba(233,238,252,.10);">
             <h3>Secure software delivery (SSLM)</h3>
             <ul class="list">
               <li>Secure pipelines covering SAST, SCA/SBOM, DAST, IaC and container checks</li>
@@ -563,7 +551,7 @@
             </ul>
           </div>
 
-          <div class="card" style="background: var(--surface2); border-color: var(--border);">
+          <div class="card" style="background: rgba(233,238,252,.04); border-color: rgba(233,238,252,.10);">
             <h3>Compliance translated into execution</h3>
             <ul class="list">
               <li>Mapping ISO 27001, NIS2, CRA, DORA, GDPR and customer requirements to real software product portfolio and CI/CD controls</li>
@@ -572,7 +560,7 @@
             </ul>
           </div>
 
-          <div class="card" style="background: var(--surface2); border-color: var(--border);">
+          <div class="card" style="background: rgba(233,238,252,.04); border-color: rgba(233,238,252,.10);">
             <h3>Security operating models</h3>
             <ul class="list">
               <li>Cloud-centric SOC and SIEM modernisation</li>
@@ -581,7 +569,7 @@
             </ul>
           </div>
 
-          <div class="card" style="background: var(--surface2); border-color: var(--border);">
+          <div class="card" style="background: rgba(233,238,252,.04); border-color: rgba(233,238,252,.10);">
             <h3>Delivery designed for ownership</h3>
             <p class="muted" style="margin-top:6px;">
               All delivery is designed to be auditable, repeatable, and owned by your teams — not dependent on long-term external presence.
@@ -603,7 +591,7 @@
       <p class="kicker">How we engage</p>
       <h2>Engagement programs & reference demo</h2>
 
-      <div class="card" style="margin-top:12px; background: var(--surface2); border-color: var(--border);">
+      <div class="card" style="margin-top:12px; background: rgba(233,238,252,.04); border-color: rgba(233,238,252,.10);">
         <h3>Trusted Advisor to Leadership</h3>
         <p class="muted" style="margin-top:6px;">
           Thinkwerke acts as a trusted advisor to C-level and senior leadership, translating regulatory, security, and technical complexity
@@ -618,7 +606,7 @@
       </div>
 
       <div class="split" style="margin-top:12px;">
-        <div class="card" style="background: var(--surface2); border-color: var(--border);">
+        <div class="card" style="background: rgba(233,238,252,.04); border-color: rgba(233,238,252,.10);">
           <h3>1) Architecture & Project Delivery</h3>
           <p class="muted" style="margin-top:6px;">Best when you need direction, control mapping, or a defensible plan.</p>
           <ul class="list">
@@ -629,7 +617,7 @@
           </ul>
         </div>
 
-        <div class="card" style="background: var(--surface2); border-color: var(--border);">
+        <div class="card" style="background: rgba(233,238,252,.04); border-color: rgba(233,238,252,.10);">
           <h3>2) Implementation & Enablement</h3>
           <p class="muted" style="margin-top:6px;">Best when you need hands-on engineering execution, not just recommendations.</p>
           <ul class="list">
@@ -643,7 +631,7 @@
       </div>
 
       <div class="split" style="margin-top:12px;">
-        <div class="card" style="background: var(--surface2); border-color: var(--border);">
+        <div class="card" style="background: rgba(233,238,252,.04); border-color: rgba(233,238,252,.10);">
           <h3>3) Interim Architect / Embedded Leadership</h3>
           <p class="muted" style="margin-top:6px;">Best when you need senior capability immediately.</p>
           <ul class="list">
@@ -654,7 +642,7 @@
           </ul>
         </div>
 
-        <div class="card" style="background: var(--surface2); border-color: var(--border);">
+        <div class="card" style="background: rgba(233,238,252,.04); border-color: rgba(233,238,252,.10);">
           <h3>4) Assurance Acceleration</h3>
           <p class="muted" style="margin-top:6px;">Best when revenue is blocked by customer assurance requests, tenders, or audits.</p>
           <ul class="list">
@@ -666,16 +654,18 @@
         </div>
       </div>
 
-      <div class="card" style="margin-top:12px; background: var(--surface2); border-color: var(--border);">
+      <!-- UPDATED: Reference Demo / PoC bullets -->
+      <div class="card" style="margin-top:12px; background: rgba(233,238,252,.04); border-color: rgba(233,238,252,.10);">
         <h3>Reference demo / PoC</h3>
         <p class="muted" style="margin-top:6px;">
           A working, end-to-end reference implementation showing how regulatory and customer expectations translate into:
         </p>
         <ul class="list">
-          <li>Secure CI/CD pipelines producing continuous evidence</li>
-          <li>Vulnerability and supply-chain workflows aligned to CRA</li>
-          <li>Cloud security foundations with clear accountability</li>
-          <li>Exportable artefacts suitable for audits and customer reviews</li>
+          <li>SSLM pipeline: SAST, SCA/SBOM, DAST, IaC &amp; container checks</li>
+          <li>Automated vulnerability handling: detection → SLA → Jira workflow → evidence</li>
+          <li>Software supply-chain governance: SBOM and OSS license controls aligned to CRA</li>
+          <li>AWS security foundation: CSPM visibility, identity governance, secure CI/CD</li>
+          <li>Kubernetes architecture to justify CNAPP</li>
         </ul>
 
         <div class="pill-row" style="margin-top:12px;">
@@ -692,7 +682,7 @@
       <div class="card">
         <h2>Use cases & solutions delivered</h2>
         <p class="muted" style="margin-top:6px;">
-          ON Information Security & Cloud Architecture focused on EU Kritis Business Domains
+          ON Information Security &amp; Cloud Architecture focused on EU Kritis Business Domains
         </p>
 
         <p class="lead" style="margin-top:12px;">
@@ -708,13 +698,14 @@
           <span class="pill">DevSecOps & CI/CD</span>
         </div>
 
+        <!-- UPDATED: title + bullets -->
         <div style="margin-top:12px; padding-top:12px; border-top:1px solid var(--border);">
-          <p class="kicker">What we show in the demo</p>
+          <p class="kicker">What we delivered in projects in 2025</p>
           <ul class="list">
-            <li>SSLM pipeline: SAST, SCA/SBOM, DAST, IaC & container checks — delivered for DORA / NIS2 compliance</li>
-            <li>Automated vulnerability handling: detection → SLA → Jira workflow → evidence — delivered for ISO 27001</li>
-            <li>Supply-chain governance: SBOM and OSS license controls aligned to CRA — delivered for NIS2 & ISO 27001</li>
-            <li>AWS security foundation: CSPM visibility, identity governance, secure CI/CD — integrated into delivery pipelines</li>
+            <li>Secure CI/CD pipelines producing continuous evidence for compliance</li>
+            <li>Software &amp; platform vulnerability for supply-chain workflows aligned to CRA</li>
+            <li>Cloud and container security strength with clear accountability</li>
+            <li>Exportable artefacts suitable for audits, customer reviews, and tender processes</li>
           </ul>
         </div>
 
@@ -733,21 +724,21 @@
       <h2>What changes after Thinkwerke</h2>
 
       <div class="grid3" style="margin-top:12px;">
-        <div class="card" style="background: var(--surface2); border-color: var(--border);">
+        <div class="card" style="background: rgba(233,238,252,.04); border-color: rgba(233,238,252,.10);">
           <h3>Faster enterprise sales cycles</h3>
           <p class="muted" style="margin-top:6px;">
             Customer assurance becomes predictable because evidence is structured, reusable, and mapped to real cloud implementations.
           </p>
         </div>
 
-        <div class="card" style="background: var(--surface2); border-color: var(--border);">
+        <div class="card" style="background: rgba(233,238,252,.04); border-color: rgba(233,238,252,.10);">
           <h3>Audit readiness without chaos</h3>
           <p class="muted" style="margin-top:6px;">
             Shift from firefighting to a repeatable model: policy → controls → implementation → proof.
           </p>
         </div>
 
-        <div class="card" style="background: var(--surface2); border-color: var(--border);">
+        <div class="card" style="background: rgba(233,238,252,.04); border-color: rgba(233,238,252,.10);">
           <h3>Clear vendor-hosting accountability</h3>
           <p class="muted" style="margin-top:6px;">
             Shared responsibility becomes operational: what you own, what your vendor provides, and how you prove both.
@@ -756,7 +747,7 @@
       </div>
 
       <div class="split" style="margin-top:12px;">
-        <div class="card" style="background: var(--surface2); border-color: var(--border);">
+        <div class="card" style="background: rgba(233,238,252,.04); border-color: rgba(233,238,252,.10);">
           <h3>Controls that support engineering speed</h3>
           <p class="muted" style="margin-top:6px;">
             Controls embedded into DevSecOps so teams ship faster with fewer escalations and less manual gating.
@@ -768,7 +759,7 @@
           </ul>
         </div>
 
-        <div class="card" style="background: var(--surface2); border-color: var(--border);">
+        <div class="card" style="background: rgba(233,238,252,.04); border-color: rgba(233,238,252,.10);">
           <h3>Business focus for core industries</h3>
           <p class="muted" style="margin-top:6px;">
             Your teams focus on marketing, sales, and business expansion while Thinkwerke removes the blockers affecting business objectives.
@@ -816,11 +807,11 @@
         (e.g. NIS2 readiness, ISO 27001, cloud transformation, tender preparation).
       </p>
       <div class="split" style="margin-top:10px;">
-        <div class="card" style="background: var(--surface2); border-color: var(--border);">
+        <div class="card" style="background: rgba(233,238,252,.04); border-color: rgba(233,238,252,.10);">
           <h3>Email</h3>
           <p class="muted" style="margin:6px 0 0;"><a href="mailto:Thinkwerke@tutamail.com">Thinkwerke@tutamail.com</a></p>
         </div>
-        <div class="card" style="background: var(--surface2); border-color: var(--border);">
+        <div class="card" style="background: rgba(233,238,252,.04); border-color: rgba(233,238,252,.10);">
           <h3>LinkedIn</h3>
           <p class="muted" style="margin:6px 0 0;">
             <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer">Mayank Sekhar (LinkedIn)</a>
